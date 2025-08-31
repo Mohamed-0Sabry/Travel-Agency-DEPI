@@ -1,46 +1,59 @@
-
-:root{
-    --headerFont:"Montserrat Alternates", sans-serif;
-    --linkFont: "Karla", sans-serif;
-    --linkColor:rgb(203, 201, 201);
+:root {
+  --headerFont: "Montserrat Alternates", sans-serif;
+  --linkFont: "Karla", sans-serif;
+  --linkColor: rgb(119, 119, 119);
+  --backgroundColor: #276968;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 footer{
-    background-color: #276968;
-    color:white;
+  background-color: var(--backgroundColor);
+  color:white;
 }
-body{
-    padding:0;
-    margin:0;
+.login{
+  color:var(--linkColor);
 }
-p{
-    margin:0;
-    padding:0;
+.sign-up{
+  color:white;
+  background-color: #276968;
+  border-radius:5px;
 }
-a{
-    text-decoration: none;
-    padding:0;
-    margin:0;
+.navbar-brand{
+  max-width: 150px;
 }
-ul{
-    list-style: none;
-    padding:0;
-    margin:0;
+.nav-logo{
+  width:100%;
 }
-.social-links{
-    gap:10px;
+.footer-img{
+  max-width:200px;
 }
-.social-links a i{
-    color:white;
+.footer-logo{
+  display: block;
 }
-.link h3{
-    font-family: var(--headerFont);
-    font-weight: 600;
-    
+.social-links i{
+  color:white;
+  font-size:1.3rem;
+  margin-right:10px;
 }
-.link-list li a{
-    font-family: var(--linkFont);
-    color:var(--linkColor);
+.footer-links li a{
+    color:rgb(212, 211, 211);
 }
-.contact{
-    color:var(--linkColor);
+.footer-links li{
+  color:rgb(212, 211, 211);
 }

@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Travel Agency website for booking trips, tours, and vacations."
+    />
 
     <title>Travel Agency</title>
-
+    <link rel="icon" href="./assets/images/Phnes. Travels-icon.ico" />
     <!--Animation-->
     <link rel="stylesheet" href="./assets/css/animate.css" />
     <!--Bootstrap-->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <!-- Font Awesome Library -->
     <link
       rel="stylesheet"
@@ -37,70 +46,132 @@
     />
   </head>
   <body>
-    <footer class="p-5">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand me-5" href="./index.html"
+            ><img src="./assets/images/logo.png" alt="" class="nav-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item pe-lg-4">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Flights</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Hotels</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Discover</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+            <div class="login-sign-up d-flex">
+              <div class="login me-4">
+                <a href="./login.html" class="login">Login</a>
+              </div>
+              <div class="up">
+                <a href="./signup.html" class="sign-up pe-3 ps-3 pt-2 pb-2"
+                  >Sign Up</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <footer class="pt-5 pb-5 ">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-12 col-12">
+        <div class="row ">
+          <div class="col-lg-3 col-md-12 col-12 first-column">
             <div class="wrap">
-              <div class="logo">
-                <a href="/"><img src="./assets/images/logo.png" alt="logo" /></a>
+              <a class="footer-logo" href="./index.html"
+                ><img
+                  src="./assets/images/Phnes. Travels.png"
+                  alt=""
+                  class="footer-img"
+              /></a>
+              <div class="social-links mt-1">
+                <a href="www.facebook.com"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="www.x.com"><i class="fa-brands fa-twitter"></i></a>
+                <a href="www.youtube.com"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="www.instagram.com"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
               </div>
-              <div class="social-links d-flex pt-1">
-                <a href="/"><i class="fa-brands fa-facebook "></i></a>
-                <a href="/"><i class="fa-brands fa-twitter "></i></a>
-                <a href="/"><i class="fa-brands fa-youtube "></i></a>
-                <a href="/"><i class="fa-brands fa-instagram "></i></a>
-              </div>
             </div>
           </div>
-          <div class="col-lg-1 col-md-2 col-12 pt-lg-0 pt-md-5 p-0">
-            <div class="links">
-              <h3 class="text-capitalize">links</h3>
-              <ul class="link-list">
-                <li class="pt-1"><a href="/flights" class="text-capitalize">Fligths</a></li>
-                <li class="pt-1"><a href="/stays" class="text-capitalize">Stays</a></li>
-                <li class="pt-1"><a href="/discover" class="text-capitalize">Discover</a></li>
-                <li class="pt-1"><a href="/about" class="text-capitalize">About Us</a></li>
-                <li class="pt-1"><a href="/contact" class="text-capitalize">Contact</a></li>
-              </ul>
-            </div>
+          <div class="col-lg-1 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2  heading ">Links</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">Flights</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">Stay</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">discover</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">about us</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">contact </a></li>
+            </ul>
           </div>
-          <div class="col-lg-3 col-md-3 col-12 pt-lg-0 pt-md-5 p-0">
-            <div class="links first">
-              <h3 class="text-capitalize">our activites</h3>
-              <ul class="link-list">
-                <li class="pt-1"><a href="/flights" class="text-capitalize">tour</a></li>
-                <li class="pt-1"><a href="/stays" class="text-capitalize">kayaking</a></li>
-                <li class="pt-1"><a href="/discover" class="text-capitalize">crusing & sailing</a></li>
-                <li class="pt-1"><a href="/about" class="text-capitalize">multiactivites</a></li>
-              </ul>
-            </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading ">Our Activites</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">tours</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">kayaking</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">cruising & sailing</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">multi-activities</a></li>
+            </ul>
           </div>
-          <div class="col-lg-2 col-md-3 col-12 pt-lg-0 pt-md-5 p-0">
-            <div class="links">
-              <h3 class="text-capitalize">about us</h3>
-              <ul class="link-list">
-                <li class="pt-1"><a href="/flights" class="text-capitalize">our story</a></li>
-                <li class="pt-1"><a href="/stays" class="text-capitalize">work with us</a></li>
-              </ul>
-            </div>
+          <div class="col-lg-2 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2 heading ">About Us</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">our story</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">work with us</a></li>
+            </ul>
           </div>
-          <div class="col-lg-3 col-md-4 col-12 pt-lg-0 pt-md-5 p-0 ">
-            <div class="links">
-              <h3 class="text-capitalize">Contact</h3>
-              <ul class="link-list contact">
-                <li class="pt-1 text-capitalize">address:pe.holandia no.205A</li>
-                <li class="pt-1 text-capitalize"> millenium city, PH17</li>
-                <li class="pt-1 text-capitalize">phone:012224343</li>
-                <li class="pt-1">Email:blabla@gmail.com</li>
-                
-              </ul>
-            </div>
+          <div class="col-lg-2 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2 heading ">Contact</h3>
+            <ul class="footer-links">
+              <li class="mb-2 text-capitalize">Address:Pe.Holandia no.205A</li>
+              <li class="mb-2 text-capitalize">millenium city </li>
+              <li class="mb-2 text-capitalize">phone: 023 456 7890</li>
+              <li class="mb-2 text-capitalize">email:blabla@gmail.com</li>
+              <li class="mb-2 text-capitalize">maps:millenium city</li>
+            </ul>
           </div>
         </div>
       </div>
     </footer>
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
