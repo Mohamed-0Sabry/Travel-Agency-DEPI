@@ -3,7 +3,29 @@
   --linkFont: "Karla", sans-serif;
   --linkColor: rgb(119, 119, 119);
   --backgroundColor: #276968;
+  --bs-primary: #276968;
+  --bs-dark: #051721;
+  --bs-secondary: #E9F0F0E5;
+  --bs-primary-rgb: 39, 105, 104;
+  --bs-secondary-rgb: 233, 240, 240;
+  --bs-dark-rgb: 5, 23, 33;
 }
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  background-image: url("../images/contact-us-background-image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -27,14 +49,7 @@ footer{
   background-color: var(--backgroundColor);
   color:white;
 }
-.login{
-  color:var(--linkColor);
-}
-.sign-up{
-  color:white;
-  background-color: #276968;
-  border-radius:5px;
-}
+
 .navbar-brand{
   max-width: 150px;
 }
@@ -59,6 +74,20 @@ footer{
   color:rgb(212, 211, 211);
 }
 
+<<<<<<< HEAD
+.active{
+  color:var(--bs-primary) !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}
+
+
+.icon-wrapper {
+  width: 40px;     
+  height: 40px;     
+}
+=======
 .login-page {
   background: url("../images/signin-back.png") no-repeat center center / cover;
   height: 100vh;
@@ -161,3 +190,4 @@ footer{
 .terms-privacy{
   color:orange;
 }
+>>>>>>> 7926f946937d386bcb31bb4b466104994f97d016
