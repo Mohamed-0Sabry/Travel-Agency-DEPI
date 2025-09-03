@@ -81,7 +81,14 @@ footer{
   text-underline-offset: 8px;
 }
 
-
+.home-login a{
+  color:var(--linkColor);
+}
+.home-sign-up{
+  background-color: var(--backgroundColor);
+  color:white;
+  border-radius: 5%;
+}
 .icon-wrapper {
   width: 40px;     
   height: 40px;     
