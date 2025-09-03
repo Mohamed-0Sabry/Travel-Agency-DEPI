@@ -1,0 +1,98 @@
+@media (max-width:576px) {
+  .login-sign-up{
+    flex-direction: column;
+  }
+  .home-login{
+    margin-bottom:10px;
+  }
+  .home-sign-up{
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heading{
+    margin-top:30px;
+  }
+  .login-social-links-heading::before{
+    width:28%;
+  }
+  .login-social-links-heading::after{
+    width:28%;
+  }
+}
+@media (max-width:768px){
+.login-sign-up{
+    flex-direction: column;
+  }
+  .login{
+    margin-bottom:10px;
+  }
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heading{
+    margin-top:30px;
+  }
+  .forget-and-remember{
+    flex-direction: column;
+  }
+  .login-remember-me{
+    margin-bottom:15px;
+  }
+  .login-social-links-heading::before{
+    width:30%;
+  }
+  .login-social-links-heading::after{
+    width:30%;
+  }
+}
+@media (max-width:992px){
+  .login-sign-up{
+    flex-direction: column;
+  }
+  .login{
+    margin-bottom:10px;
+  }
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heading{
+    margin-top:30px;
+  }
+  .login-logo{
+    width:60%;
+  }
+  .forget-and-remember{
+    flex-direction: column;
+  }
+  .login-remember-me{
+    margin-bottom:10px;
+  }
+  .login-social-links-heading::before{
+    width:23%;
+  }
+  .login-social-links-heading::after{
+    width:23%;
+  }
+}
+@media (max-width:1200px){
+  .first-column{
+    display:flex;
+    align-items:center;
+  }
+  .login-social-links-heading::before{
+    width:23%;
+  }
+  .login-social-links-heading::after{
+    width:23%;
+  }
+}
