@@ -2,10 +2,10 @@
   .login-sign-up{
     flex-direction: column;
   }
-  .login{
+  .home-login{
     margin-bottom:10px;
   }
-  .sign-up{
+  .home-sign-up{
     display: block;
     width: 100%;
     text-align: center;
