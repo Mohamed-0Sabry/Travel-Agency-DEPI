@@ -74,7 +74,6 @@ footer{
   color:rgb(212, 211, 211);
 }
 
-<<<<<<< HEAD
 .active{
   color:var(--bs-primary) !important;
   text-decoration: underline;
@@ -87,7 +86,6 @@ footer{
   width: 40px;     
   height: 40px;     
 }
-=======
 .login-page {
   background: url("../images/signin-back.png") no-repeat center center / cover;
   height: 100vh;
@@ -190,4 +188,3 @@ footer{
 .terms-privacy{
   color:orange;
 }
->>>>>>> 7926f946937d386bcb31bb4b466104994f97d016
