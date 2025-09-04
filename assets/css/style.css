@@ -195,3 +195,50 @@ footer{
 .terms-privacy{
   color:orange;
 }
+button{
+    color: var(--green-color);
+}
+.card-body a {
+    color: var(--green-color);
+}
+.card-body .location{
+    color: red;
+    display: block;
+}
+.card-body .btn{
+    width: 164px;
+    height: 50px;
+}
+.card-body{
+    top: 10%;
+}
+.part .btn{
+    border: 1px solid #276968;
+    color: #276968;
+    margin-left: 39%;
+    width: 104px;
+    height: 45px;
+}
+
+ .card .card-body button
+ {
+ color: #276968;
+ padding-bottom: 40px;
+ }
+.image{
+    width: 523px;
+    height: 464px;
+}
+.lpart{
+    max-height: 1500px;
+}
+.photo1{
+    height: 255px;
+}
+
+  .row{
+    max-height: 1300px;
+  }
+.lpart .location{
+    color: red;
+}
