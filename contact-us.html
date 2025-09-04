@@ -47,10 +47,10 @@
   </head>
   <body>
     <section class="wrapper d-flex justify-content-center align-items-center py-4 px-5">
-      <section class="main bg-white rounded-3 h-100 px-4 px-md-5 w-100 d-flex flex-column shadow-sm">
+      <section class="main bg-white rounded-3 px-4 px-md-5 w-100 d-flex flex-column shadow-sm">
         <!-- Header -->
         <header>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3 px-3">
+          <nav class="navbar navbar-expand-lg rounded-3 px-3">
             <div class="container-fluid">
               <!-- Brand -->
               <a class="navbar-brand" href="./index.html">
@@ -96,26 +96,32 @@
               </div>
     
               <!-- Form -->
-              <form class="d-flex flex-column gap-3">
+              <form id="contactForm" class="d-flex flex-column gap-3 needs-validation" novalidate>
                 <input
                   type="text"
+                  id="name"
                   class="form-control bg-secondary border-0 text-primary rounded-3 p-3"
-                  required
                   placeholder="Enter your name"
+                  required
                 />
+                <div class="invalid-feedback">Please enter your name.</div>
                 <input
                   type="email"
+                  id="email"
                   class="form-control bg-secondary border-0 text-primary rounded-3 p-3"
                   required
                   placeholder="Enter your email"
                 />
+                <div class="invalid-feedback">Please enter a valid email.</div>
                 <textarea
                   class="form-control bg-secondary border-0 text-primary rounded-3 p-3"
                   rows="5"
+                  id="message"
                   required
                   placeholder="Go ahead, we are listening.."
                 ></textarea>
-    
+                <div class="invalid-feedback">Your message must be at least 10 characters long.</div>
+
                 <button
                   type="submit"
                   class="btn bg-primary text-white rounded-3 py-2 fw-semibold"
@@ -127,12 +133,12 @@
             </section>
     
             <!-- Right Section -->
-            <section class="col-lg-5 d-flex flex-column gap-5 h-auto">
+            <section class="col-lg-5 d-none d-lg-flex flex-column gap-5 h-auto">
               <!-- Main Image -->
               <img
                 src="./assets/images/contact-us-main-image.png"
                 alt="Contact Us"
-                class="img-fluid rounded-3 shadow-sm align-self-center"
+                class="img-fluid rounded-3 align-self-center"
                 style="max-width: 300px;"
               />
     
@@ -170,5 +176,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./assets/js/contact-us.js"></script>
   </body>
 </html>
