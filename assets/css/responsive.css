@@ -96,3 +96,210 @@
     width:23%;
   }
 }
+
+/* Start Landing Page */
+
+/* Small  768px  to 991px*/
+@media (min-width: 768px) {
+  /* Strat Hero section  */
+  .hero_section {
+    height: 60vh;
+    min-height: 500px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-list {
+    gap: 1.5rem;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+  }
+  /* End Hero Destinations section */
+  /* Start  About  section */
+  /* End About section */
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 8px 56px;
+  }
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 36%;
+    height: 150px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* End Destinations section */
+
+  /* start testomonials section */
+  .testomonials-section {
+    height: 21rem;
+  }
+  .carousel-text {
+    top: 180px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 10px;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 11px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .carousel-text .circles img {
+    /* width: 60%; */
+    width: 45px;
+  }
+
+  /* End testomonials section  */
+}
+/* Medium 92px  to 1199px                */
+@media (min-width: 992px) {
+  /* Strat Hero section  */
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  .hero_section {
+    height: 60vh;
+    min-height: 756px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+
+  /* End Hero Destinations section */
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 19px 9px;
+  }
+
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 30%;
+    height: 150px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  /* start testomonials section */
+  .testomonials-section {
+    height: 29rem;
+  }
+  .carousel-text {
+    top: 226px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 10px;
+  }
+  .carousel-text .title {
+    font-size: 14px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 11px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .carousel-text .circles img {
+    width: 45px;
+  }
+
+  /* End testomonials section  */
+}
+/* Large 1200px up to                             (me)*/
+@media (min-width: 1200px) {
+  /* Strat Hero section  */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+  }
+  /* End Hero Destinations section */
+  /* start testomonials section */
+  .testomonials-section {
+    height: 34rem;
+  }
+  .carousel-text {
+    top: 368px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 24px;
+  }
+  .carousel-text .title {
+    font-size: 14px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 43px;
+  }
+  .carousel-text .circles {
+    margin-top: 38px;
+    margin-left: 115px;
+  }
+  .carousel-text .circles img {
+    width: 77px;
+  }
+
+  /* End testomonials section  */
+}
+
+/* End Landing Page */
