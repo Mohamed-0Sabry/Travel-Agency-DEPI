@@ -1,0 +1,1182 @@
+:root {
+  --greenColor: #276968;
+  --greenColorDarker: #184140;
+}
+body {
+  margin: 20px;
+}
+
+/* start hero section */
+.hero_section {
+  width: 100%;
+  height: 40rem;
+  border-radius: 40px;
+  position: relative;
+}
+
+.hero_section img {
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+}
+
+.hero_section .navbar {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  /* background-color: aqua; */
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 400px;
+}
+.hero_section .navbar .logo {
+  width: 12%;
+  height: 50%;
+  margin-left: 108px;
+  margin-top: 20px;
+}
+.hero_section .navbar .nav-list {
+  margin-top: 30px;
+}
+.hero_section .navbar .nav-list ul {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.hero_section .navbar .nav-list ul a:hover {
+  color: var(--greenColorDarker);
+  cursor: pointer;
+}
+
+.hero_section .navbar .nav-buttons {
+  margin-top: 44px;
+}
+.hero_section .navbar .nav-buttons .login {
+  margin-right: 42px;
+  color: white;
+  cursor: pointer;
+}
+.hero_section .navbar .nav-buttons .login:hover {
+  color: var(--greenColor);
+}
+
+.hero_section .navbar .nav-buttons .Signup {
+  margin-right: 42px;
+  color: var(--greenColor);
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+.hero_section .navbar .nav-buttons .Signup:hover {
+  color: white;
+  background-color: var(--greenColor);
+}
+
+.hero_section .center-text {
+  position: absolute;
+  top: 375px;
+  left: 658px;
+  text-align: center;
+}
+.hero_section .center-text h1 {
+  font-size: 65px;
+  color: white;
+}
+.hero_section .center-text p {
+  font-size: 25px;
+  color: white;
+}
+
+.hero_section .search-section {
+  display: flex;
+  flex-direction: row;
+  gap: 55px;
+  background-color: aliceblue;
+  width: 55%;
+  height: 12%;
+  top: 802px;
+  position: absolute;
+  left: 503px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.hero_section .search-section a {
+  position: relative;
+  padding-right: 70px;
+  margin-right: 20px;
+}
+.hero_section .search-section a:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.hero_section .search-section button {
+  width: 13%;
+  height: 50%;
+  margin-right: 10px;
+  background-color: var(--greenColor);
+  color: white;
+  cursor: pointer;
+}
+
+/* End hero section */
+
+/* start About section */
+.About_section {
+  display: block;
+  width: 100%;
+  height: 40rem;
+  margin-top: 336px;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+.About_section .right-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.About_section .right-section .img1 {
+  width: 353px;
+  height: 591px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.About_section .right-section .img2 {
+  width: 230px;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: -27px;
+  margin-top: 164px;
+}
+
+.About_section .right-section .img3 {
+  width: 195px;
+  height: 344px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: -92px;
+  margin-top: -114px;
+}
+
+.About_section .left-section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  text-align: left;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 30px;
+}
+.About_section .left-section .cards {
+  display: flex;
+  flex-direction: row;
+  gap: 320px;
+}
+.About_section .left-section .cards .left-card,
+.About_section .left-section .cards .right-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 30px;
+  color: var(--greenColor);
+  font-weight: bold;
+}
+
+
+
+.swiper-wrapper {
+  position: relative;
+  width: 93% !important;
+  margin: 0 auto; /* centers the wrapper */
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  );
+  box-sizing: content-box;
+}
+span {
+  color: var(--greenColor);
+  font-weight: bold;
+}
+p {
+  color: gray;
+}
+/* End About section  */
+
+/* start Destinations section */
+.Destinations-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.Destinations-section .text {
+  width: 85%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.Destinations-section .text h1,
+.Destinations-section .text h6 {
+  display: inline-block;
+}
+
+.Destinations-section .Destinations-cards {
+  width: 85%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: left;
+}
+
+.Destinations-section .Destinations-cards .card {
+  height: 90%;
+}
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+.Destinations-section .Flights-section {
+  width: 91%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.Destinations-section .Flights-section .Flights-card {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: left;
+  border-radius: 20px;
+  position: relative;
+}
+.Destinations-section .Flights-section .Flights-card img {
+  width: 88%;
+  height: 78%;
+}
+.Destinations-section .Flights-section .Flights-card .text {
+  display: flex;
+  position: absolute;
+  color: white;
+  bottom: 197px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  right: 167px;
+}
+.Destinations-section .Flights-section .Flights-card .text p {
+  color: white;
+}
+/* Swiper Styles */
+.destinations-swiper {
+  width: 85%;
+  height: 400px;
+  padding: 20px 0;
+}
+
+.destinations-swiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.destinations-swiper .card {
+  width: 90%;
+  height: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 0 !important;
+}
+
+.destinations-swiper .card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.destinations-swiper .card-body {
+  padding: 20px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Swiper Navigation Buttons */
+.destinations-swiper .swiper-button-next,
+.destinations-swiper .swiper-button-prev {
+  color: var(--greenColor);
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.destinations-swiper .swiper-button-next:after,
+.destinations-swiper .swiper-button-prev:after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Swiper Pagination */
+.destinations-swiper .swiper-pagination-bullet {
+  background: var(--greenColor);
+  opacity: 0.5;
+}
+
+.destinations-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--greenColor);
+}
+
+.Destinations-section .Flights-section .Flights-card .text .b-flight {
+  width: 40%;
+  height: 150px;
+  border-radius: 10px;
+  color: var(--greenColor);
+}
+/* End Destinations section  */
+
+/* start testomonials section */
+.testomonials-section {
+  width: 100%;
+  height: 40rem;
+}
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.carousel-text p {
+  color: white;
+  margin-bottom: 100px;
+}
+
+.carousel-text .title {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.carousel-text .stars {
+  margin-bottom: 70px;
+}
+.ri-star-fill {
+  color: rgb(190, 139, 42);
+  font-size: 30px;
+}
+.carousel-text .circles {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.carousel-text .circles img {
+  width: 60%;
+}
+.carousel-text .circles img:hover {
+  transform: scale(1.2);
+}
+
+.swiper {
+  width: 2164px;
+  height: 434px;
+}
+
+/* End testomonials section  */
+
+/* Start responsive style */
+
+/* Large screens and desktops (1200px and up) */
+@media (min-width: 1200px) {
+  .hero_section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 61rem;
+  }
+  .hero_section img {
+    width: 99%;
+    height: auto;
+    border-radius: 40px;
+  }
+  .hero_section .center-text h1 {
+    font-size: 75px;
+  }
+  .hero_section .center-text p {
+    font-size: 28px;
+  }
+  .About_section {
+    height: 20rem;
+    gap: 100px;
+    margin-bottom: 250px;
+  }
+}
+
+/* Medium to large screens (992px to 1199px) */
+@media (max-width: 1199px) and (min-width: 993px) {
+  .hero_section .navbar {
+    position: absolute;
+    width: 50rem;
+    height: 20%;
+    /* background-color: aqua; */
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+  }
+  .hero_section .navbar .logo {
+    width: 12%;
+    height: 50%;
+    margin-left: 30px;
+    margin-top: 0px;
+  }
+  .hero_section .navbar .nav-buttons {
+    margin-top: 7px;
+    margin-left: 10px;
+  }
+  .hero_section .navbar .nav-buttons .login {
+    margin-right: 11px;
+    color: white;
+    cursor: pointer;
+  }
+  .hero_section .navbar .nav-buttons .Signup {
+    margin-right: 73px;
+    color: var(--greenColor);
+    padding: 0px 25px;
+    border-radius: 10px;
+  }
+  .hero_section .center-text {
+    position: absolute;
+    top: 195px;
+    left: 196px;
+    text-align: center;
+  }
+  .hero_section .center-text h1 {
+    font-size: 39px;
+  }
+  .hero_section .center-text p {
+    font-size: 14px;
+  }
+  .hero_section .search-section {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    background-color: aliceblue;
+    width: 48rem;
+    height: 8%;
+    top: 358px;
+    position: absolute;
+    left: 11px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero_section .search-section button {
+    width: 18%;
+    height: 50%;
+    margin-right: 10px;
+    background-color: var(--greenColor);
+    color: white;
+    cursor: pointer;
+  }
+  .About_section {
+    width: 23rem;
+    height: 39rem;
+    /* margin-top: 336px; */
+    display: flex;
+    flex-direction: row;
+    gap: 115px;
+    margin-top: -279px;
+    margin-bottom: -14px;
+  }
+  .About_section .right-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .About_section .right-section .img2 {
+    width: 188px;
+    height: 316px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: -28px;
+    margin-top: 141px;
+  }
+  .About_section .right-section .img3 {
+    width: 199px;
+    height: 335px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: -86px;
+    margin-top: -114px;
+  }
+  .About_section .right-section .img1 {
+    width: 221px;
+    height: 365px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .About_section .left-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 30px;
+  }
+  .Destinations-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .swiper {
+    width: 2164px;
+    height: 434px;
+  }
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 20px 0;
+  }
+  .Destinations-section .Flights-section .Flights-card .text {
+    display: flex;
+    position: absolute;
+    color: white;
+    bottom: 146px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 51px;
+  }
+  .testomonials-section {
+    width: 100%;
+    height: 27rem;
+  }
+  .carousel-text {
+    position: absolute;
+    top: 192px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .carousel-text p {
+    color: white;
+    margin-bottom: 13px;
+    font-size: 10px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    /* margin-top: -141px; */
+    position: absolute;
+    left: 44px;
+    top: 178px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 5px;
+  }
+  .carousel-text .circles img {
+    width: 12%;
+  }
+  h1 {
+    font-size: 10px;
+  }
+}
+
+/* Tablets and medium screens (768px to 992px) */
+@media (max-width: 992px) and (min-width: 769px) {
+  .hero_section {
+    height: 35rem;
+  }
+  .hero_section .navbar {
+    gap: 200px;
+  }
+  .hero_section .navbar .logo {
+    width: 15%;
+    margin-left: 80px;
+  }
+  .hero_section .navbar .nav-list ul {
+    gap: 20px;
+    font-size: 14px;
+  }
+  .hero_section .navbar .nav-buttons {
+    margin-top: 35px;
+  }
+  .hero_section .navbar .nav-buttons .login {
+    margin-right: 30px;
+    font-size: 14px;
+  }
+  .hero_section .navbar .nav-buttons .Signup {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .hero_section .center-text {
+    top: 300px;
+    left: 450px;
+  }
+  .hero_section .center-text h1 {
+    font-size: 45px;
+  }
+  .hero_section .center-text p {
+    font-size: 18px;
+  }
+  .hero_section .search-section {
+    top: 650px;
+    left: 350px;
+    width: 65%;
+    gap: 35px;
+  }
+  .About_section {
+    height: 35rem;
+    gap: 50px;
+    margin-top: 280px;
+  }
+  .About_section .right-section .img1 {
+    width: 280px;
+    height: 470px;
+  }
+  .About_section .right-section .img2 {
+    width: 185px;
+    height: 310px;
+    margin-top: 130px;
+  }
+  .About_section .right-section .img3 {
+    width: 155px;
+    height: 275px;
+    margin-top: -90px;
+  }
+  .About_section .left-section .cards {
+    gap: 200px;
+  }
+}
+
+/* For tablets and small laptops */
+@media (max-width: 768px) {
+  .hero_section .navbar {
+    position: absolute;
+    width: 50rem;
+    height: 20%;
+    /* background-color: aqua; */
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+  }
+  .hero_section .navbar .logo {
+    width: 12%;
+    height: 50%;
+    margin-left: 30px;
+    margin-top: 0px;
+  }
+  .hero_section .navbar .nav-buttons {
+    margin-top: 7px;
+    margin-left: 10px;
+  }
+  .hero_section .navbar .nav-buttons .login {
+    margin-right: 11px;
+    color: white;
+    cursor: pointer;
+  }
+  .hero_section .navbar .nav-buttons .Signup {
+    margin-right: 73px;
+    color: var(--greenColor);
+    padding: 0px 25px;
+    border-radius: 10px;
+  }
+  .hero_section .center-text {
+    position: absolute;
+    top: 195px;
+    left: 196px;
+    text-align: center;
+  }
+  .hero_section .center-text h1 {
+    font-size: 39px;
+  }
+  .hero_section .center-text p {
+    font-size: 14px;
+  }
+  .hero_section .search-section {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    background-color: aliceblue;
+    width: 48rem;
+    height: 8%;
+    top: 358px;
+    position: absolute;
+    left: 11px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero_section .search-section button {
+    width: 18%;
+    height: 50%;
+    margin-right: 10px;
+    background-color: var(--greenColor);
+    color: white;
+    cursor: pointer;
+  }
+  .About_section {
+    width: 23rem;
+    height: 39rem;
+    /* margin-top: 336px; */
+    display: flex;
+    flex-direction: row;
+    gap: 115px;
+    margin-top: -279px;
+    margin-bottom: -14px;
+  }
+  .About_section .right-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .About_section .right-section .img2 {
+    width: 188px;
+    height: 316px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: -28px;
+    margin-top: 141px;
+  }
+  .About_section .right-section .img3 {
+    width: 199px;
+    height: 335px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: -86px;
+    margin-top: -114px;
+  }
+  .About_section .right-section .img1 {
+    width: 221px;
+    height: 365px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .About_section .left-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 30px;
+  }
+  .Destinations-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .swiper {
+    width: 2164px;
+    height: 434px;
+  }
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 20px 0;
+  }
+  .Destinations-section .Flights-section .Flights-card .text {
+    display: flex;
+    position: absolute;
+    color: white;
+    bottom: 146px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 51px;
+  }
+  .testomonials-section {
+    width: 100%;
+    height: 27rem;
+  }
+  .carousel-text {
+    position: absolute;
+    top: 192px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .carousel-text p {
+    color: white;
+    margin-bottom: 13px;
+    font-size: 10px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    /* margin-top: -141px; */
+    position: absolute;
+    left: 44px;
+    top: 178px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 5px;
+  }
+  .carousel-text .circles img {
+    width: 12%;
+  }
+  h1 {
+    font-size: 10px;
+  }
+}
+
+/* Default styles (mobile-first) */
+@media (max-width: 480px) {
+  body {
+    margin: 5px;
+  }
+  .hero_section {
+    width: 95%;
+    margin-left: 2.5%;
+    height: 20rem;
+    border-radius: 20px;
+  }
+  .hero_section img {
+    border-radius: 20px;
+  }
+  .hero_section .navbar .logo {
+    width: 14%;
+    height: 45%;
+    display: block;
+    margin-left: 33px;
+    margin-top: 10px;
+  }
+
+  .hero_section .navbar {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    background-color: aqua;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .hero_section .navbar .nav-list {
+    margin-top: 8px;
+  }
+  .hero_section .navbar .nav-list ul {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 8px;
+  }
+  .hero_section .navbar .nav-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 0;
+    margin-left: auto;
+    font-size: 8px;
+  }
+  .hero_section .navbar .nav-buttons .login {
+    margin-right: 13px;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .hero_section .navbar .nav-buttons .login:hover {
+    color: var(--greenColor);
+  }
+
+  .hero_section .navbar .nav-buttons .Signup {
+    color: var(--greenColor);
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 8px;
+    margin-left: -12px;
+    margin-top: 0px;
+  }
+  .hero_section .center-text {
+    position: absolute;
+    top: 72px;
+    left: 70px;
+    text-align: center;
+  }
+  .hero_section .center-text h1 {
+    font-size: 15px;
+    color: white;
+  }
+  .hero_section .center-text p {
+    font-size: 6px;
+    color: white;
+  }
+  .hero_section .search-section {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    background-color: aliceblue;
+    width: 74%;
+    height: 3%;
+    top: 139px;
+    left: 55px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero_section .search-section a {
+    position: relative;
+    padding-right: 5px;
+    margin-right: 5px;
+    font-size: 7px;
+  }
+  .hero_section .search-section a:not(:last-child) {
+    border-right: 1px solid black;
+  }
+
+  .hero_section .search-section button {
+    width: 13%;
+    height: 50%;
+    margin-right: 10px;
+    background-color: var(--greenColor);
+    color: white;
+    cursor: pointer;
+    font-size: 2px;
+  }
+
+  /* About_section for mobile */
+  .About_section {
+    width: 100%;
+    height: 25rem;
+    margin-top: 150px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+  .About_section .right-section {
+    width: 100%;
+    order: 2;
+    justify-content: space-around;
+  }
+  .About_section .left-section {
+    width: 100%;
+    margin-left: 0;
+    order: 1;
+    text-align: center;
+    gap: 5px;
+  }
+  .About_section .left-section .cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .About_section .right-section .img1 {
+    width: 120px;
+    height: 200px;
+  }
+  .About_section .right-section .img2 {
+    width: 90px;
+    height: 150px;
+    margin-top: 50px;
+    margin-left: -10px;
+  }
+  .About_section .right-section .img3 {
+    width: 70px;
+    height: 120px;
+    margin-top: -40px;
+    margin-left: -30px;
+  }
+  .Destinations-section,
+  .Flights-section,
+  .testomonials-section {
+    height: 25rem;
+  }
+}
+
+/* Extra small screens (320px to 480px) */
+@media (max-width: 480px) and (min-width: 321px) {
+  .hero_section .center-text {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .hero_section .search-section {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+  }
+}
+
+/* Very small screens (320px and below) */
+@media (max-width: 320px) {
+  .hero_section {
+    width: 98%;
+    margin-left: 1%;
+    height: 18rem;
+  }
+  .hero_section .navbar {
+    gap: 5px;
+  }
+  .hero_section .navbar .logo {
+    width: 20%;
+    margin-left: 10px;
+  }
+  .hero_section .navbar .nav-list ul {
+    font-size: 6px;
+    gap: 5px;
+  }
+  .hero_section .navbar .nav-buttons {
+    font-size: 6px;
+  }
+  .hero_section .navbar .nav-buttons .Signup {
+    padding: 2px;
+    font-size: 6px;
+  }
+  .hero_section .center-text {
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .hero_section .center-text h1 {
+    font-size: 12px;
+  }
+  .hero_section .center-text p {
+    font-size: 5px;
+  }
+  .hero_section .search-section {
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 6%;
+    gap: 5px;
+  }
+  .hero_section .search-section a {
+    font-size: 5px;
+    padding-right: 3px;
+  }
+  .hero_section .search-section button {
+    width: 25%;
+    font-size: 4px;
+  }
+  .About_section {
+    height: 20rem;
+    margin-top: 100px;
+  }
+  .About_section .right-section .img1 {
+    width: 80px;
+    height: 130px;
+  }
+  .About_section .right-section .img2 {
+    width: 60px;
+    height: 100px;
+    margin-top: 30px;
+  }
+  .About_section .right-section .img3 {
+    width: 50px;
+    height: 80px;
+    margin-top: -20px;
+  }
+  .Destinations-section,
+  .Flights-section,
+  .testomonials-section {
+    height: 20rem;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero_section {
+    height: 25rem;
+  }
+  .hero_section .center-text {
+    top: 80px;
+  }
+  .hero_section .search-section {
+    top: 160px;
+  }
+  .About_section {
+    height: 25rem;
+    margin-top: 180px;
+  }
+}
