@@ -32,12 +32,28 @@
   .heading{
     margin-top:30px;
   }
-  .login-social-links-heading::before{
+  #login-page .login-social-links-heading::before{
     width:28%;
   }
-  .login-social-links-heading::after{
+  #login-page .login-social-links-heading::after{
     width:28%;
   }
+  .search-section{
+    padding:4%;
+    
+  }
+  .search-section a{
+    padding:3% 4%;
+    font-size:0.9rem;
+  }
+  .search-section button{
+    font-size:0.8rem;
+    padding:3%;
+  }
+  .flight-image{
+    max-height: 20vh;
+  }
+  
 }
 @media (max-width:768px){
 .login-sign-up{
@@ -66,6 +82,7 @@
   .login-social-links-heading::after{
     width:30%;
   }
+  
 }
 @media (max-width:992px){
   .login-sign-up{
@@ -97,6 +114,9 @@
   .login-social-links-heading::after{
     width:23%;
   }
+  .hero-heading{
+    font-size:1.8rem;
+  }
 }
 @media (max-width:1200px){
   .first-column{
@@ -108,6 +128,9 @@
   }
   .login-social-links-heading::after{
     width:23%;
+  }
+  .hero-heading{
+    font-size:1.8rem;
   }
 }
 
