@@ -1,0 +1,543 @@
+/* Start Landing Page */
+:root {
+  --greenColor: #276968;
+  --greenColorDarker: #184140;
+  --textColor: #555;
+  --lightGray: #f5f5f5;
+}
+
+/* Strat Hero section  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 21px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.hero_section {
+  position: relative;
+  width: 99%;
+  height: 80vh;
+  min-height: 800px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero_section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  border-radius: 20px;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--greenColor);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--greenColorDarker);
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: var(--greenColor);
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.login {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 17px;
+}
+
+.login:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.signup {
+  background-color: var(--greenColor);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 17px;
+}
+
+.signup:hover {
+  background-color: var(--greenColor);
+}
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+}
+
+.center-text h1 {
+  font-size: 51px;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.center-text p {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.search-section {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-section a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #555;
+  text-decoration: none;
+  position: relative;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-section a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.search-section a i {
+  font-size: 20px;
+  color: #3a9949;
+}
+
+.search-section button {
+  background-color: var(--greenColor);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.search-section button:hover {
+  background-color: #2e7a3a;
+}
+
+/* End hero section */
+
+/* Start About Section */
+.About_section {
+  width: 100%;
+  min-height: 24rem;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+}
+
+.About_section .right-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.About_section .right-section .img1 {
+  width: 73%;
+  height: 419px;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.About_section .left-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 30px;
+}
+
+.About_section .left-section span {
+  color: var(--greenColor);
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.About_section .left-section h1 {
+  font-size: 42px;
+  color: #333;
+  line-height: 1.2;
+}
+
+.About_section .left-section p {
+  color: var(--textColor);
+  line-height: 1.6;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.About_section .left-section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.About_section .left-section .cards .left-card,
+.About_section .left-section .cards .right-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.About_section .left-section .cards h1 {
+  color: var(--greenColor);
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.About_section .left-section .cards p {
+  color: var(--textColor);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* End About section */
+/* Start Video section */
+.video-container {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-top: 28%;
+  background: #000;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* End Video section */
+
+/* start Destinations section */
+.Destinations-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.Destinations-section .text {
+  width: 85%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.Destinations-section .text h1,
+.Destinations-section .text h6 {
+  display: inline-block;
+}
+
+.Destinations-section .Destinations-cards {
+  width: 85%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: left;
+}
+
+.Destinations-section .Destinations-cards .card {
+  height: 90%;
+}
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+.Destinations-section .Flights-section {
+  width: 80%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.Destinations-section .Flights-section .Flights-card .text .b-flight {
+  width: 16%;
+  height: 150px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.Destinations-section .Flights-section .Flights-card .text .b-flight:hover {
+  background-color: var(--greenColorDarker);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.Destinations-section .Flights-section .Flights-card {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: left;
+  border-radius: 20px;
+  position: relative;
+}
+.Destinations-section .Flights-section .Flights-card img {
+  width: 88%;
+  height: 78%;
+}
+.Destinations-section .Flights-section .Flights-card .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.Destinations-section .Flights-section .Flights-card .text p {
+  color: white;
+}
+
+/* Swiper Styles */
+/* Swiper Styles */
+.destinations-swiper {
+  width: 85%;
+  height: 400px;
+  padding: 19px 100px; /* Reduced side padding to make room for spacing */
+}
+
+.destinations-swiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.destinations-swiper .card {
+  width: 90%;
+  height: 512px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 0 15px !important; /* Added horizontal margin for spacing */
+}
+
+.destinations-swiper .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Swiper Navigation Buttons */
+.destinations-swiper .swiper-button-next,
+.destinations-swiper .swiper-button-prev {
+  color: var(--greenColor);
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 45%; /* Center vertically */
+}
+
+.destinations-swiper .swiper-button-next {
+  right: 30px; /* Position from right */
+}
+
+.destinations-swiper .swiper-button-prev {
+  left: 30px; /* Position from left */
+}
+
+/* End destinations section */
+/* start testomonials section */
+.testomonials-section {
+  width: 100%;
+  height: 40rem;
+}
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.carousel-text p {
+  color: white;
+  margin-bottom: 100px;
+}
+
+.carousel-text .title {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.carousel-text .stars {
+  margin-bottom: 70px;
+}
+.ri-star-fill {
+  color: rgb(190, 139, 42);
+  font-size: 30px;
+}
+.carousel-text .circles {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.carousel-text .circles img {
+  width: 60%;
+}
+.carousel-text .circles img:hover {
+  transform: scale(1.2);
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+span {
+  color: var(--greenColor);
+}
+
+/* End testomonials section  */
+
+/* End Landing Page */

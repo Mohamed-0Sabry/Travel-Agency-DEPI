@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+.wrapper  {
   background-image: url("../images/contact-us-background-image.png");
   background-size: cover;
   background-position: center;
@@ -49,6 +49,7 @@ ul {
 
 footer {
   background-color: var(--backgroundColor);
+  color: white;
   color: white;
 }
 .home-login a {
@@ -108,10 +109,13 @@ footer {
 .home-sign-up {
   background-color: var(--backgroundColor);
   color: white;
+  color: white;
   border-radius: 5%;
 }
 
 .icon-wrapper {
+  width: 40px;
+  height: 40px;
   width: 40px;
   height: 40px;
 }
