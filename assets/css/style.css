@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+.wrapper  {
   background-image: url("../images/contact-us-background-image.png");
   background-size: cover;
   background-position: center;
@@ -29,15 +29,18 @@ body {
   padding: 0;
   margin: 0;
 }
+
 p {
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   padding: 0;
   margin: 0;
 }
+
 ul {
   list-style: none;
   padding: 0;
@@ -47,28 +50,35 @@ ul {
 footer {
   background-color: var(--backgroundColor);
   color: white;
+  color: white;
 }
 
 .navbar-brand {
   max-width: 150px;
 }
+
 .nav-logo {
   width: 100%;
 }
+
 .footer-img {
   max-width: 200px;
 }
+
 .footer-logo {
   display: block;
 }
+
 .social-links i {
   color: white;
   font-size: 1.3rem;
   margin-right: 10px;
 }
+
 .footer-links li a {
   color: rgb(212, 211, 211);
 }
+
 .footer-links li {
   color: rgb(212, 211, 211);
 }
@@ -83,76 +93,100 @@ footer {
 .home-login a {
   color: var(--linkColor);
 }
+
 .home-sign-up {
   background-color: var(--backgroundColor);
   color: white;
+  color: white;
   border-radius: 5%;
 }
+
 .icon-wrapper {
   width: 40px;
   height: 40px;
+  width: 40px;
+  height: 40px;
 }
+
 .login-page {
   background: url("../images/signin-back.png") no-repeat center center / cover;
   height: 100vh;
 }
+
 .home-link {
   max-width: 100px;
 }
+
 .login-logo {
   width: 50%;
 }
+
 .login-wrap {
   background-color: white;
   border-radius: 20px;
+  ;
 }
+
 .login-desc {
   color: var(--linkColor);
 }
+
 .login-email-input {
   border: 1px solid rgb(179, 177, 177);
   border-radius: 5px;
 }
+
 .login-input-heading {
   position: absolute;
   top: -13px;
   left: 3%;
-  background: #fff; /* same as form background */
-  padding: 0 5px; /* little spacing so border is hidden */
+  background: #fff;
+  /* same as form background */
+  padding: 0 5px;
+  /* little spacing so border is hidden */
 }
+
 .show-password-button {
   position: absolute;
   top: 30%;
   right: 3%;
   cursor: pointer;
 }
+
 .remember-me {
   width: 20px;
   height: 25px;
 }
+
 .login-remember-me {
   gap: 10px;
 }
+
 .login-forgot-pass a {
   color: red;
 }
+
 .login-button {
   border: none;
   background-color: var(--backgroundColor);
   color: white;
   border-radius: 10px;
 }
+
 .sign-up-link {
   text-align: center;
 }
+
 .sign-up-link a {
   color: red;
 }
+
 .login-social-links-heading p {
   color: grey;
 }
+
 .login-social-links-heading::before {
-  content: "";
+  content: '';
   position: absolute;
   background-color: rgb(192, 192, 192);
   height: 2px;
@@ -160,8 +194,9 @@ footer {
   left: 0;
   width: 37%;
 }
+
 .login-social-links-heading::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: rgb(192, 192, 192);
   height: 2px;
@@ -169,28 +204,352 @@ footer {
   right: 0;
   width: 37%;
 }
+
 .login-social-links-buttons button {
   background-color: white;
   border: 1px solid var(--backgroundColor);
   transition: all 0.6s ease;
 }
+
 .login-social-links-buttons .facebook i {
   color: blue;
 }
+
 .google-gradient {
   background: linear-gradient(45deg, #4285f4, #ea4335, #fbbc05, #34a853);
   -webkit-text-fill-color: transparent;
 }
+
 .login-social-links-buttons button:hover {
   background-color: var(--backgroundColor);
 }
+
 .sign-up-input-heading {
   position: absolute;
   top: -13px;
   right: 37%;
-  background: #fff; /* same as form background */
-  padding: 0 5px; /* little spacing so border is hidden */
+  background: #fff;
+  /* same as form background */
+  padding: 0 5px;
+  /* little spacing so border is hidden */
 }
+
 .terms-privacy {
   color: orange;
+}
+
+
+
+
+/* Hero */
+.card {
+  lineargradient: #051721AB, #05172145;
+
+}
+
+.card-title {
+  position: absolute;
+  width: 438px;
+  height: 56px;
+  top: 257px;
+  left: 80px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 125%;
+  letter-spacing: 0.5%;
+  color: #FCFCFC;
+}
+
+/* end Hero */
+
+/* About */
+.lead {
+  position: absolute;
+  width: 875px;
+  height: 72px;
+  top: 1000px;
+  left: 80px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  /* 150% */
+  letter-spacing: 0.5px;
+  font-style: normal;
+  color: #333;
+  /* dark gray text for readability */
+}
+
+.lead+.lead {
+  margin-top: 100px;
+  /* space between paragraphs */
+}
+
+.display-4 {
+  position: absolute;
+  width: 875px;
+  height: 72px;
+  top: 900px;
+  left: 80px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: px;
+  line-height: 150%;
+  letter-spacing: 0.5%;
+  font-style: bold;
+  color: #051721;
+}
+
+/* end About */
+
+/* Features */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #5a9b9b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.feature-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.feature-card {
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+.why-choose-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.team-section {
+  padding: 5rem 0;
+  background-color: #fff;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.team-image:hover {
+  transform: scale(1.02);
+}
+
+.team-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.team-position {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.team-info {
+  padding: 1rem;
+}
+
+
+/* end Features */
+/* Categories */
+.categories-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+.category-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.category-icon {
+  font-size: 4rem;
+  color: #c8c8c8;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.category-title {
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin: 0;
+  text-transform: none;
+}
+
+/* end Categories */
+/* Custom styles to match the exact icons from image */
+.travel-icon {
+  position: relative;
+}
+
+.travel-icon::before {
+  content: "📍";
+  font-size: 4rem;
+  color: #c8c8c8;
+  filter: grayscale(1);
+}
+
+.island-icon::before {
+  content: "🏝️";
+  font-size: 4rem;
+  color: #c8c8c8;
+  filter: grayscale(1);
+}
+
+.city-icon::before {
+  content: "🏢";
+  font-size: 4rem;
+  color: #c8c8c8;
+  filter: grayscale(1);
+}
+
+.explore-icon::before {
+  content: "🗺️";
+  font-size: 4rem;
+  color: #c8c8c8;
+  filter: grayscale(1);
+}
+
+
+
+/*  */
+.section-title {
+  position: center;
+  width: 875px;
+  height: 72px;
+  top: 1000px;
+  left: 80px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+  font-style: normal;
+  color: #333;
+}
+
+.section-subtitle {
+  position: center;
+  width: 875px;
+  height: 72px;
+  top: 1000px;
+  left: 80px;
+  font-family: 'karla', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+  font-style: normal;
+  color: #333;
+}
+
+button{
+    color: var(--green-color);
+}
+.card-body a {
+    color: var(--green-color);
+}
+.card-body .location{
+    color: red;
+    display: block;
+}
+.card-body .btn{
+    width: 164px;
+    height: 50px;
+}
+.card-body{
+    top: 10%;
+}
+.part .btn{
+    border: 1px solid #276968;
+    color: #276968;
+    margin-left: 39%;
+    width: 104px;
+    height: 45px;
+}
+
+ .card .card-body button
+ {
+ color: #276968;
+ padding-bottom: 40px;
+ }
+.image{
+    width: 523px;
+    height: 464px;
+}
+.lpart{
+    max-height: 1500px;
+}
+.photo1{
+    height: 255px;
+}
+
+  .row{
+    max-height: 1300px;
+  }
+.lpart .location{
+    color: red;
 }

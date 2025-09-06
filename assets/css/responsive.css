@@ -1,4 +1,18 @@
 @media (max-width:576px) {
+  .main {
+    padding: 1rem !important;
+  }
+
+  .navbar-brand img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  .info-part p {
+    font-size: 0.9rem;
+  }
+
+
   .login-sign-up{
     flex-direction: column;
   }
