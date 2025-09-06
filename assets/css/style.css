@@ -9,6 +9,10 @@
   --bs-primary-rgb: 39, 105, 104;
   --bs-secondary-rgb: 233, 240, 240;
   --bs-dark-rgb: 5, 23, 33;
+  --greenColor: #276968;
+  --greenColorDarker: #184140;
+  --textColor: #555;
+  --lightGray: #f5f5f5;
 }
 
 * {
@@ -17,7 +21,7 @@
   box-sizing: border-box;
 }
 
-.wrapper  {
+.wrapper {
   background-image: url("../images/contact-us-background-image.png");
   background-size: cover;
   background-position: center;
@@ -28,6 +32,7 @@
 body {
   padding: 0;
   margin: 0;
+  
 }
 
 p {
@@ -50,7 +55,14 @@ ul {
 footer {
   background-color: var(--backgroundColor);
   color: white;
+}
+.home-login a {
+  color: var(--linkColor);
+}
+.home-sign-up {
+  background-color: var(--backgroundColor);
   color: white;
+  border-radius: 5%;
 }
 
 .navbar-brand {
@@ -61,6 +73,9 @@ footer {
   width: 100%;
 }
 
+.active {
+  color: var(--bs-primary) !important;
+}
 .footer-img {
   max-width: 200px;
 }
@@ -90,11 +105,11 @@ footer {
   text-underline-offset: 8px;
 }
 
-.home-login a {
+#login-page .home-login a {
   color: var(--linkColor);
 }
 
-.home-sign-up {
+#login-page .home-sign-up {
   background-color: var(--backgroundColor);
   color: white;
   color: white;
@@ -108,35 +123,34 @@ footer {
   height: 40px;
 }
 
-.login-page {
+#login-page {
   background: url("../images/signin-back.png") no-repeat center center / cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.home-link {
+#login-page .home-link {
   max-width: 100px;
 }
 
-.login-logo {
+#login-page .login-logo {
   width: 50%;
 }
 
-.login-wrap {
+#login-page .login-wrap {
   background-color: white;
   border-radius: 20px;
-  ;
 }
 
-.login-desc {
+#login-page .login-desc {
   color: var(--linkColor);
 }
 
-.login-email-input {
+#login-page.login-email-input {
   border: 1px solid rgb(179, 177, 177);
   border-radius: 5px;
 }
 
-.login-input-heading {
+#login-page .login-input-heading {
   position: absolute;
   top: -13px;
   left: 3%;
@@ -146,72 +160,72 @@ footer {
   /* little spacing so border is hidden */
 }
 
-.show-password-button {
+#login-page .show-password-button {
   position: absolute;
   top: 30%;
   right: 3%;
   cursor: pointer;
 }
 
-.remember-me {
+#login-page .remember-me {
   width: 20px;
   height: 25px;
 }
 
-.login-remember-me {
+#login-page .login-remember-me {
   gap: 10px;
 }
 
-.login-forgot-pass a {
+#login-page .login-forgot-pass a {
   color: red;
 }
 
-.login-button {
+#login-page .login-button {
   border: none;
   background-color: var(--backgroundColor);
   color: white;
   border-radius: 10px;
 }
 
-.sign-up-link {
+#login-page .sign-up-link {
   text-align: center;
 }
 
-.sign-up-link a {
+#login-page .sign-up-link a {
   color: red;
 }
 
-.login-social-links-heading p {
+#login-page .login-social-links-heading p {
   color: grey;
 }
 
-.login-social-links-heading::before {
-  content: '';
+#login-page .login-social-links-heading::before {
+  content: "";
   position: absolute;
   background-color: rgb(192, 192, 192);
   height: 2px;
   top: 50%;
   left: 0;
-  width: 37%;
+  width: 25%;
 }
 
-.login-social-links-heading::after {
-  content: '';
+#login-page .login-social-links-heading::after {
+  content: "";
   position: absolute;
   background-color: rgb(192, 192, 192);
   height: 2px;
   top: 50%;
   right: 0;
-  width: 37%;
+  width: 25%;
 }
 
-.login-social-links-buttons button {
+#login-page .login-social-links-buttons button {
   background-color: white;
   border: 1px solid var(--backgroundColor);
   transition: all 0.6s ease;
 }
 
-.login-social-links-buttons .facebook i {
+#login-page .login-social-links-buttons .facebook i {
   color: blue;
 }
 
@@ -220,11 +234,11 @@ footer {
   -webkit-text-fill-color: transparent;
 }
 
-.login-social-links-buttons button:hover {
+#login-page .login-social-links-buttons button:hover {
   background-color: var(--backgroundColor);
 }
 
-.sign-up-input-heading {
+#login-page .sign-up-input-heading {
   position: absolute;
   top: -13px;
   right: 37%;
@@ -238,13 +252,9 @@ footer {
   color: orange;
 }
 
-
-
-
 /* Hero */
 .card {
-  lineargradient: #051721AB, #05172145;
-
+  lineargradient: #051721ab, #05172145;
 }
 
 .card-title {
@@ -253,12 +263,12 @@ footer {
   height: 56px;
   top: 257px;
   left: 80px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-weight: 700;
   font-size: 45px;
   line-height: 125%;
   letter-spacing: 0.5%;
-  color: #FCFCFC;
+  color: #fcfcfc;
 }
 
 /* end Hero */
@@ -270,7 +280,7 @@ footer {
   height: 72px;
   top: 1000px;
   left: 80px;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -281,7 +291,7 @@ footer {
   /* dark gray text for readability */
 }
 
-.lead+.lead {
+.lead + .lead {
   margin-top: 100px;
   /* space between paragraphs */
 }
@@ -292,7 +302,7 @@ footer {
   height: 72px;
   top: 900px;
   left: 80px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-weight: 700;
   font-size: px;
   line-height: 150%;
@@ -411,7 +421,6 @@ footer {
   padding: 1rem;
 }
 
-
 /* end Features */
 /* Categories */
 .categories-section {
@@ -473,8 +482,6 @@ footer {
   filter: grayscale(1);
 }
 
-
-
 /*  */
 .section-title {
   position: center;
@@ -482,7 +489,7 @@ footer {
   height: 72px;
   top: 1000px;
   left: 80px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 150%;
@@ -497,7 +504,7 @@ footer {
   height: 72px;
   top: 1000px;
   left: 80px;
-  font-family: 'karla', sans-serif;
+  font-family: "karla", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -506,50 +513,121 @@ footer {
   color: #333;
 }
 
-button{
-    color: var(--green-color);
+button {
+  color: var(--green-color);
 }
 .card-body a {
-    color: var(--green-color);
+  color: var(--green-color);
 }
-.card-body .location{
-    color: red;
-    display: block;
+.card-body .location {
+  color: red;
+  display: block;
 }
-.card-body .btn{
-    width: 164px;
-    height: 50px;
+.card-body .btn {
+  width: 164px;
+  height: 50px;
 }
-.card-body{
-    top: 10%;
+.card-body {
+  top: 10%;
 }
-.part .btn{
-    border: 1px solid #276968;
-    color: #276968;
-    margin-left: 39%;
-    width: 104px;
-    height: 45px;
-}
-
- .card .card-body button
- {
- color: #276968;
- padding-bottom: 40px;
- }
-.image{
-    width: 523px;
-    height: 464px;
-}
-.lpart{
-    max-height: 1500px;
-}
-.photo1{
-    height: 255px;
+.part .btn {
+  border: 1px solid #276968;
+  color: #276968;
+  margin-left: 39%;
+  width: 104px;
+  height: 45px;
 }
 
-  .row{
-    max-height: 1300px;
-  }
-.lpart .location{
-    color: red;
+.card .card-body button {
+  color: #276968;
+  padding-bottom: 40px;
 }
+.image {
+  width: 523px;
+  height: 464px;
+}
+.lpart {
+  max-height: 1500px;
+}
+.photo1 {
+  height: 255px;
+}
+
+.row {
+  max-height: 1300px;
+}
+.lpart .location {
+  color: red;
+}
+.flight-hero {
+  background: url(../images/flight-hero-2-min.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex; /* enables flexbox */
+  align-items: center; /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center; /* center text inside */
+}
+.flight-hero .hero-text {
+  color: rgb(255, 255, 255);
+}
+.search-section {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.search-section a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #555;
+  text-decoration: none;
+  position: relative;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-section a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.search-section a i {
+  font-size: 20px;
+  color: #3a9949;
+}
+
+.search-section button {
+  background-color: var(--greenColor);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.search-section button:hover {
+  background-color: #2e7a3a;
+}
+
