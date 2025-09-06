@@ -1,8 +1,8 @@
 const swiper = new Swiper(".destinations-swiper", {
   // Optional parameters
   direction: "horizontal",
-  slidesPerView: 5,
-  spaceBetween: 0,
+  slidesPerView: 4, // Reduced from 5 to accommodate spacing
+  spaceBetween: 30, // Increased from 0 to add space between cards
   loop: true,
   centeredSlides: false,
 
@@ -10,15 +10,15 @@ const swiper = new Swiper(".destinations-swiper", {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20, // Added space for mobile
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 0,
+      spaceBetween: 25, // Added space for tablet
     },
     1024: {
-      slidesPerView: 5,
-      spaceBetween: 0,
+      slidesPerView: 4, // Reduced from 5
+      spaceBetween: 30, // Added space for desktop
     },
   },
 

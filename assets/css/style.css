@@ -5,12 +5,11 @@
   --backgroundColor: #276968;
   --bs-primary: #276968;
   --bs-dark: #051721;
-  --bs-secondary: #E9F0F0E5;
+  --bs-secondary: #e9f0f0e5;
   --bs-primary-rgb: 39, 105, 104;
   --bs-secondary-rgb: 233, 240, 240;
   --bs-dark-rgb: 5, 23, 33;
 }
-
 
 * {
   padding: 0;
@@ -18,7 +17,7 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+.wrapper  {
   background-image: url("../images/contact-us-background-image.png");
   background-size: cover;
   background-position: center;
@@ -50,6 +49,7 @@ ul {
 
 footer {
   background-color: var(--backgroundColor);
+  color: white;
   color: white;
 }
 
@@ -97,10 +97,13 @@ footer {
 .home-sign-up {
   background-color: var(--backgroundColor);
   color: white;
+  color: white;
   border-radius: 5%;
 }
 
 .icon-wrapper {
+  width: 40px;
+  height: 40px;
   width: 40px;
   height: 40px;
 }
@@ -213,7 +216,7 @@ footer {
 }
 
 .google-gradient {
-  background: linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853);
+  background: linear-gradient(45deg, #4285f4, #ea4335, #fbbc05, #34a853);
   -webkit-text-fill-color: transparent;
 }
 
@@ -501,6 +504,7 @@ footer {
   letter-spacing: 0.5px;
   font-style: normal;
   color: #333;
+}
 
 button{
     color: var(--green-color);
