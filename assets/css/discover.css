@@ -1,0 +1,52 @@
+/*start icon r-part*/
+.card-body .location {
+  color: red;
+  display: block;
+   transition: transform 0.5s ease;
+}
+.card-body .location:hover{
+    color: #276968;
+    transform: scale(1.3);
+}
+/*end icon r-part*/
+/* start view more btn */
+.card-body .btn {
+ background-color: #276968;
+} 
+.card-body button{
+border-color: #276968;
+border: 1px solid #276968;
+}
+.card-body .btn:hover {
+background-color: white;
+color: #276968;
+}
+/* end view more btn */
+/*start see all btn*/
+.part .btn {
+   background-color: #276968;
+}
+.part .btn:hover{
+   background-color: white;
+   color: #276968; 
+}
+/*end see all btn*/
+/*start icon l-part */
+.lpart .location {
+  color: red;
+   transition: transform 0.5s ease;
+}
+.lpart .location:hover{
+    color: #276968;
+    transform: scale(1.3);
+}
+.lpart .country{
+      transition: transform 0.5s ease;
+
+}
+.lpart .country:hover{
+    font-size: large;
+    color: #276968;
+     transform: scale(1.3);
+}
+/*end icon  l-part */
