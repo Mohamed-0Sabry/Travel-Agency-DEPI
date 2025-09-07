@@ -12,7 +12,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 21px;
 }
 
 body {
@@ -252,7 +251,8 @@ body {
 
 .About_section .right-section .img1 {
   width: 73%;
-  height: 419px;
+  height: auto;
+  max-height: 419px; /* to keep it from being too big */
   object-fit: cover;
   border-radius: 10px;
   z-index: 3;
@@ -584,3 +584,6 @@ span {
 /* End testomonials section  */
 
 /* End Landing Page */
+
+
+

@@ -1,0 +1,748 @@
+
+/* Start Landing Page */
+
+/* Small  768px  to 991px*/
+@media (min-width: 768px) {
+  /* Strat Hero section  */
+  .navbar {
+    padding: 0.5rem 1%;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .nav-list {
+    gap: 1.2rem;
+    margin-top: 12px;
+  }
+  .nav-list a {
+    font-size: 0.6rem;
+  }
+  .login,
+  .signup {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .hero_section {
+    height: 60vh;
+    min-height: 500px;
+  }
+
+  .center-text {
+    top: 58%;
+  }
+  /* End Hero Destinations section */
+  /* Start  About  section */
+  /* End About section */
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 8px 56px;
+  }
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 36%;
+    height: 150px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .filter-container {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  /* End Destinations section */
+
+  /* start testomonials section */
+  .testomonials-section {
+    height: 21rem;
+  }
+  .carousel-text {
+    top: 180px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 10px;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 11px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .carousel-text .circles img {
+    /* width: 60%; */
+    width: 45px;
+  }
+
+  /* End testomonials section  */
+}
+/* Medium 92px  to 1199px                */
+@media (min-width: 992px) {
+  /* Strat Hero section  */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  .hero_section {
+    height: 60vh;
+    min-height: 756px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+
+  /* End Hero Destinations section */
+  .destinations-swiper {
+    width: 85%;
+    height: 400px;
+    padding: 19px 9px;
+  }
+
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 30%;
+    height: 150px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  /* start testomonials section */
+  .testomonials-section {
+    height: 29rem;
+  }
+  .carousel-text {
+    top: 226px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 10px;
+  }
+  .carousel-text .title {
+    font-size: 14px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 11px;
+  }
+  .carousel-text .circles {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .carousel-text .circles img {
+    width: 45px;
+  }
+
+  /* End testomonials section  */
+}
+/* Large 1200px up to                             (me)*/
+@media (min-width: 1200px) {
+  /* Strat Hero section  */
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+  }
+  /* End Hero Destinations section */
+  /* start testomonials section */
+  .testomonials-section {
+    height: 34rem;
+  }
+  .carousel-text {
+    top: 368px;
+  }
+  p,
+  h5,
+  h1 {
+    font-size: 24px;
+  }
+  .carousel-text .title {
+    font-size: 14px;
+  }
+  .carousel-text p {
+    margin-bottom: 32px;
+  }
+  .ri-star-fill {
+    color: rgb(190, 139, 42);
+    font-size: 20px;
+  }
+  .carousel-text .stars {
+    margin-bottom: 43px;
+  }
+  .carousel-text .circles {
+    margin-top: 38px;
+    margin-left: 115px;
+  }
+  .carousel-text .circles img {
+    width: 77px;
+  }
+
+  /* End testomonials section  */
+}
+
+/* Extra responsive  */
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero_section {
+    height: 55vh;
+    min-height: 400px;
+    border-radius: 8px;
+    width: 163vw;
+  }
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 0.4rem;
+  }
+  .navbar {
+    padding: 0rem 0.5%;
+  }
+
+  .logo {
+    font-size: 0.7rem;
+  }
+
+  .nav-buttons {
+    gap: 0.5rem;
+  }
+
+  .login,
+  .signup {
+    font-size: 12px;
+    padding: 0.3rem 0.6rem;
+  }
+  .nav-list a {
+    font-size: 0.7rem;
+  }
+  .center-text {
+    width: 95%;
+    top: 52%;
+  }
+
+  .center-text h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .center-text p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .search-section {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .search-section a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .search-section a i {
+    font-size: 16px;
+  }
+
+  .search-section button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* About Section */
+  .About_section {
+    margin: 31px 101px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .About_section .left-section,
+  .About_section .right-section {
+    padding: 0 15px;
+  }
+
+  .About_section .left-section span {
+    font-size: 14px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 26px;
+  }
+
+  .About_section .left-section p {
+    font-size: 14px;
+  }
+
+  .About_section .left-section .cards {
+    gap: 15px;
+  }
+
+  .About_section .left-section .cards h1 {
+    font-size: 24px;
+  }
+
+  .About_section .left-section .cards p {
+    font-size: 14px;
+  }
+
+  .About_section .right-section .img1 {
+    width: 85%;
+  }
+  .video-container {
+    width: 163vw;
+  }
+  .Destinations-section {
+    width: 163vw;
+  }
+  .Destinations-section p,
+  h5 {
+    font-size: 0.7rem;
+    text-wrap: wrap;
+  }
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 31%;
+    font-size: 0.7rem;
+  }
+  .testomonials-section {
+    width: 163vw;
+    height: 20rem;
+  }
+  .carousel-text {
+    top: 50%;
+  }
+  .testomonials-section p,
+  h5,
+  h1 {
+    font-size: 0.7rem;
+  }
+  .carousel-text p {
+    color: white;
+    margin-bottom: 100px;
+    margin-bottom: 0;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin: 0;
+  }
+  .carousel-text .stars {
+    margin-bottom: 1px;
+  }
+  .carousel-text .circles img {
+    width: 2rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 481px to 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+  /* Hero Section */
+  .hero_section {
+    height: 55vh;
+    min-height: 400px;
+    border-radius: 8px;
+    width: 163vw;
+  }
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 0.4rem;
+  }
+  .navbar {
+    padding: 0rem 0.5%;
+  }
+
+  .logo {
+    font-size: 0.7rem;
+  }
+
+  .nav-buttons {
+    gap: 0.5rem;
+  }
+
+  .login,
+  .signup {
+    font-size: 12px;
+    padding: 0.3rem 0.6rem;
+  }
+  .nav-list a {
+    font-size: 0.7rem;
+  }
+  .center-text {
+    width: 95%;
+    top: 52%;
+  }
+
+  .center-text h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .center-text p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .search-section {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .search-section a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .search-section a i {
+    font-size: 16px;
+  }
+
+  .search-section button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* About Section */
+  .About_section {
+    margin: 31px 101px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .About_section .left-section,
+  .About_section .right-section {
+    padding: 0 15px;
+  }
+
+  .About_section .left-section span {
+    font-size: 14px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 26px;
+  }
+
+  .About_section .left-section p {
+    font-size: 14px;
+  }
+
+  .About_section .left-section .cards {
+    gap: 15px;
+  }
+
+  .About_section .left-section .cards h1 {
+    font-size: 24px;
+  }
+
+  .About_section .left-section .cards p {
+    font-size: 14px;
+  }
+
+  .About_section .right-section .img1 {
+    width: 85%;
+  }
+  .video-container {
+    width: 163vw;
+  }
+  .Destinations-section {
+    width: 163vw;
+  }
+  .Destinations-section p,
+  h5 {
+    font-size: 0.7rem;
+    text-wrap: wrap;
+  }
+  .Destinations-section .Flights-section .Flights-card .text .b-flight {
+    width: 31%;
+    font-size: 0.7rem;
+  }
+  .testomonials-section {
+    width: 163vw;
+    height: 20rem;
+  }
+  .carousel-text {
+    top: 50%;
+  }
+  .testomonials-section p,
+  h5,
+  h1 {
+    font-size: 0.7rem;
+  }
+  .carousel-text p {
+    color: white;
+    margin-bottom: 100px;
+    margin-bottom: 0;
+  }
+  .carousel-text .title {
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin: 0;
+  }
+  .carousel-text .stars {
+    margin-bottom: 1px;
+  }
+  .carousel-text .circles img {
+    width: 2rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 1201px to 1440px) */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  /* Hero Section */
+  .hero_section {
+    height: 82vh;
+    min-height: 850px;
+  }
+
+  .center-text h1 {
+    font-size: 56px;
+  }
+
+  .center-text p {
+    font-size: 22px;
+  }
+
+  /* About Section */
+  .About_section {
+    margin: 130px auto;
+    gap: 50px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 44px;
+  }
+}
+
+/* Extra large devices (large monitors, 1441px to 1799px) */
+@media (min-width: 1441px) and (max-width: 1799px) {
+  /* Hero Section */
+  .hero_section {
+    max-width: 1700px;
+    min-height: 950px;
+  }
+
+  .navbar {
+    padding: 2.2rem 7%;
+  }
+
+  .logo {
+    font-size: 2.2rem;
+  }
+
+  .nav-list a {
+    font-size: 1.3rem;
+  }
+
+  .login,
+  .signup {
+    font-size: 1.3rem;
+  }
+
+  .center-text h1 {
+    font-size: 64px;
+  }
+
+  .center-text p {
+    font-size: 26px;
+  }
+
+  .search-section {
+    max-width: 1100px;
+    padding: 22px;
+  }
+
+  .search-section a {
+    font-size: 20px;
+  }
+
+  .search-section button {
+    font-size: 20px;
+    padding: 20px 35px;
+  }
+
+  /* About Section */
+  .About_section {
+    max-width: 1700px;
+    margin: 170px auto;
+    gap: 70px;
+  }
+
+  .About_section .left-section span {
+    font-size: 24px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 52px;
+  }
+
+  .About_section .left-section p {
+    font-size: 20px;
+  }
+
+  .About_section .left-section .cards h1 {
+    font-size: 46px;
+  }
+
+  .About_section .left-section .cards p {
+    font-size: 20px;
+  }
+}
+
+/* Ultra-wide monitors (1800px and up) */
+@media (min-width: 1800px) {
+  /* Hero Section */
+  .hero_section {
+    max-width: 2000px;
+    min-height: 1100px;
+  }
+
+  .navbar {
+    padding: 2.5rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .nav-list {
+    gap: 3rem;
+  }
+
+  .nav-list a {
+    font-size: 1.1rem;
+  }
+
+  .login,
+  .signup {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .center-text h1 {
+    font-size: 80px;
+  }
+
+  .center-text p {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+
+  .search-section {
+    max-width: 1300px;
+    padding: 25px;
+  }
+
+  .search-section a {
+    font-size: 22px;
+    padding: 15px 20px;
+  }
+
+  .search-section a i {
+    font-size: 26px;
+  }
+
+  .search-section button {
+    font-size: 22px;
+    padding: 22px 40px;
+  }
+
+  /* About Section */
+  .About_section {
+    max-width: 2000px;
+    margin: 250px auto;
+    gap: 100px;
+    gap: 45px;
+  }
+
+  .About_section .left-section span {
+    font-size: 28px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 64px;
+  }
+
+  .About_section .left-section p {
+    font-size: 24px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+  }
+
+  .About_section .left-section .cards {
+    gap: 60px;
+    margin-top: 30px;
+  }
+
+  .About_section .left-section .cards h1 {
+    font-size: 56px;
+  }
+
+  .About_section .left-section .cards p {
+    font-size: 24px;
+  }
+  .About_section .right-section .img1 {
+    width: 60%;
+  }
+}
+
+/* Tablet landscape and small laptops (901px to 1100px) */
+@media (min-width: 901px) and (max-width: 1100px) {
+  /* Hero Section */
+  .hero_section {
+    height: 75vh;
+    min-height: 720px;
+  }
+
+  .center-text h1 {
+    font-size: 46px;
+  }
+
+  /* About Section */
+  .About_section {
+    gap: 40px;
+  }
+
+  .About_section .left-section h1 {
+    font-size: 38px;
+  }
+
+  .About_section .left-section .cards {
+    gap: 35px;
+  }
+}
