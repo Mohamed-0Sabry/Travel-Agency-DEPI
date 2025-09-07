@@ -62,6 +62,11 @@ footer{
     color:white;
     border-radius: 5px;
 }
+@media(max-width:400px){
+  .social-links i{
+    font-size:1rem;
+  }
+}
 @media (max-width:576px) {
   .login-sign-up{
     flex-direction: column;
