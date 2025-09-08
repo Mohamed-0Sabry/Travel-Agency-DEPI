@@ -54,3 +54,11 @@ const flightsSwiper = new Swiper(".flights-swiper", {
     prevEl: ".flights-swiper .swiper-button-prev",
   },
 });
+
+const bookNowButtons=document.querySelectorAll('.b-flight');
+
+bookNowButtons.forEach((btn)=>{
+  btn.addEventListener('click',()=>{
+    window.location.href='bookFlight.html';
+  })
+})
