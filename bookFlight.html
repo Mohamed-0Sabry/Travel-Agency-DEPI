@@ -149,264 +149,361 @@
       </section>
       <!-- End Search Bar -->
 
-      <section class="d-flex row gap-5">
+      <section class="d-flex gap-5">
         <section class="left-filters">
-          <div class="my-4">
-            <div class="row">
-              <div class="col-md-4 col-lg-3">
-                <!-- Header -->
-                <div class="filters shadow-sm rounded-top">
-                  <h5 class="mb-0 text-uppercase fw-bold">Filters</h5>
-                </div>
+          <!-- Header -->
+          <div class="filters shadow-sm rounded-top">
+            <h5 class="mb-0 text-uppercase fw-bold">Filters</h5>
+          </div>
 
-                <!-- Filters -->
-                <div class="filter-section shadow-sm rounded-bottom">
-                  <div class="accordion" id="filterAccordion">
-                    <!-- Price Range -->
-                    <div class="accordion-item border-0">
-                      <h2 class="accordion-header" id="headingPrice">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapsePrice"
-                        >
-                          Price Range
-                        </button>
-                      </h2>
-                      <div
-                        id="collapsePrice"
-                        class="accordion-collapse collapse show"
-                      >
-                        <div class="accordion-body">
-                          <input
-                            type="range"
-                            class="form-range custom-range"
-                            min="70"
-                            max="5000"
-                            step="10"
-                          />
-                          <div class="d-flex justify-content-between">
-                            <small>$70</small>
-                            <small>$5000</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Departure Time -->
-                    <div class="accordion-item border-0">
-                      <h2 class="accordion-header" id="headingTime">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseTime"
-                        >
-                          Departure Time
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseTime"
-                        class="accordion-collapse collapse show"
-                      >
-                        <div class="accordion-body">
-                          <input
-                            type="range"
-                            class="form-range custom-range"
-                            min="0"
-                            max="24"
-                            step="1"
-                          />
-                          <div class="d-flex justify-content-between">
-                            <small>11:00pm</small>
-                            <small>06:00am</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Trips -->
-                    <div class="accordion-item border-0">
-                      <h2 class="accordion-header" id="headingTrips">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseTrips"
-                        >
-                          Trips
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseTrips"
-                        class="accordion-collapse collapse show"
-                      >
-                        <div class="accordion-body">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="roundTrip"
-                            /><label class="form-check-label" for="roundTrip"
-                              >Round trip</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="oneWay"
-                            /><label class="form-check-label" for="oneWay"
-                              >One-way</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="multiCity"
-                            /><label class="form-check-label" for="multiCity"
-                              >Multi-City</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="flexDates"
-                            /><label class="form-check-label" for="flexDates"
-                              >Flexible dates</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Airlines -->
-                    <div class="accordion-item border-0">
-                      <h2 class="accordion-header" id="headingAirlines">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseAirlines"
-                        >
-                          Airlines
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseAirlines"
-                        class="accordion-collapse collapse show"
-                      >
-                        <div class="accordion-body">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="ghana"
-                            /><label class="form-check-label" for="ghana"
-                              >Ghana Airways</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="bmi"
-                            /><label class="form-check-label" for="bmi"
-                              >British Midland Airways Limited</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="united"
-                            /><label class="form-check-label" for="united"
-                              >United Airlines</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="delta"
-                            /><label class="form-check-label" for="delta"
-                              >Delta Airlines</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Rating -->
-                    <div class="accordion-item border-0">
-                      <h2 class="accordion-header" id="headingRating">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseRating"
-                        >
-                          Rating
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseRating"
-                        class="accordion-collapse collapse show"
-                      >
-                        <div class="accordion-body text-center rating-buttons">
-                          <button class="btn btn-outline-dark">0+</button>
-                          <button class="btn btn-outline-dark">1+</button>
-                          <button class="btn btn-outline-dark">2+</button>
-                          <button class="btn btn-outline-dark">3+</button>
-                          <button class="btn btn-outline-dark">4+</button>
-                        </div>
-                      </div>
+          <!-- Filters -->
+          <div class="filter-section shadow-sm rounded-bottom">
+            <div class="accordion" id="filterAccordion">
+              <!-- Price Range -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsePrice"
+                  >
+                    Price Range
+                  </button>
+                </h2>
+                <div
+                  id="collapsePrice"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <input
+                      type="range"
+                      class="form-range custom-range"
+                      min="70"
+                      max="5000"
+                      step="10"
+                    />
+                    <div class="d-flex justify-content-between">
+                      <small>$70</small>
+                      <small>$5000</small>
                     </div>
                   </div>
-                  <!-- accordion -->
                 </div>
-                <!-- filter-section -->
+              </div>
+
+              <!-- Departure Time -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingTime">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTime"
+                  >
+                    Departure Time
+                  </button>
+                </h2>
+                <div id="collapseTime" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                    <input
+                      type="range"
+                      class="form-range custom-range"
+                      min="0"
+                      max="24"
+                      step="1"
+                    />
+                    <div class="d-flex justify-content-between">
+                      <small>11:00pm</small>
+                      <small>06:00am</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trips -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingTrips">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTrips"
+                  >
+                    Trips
+                  </button>
+                </h2>
+                <div
+                  id="collapseTrips"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="roundTrip"
+                      /><label class="form-check-label" for="roundTrip"
+                        >Round trip</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="oneWay"
+                      /><label class="form-check-label" for="oneWay"
+                        >One-way</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="multiCity"
+                      /><label class="form-check-label" for="multiCity"
+                        >Multi-City</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexDates"
+                      /><label class="form-check-label" for="flexDates"
+                        >Flexible dates</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Airlines -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingAirlines">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseAirlines"
+                  >
+                    Airlines
+                  </button>
+                </h2>
+                <div
+                  id="collapseAirlines"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="ghana"
+                      /><label class="form-check-label" for="ghana"
+                        >Ghana Airways</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="bmi"
+                      /><label class="form-check-label" for="bmi"
+                        >British Midland Airways Limited</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="united"
+                      /><label class="form-check-label" for="united"
+                        >United Airlines</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="delta"
+                      /><label class="form-check-label" for="delta"
+                        >Delta Airlines</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rating -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingRating">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseRating"
+                  >
+                    Rating
+                  </button>
+                </h2>
+                <div
+                  id="collapseRating"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body text-center rating-buttons">
+                    <button class="btn btn-outline-dark">0+</button>
+                    <button class="btn btn-outline-dark">1+</button>
+                    <button class="btn btn-outline-dark">2+</button>
+                    <button class="btn btn-outline-dark">3+</button>
+                    <button class="btn btn-outline-dark">4+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- accordion -->
+          </div>
+          <!-- filter-section -->
+        </section>
+
+        <!-- Right Flights Section -->
+        <section class="right-flights flex-grow-1 p-3">
+          <!-- Top Prices Filter -->
+          <div class="top-prices-filter row g-3 mb-4 text-center text-md-start">
+            <div class="col-6 col-md-3">
+              <div class="price-option p-3 border rounded shadow-sm h-100">
+                <h6 class="mb-1 fw-bold">Cheapest</h6>
+                <span class="text-muted small">$70 - 3h 10m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="price-option p-3 border rounded shadow-sm h-100 bg-primary text-white"
+              >
+                <h6 class="mb-1 fw-bold">Best</h6>
+                <span class="small">$200 - 2h 30m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="price-option p-3 border rounded shadow-sm h-100">
+                <h6 class="mb-1 fw-bold">Quickest</h6>
+                <span class="text-muted small">$199 - 2h 12m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="other-price-option p-3 border rounded shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fa-solid fa-gear mb-1"></i>
+                <span class="small">Other options</span>
               </div>
             </div>
           </div>
-        </section>
 
-        <section class="right-flights">
-          <div class="top-prices-filter">
-            <div class="price-option">
-              <h3 class="price-title">Cheapest</h3>
-              <span class="price-description">$70 - 3h 10m</span>
-            </div>
-            <div class="price-option">
-              <h3 class="price-title">Best</h3>
-              <span class="price-description">$200 - 2h 30m</span>
-            </div>
-            <div class="price-option">
-              <h3 class="price-title">Quickest</h3>
-              <span class="price-description">$199 - 2h 12m</span>
-            </div>
-            <div class="other-price-option">
-              <!-- other price option icon -->
-              <i class="fa-solid fa-gear"></i>
-              <span class="price-description">Other options</span>
-            </div>
-          </div>
-
-          <div class="list-info">
-            <span>Showing 4 of <span class="flights-count">57 flights</span></span>
-            <span>
+          <!-- Flights Info -->
+          <div
+            class="list-info d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2"
+          >
+            <span
+              >Showing 4 of
+              <span class="flights-count text-primary fw-bold"
+                >57 flights</span
+              ></span
+            >
+            <span class="mt-2 mt-md-0">
               Sort by <strong>Recommended</strong>
-              <!-- arrow down icon -->
-              <i class="fa-solid fa-arrow-down"></i>
+              <i class="fa-solid fa-arrow-down ms-1"></i>
             </span>
           </div>
 
+          <!-- Flight List -->
           <section class="flight-list-section">
-            <div class="flight-card">
-              
+            <div class="flight-card card border-0 shadow-sm p-3 mb-4 rounded-3">
+              <div class="row g-3 align-items-center">
+                <!-- Airline Logo -->
+                <div class="col-12 col-md-2 text-center">
+                  <img
+                    src="./assets/images/flights-vendors/Emirates.png"
+                    alt="Airline Logo"
+                    class="img-fluid"
+                    style="max-height: 60px"
+                  />
+                </div>
+
+                <!-- Flight Details -->
+                <div class="col-12 col-md-7">
+                  <!-- Airline name and rating -->
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-light text-dark border me-2"
+                      >4.5</span
+                    >
+                    <h6 class="fw-bold mb-0">Great Airlines</h6>
+                    <small class="text-muted ms-2">(54 reviews)</small>
+                  </div>
+
+                  <!-- First flight -->
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
+                  >
+                    <div>
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        id="flight1"
+                      />
+                      <label for="flight1" class="fw-bold"
+                        >11:00 pm - 02:30 am</label
+                      ><br />
+                      <small class="text-muted">GH Airways</small>
+                    </div>
+                    <div class="text-end mt-2 mt-md-0">
+                      <small class="text-muted">non stop</small><br />
+                      <span class="fw-semibold">3h 30m</span>
+                    </div>
+                  </div>
+
+                  <!-- Second flight -->
+                  <div
+                    class="d-flex align-items-center justify-content-between flex-wrap"
+                  >
+                    <div>
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        id="flight2"
+                      />
+                      <label for="flight2" class="fw-bold"
+                        >09:00 am - 12:30 am</label
+                      ><br />
+                      <small class="text-muted">GH Airways</small>
+                    </div>
+                    <div class="text-end mt-2 mt-md-0">
+                      <small class="text-muted">non stop</small><br />
+                      <span class="fw-semibold">3h 30m</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Price -->
+                <div class="col-12 col-md-3 text-md-end text-center">
+                  <p class="text-muted mb-1 small">starting from</p>
+                  <p class="text-danger fw-bold fs-4">$200</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="my-3" />
+
+              <!-- Footer Actions -->
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+              >
+                <button class="btn btn-outline-secondary fav-btn">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="btn bg-primary text-white flex-grow-1 ms-md-2">
+                  Book now
+                </button>
+              </div>
             </div>
           </section>
         </section>
