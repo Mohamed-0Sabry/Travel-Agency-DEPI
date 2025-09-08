@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Travel Agency website for booking trips, tours, and vacations."
+    />
+
+    <title>Travel Agency</title>
+    <link rel="icon" href="./assets/images/Phnes. Travels-icon.ico" />
+    <!--Animation-->
+    <link rel="stylesheet" href="./assets/css/animate.css" />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="./assets/css/account.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/account-responsive.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand me-5" href="./index.html"
+            ><img src="./assets/images/logo.png" alt="" class="nav-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item pe-lg-4">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Flights</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Hotels</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Discover</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+            <div class="login-sign-up d-flex">
+              <div class="home-login me-4">
+                <a href="./login.html" class="login">Login</a>
+              </div>
+              <div class="up">
+                <a href="./signup.html" class="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                  >Sign Up</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Account -->
+        <div class="profile-header">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <div class="profile-info">
+                        <div class="avatar-container">
+                            <img src="./assets/images/PP.png" 
+                                 alt="Profile Picture" 
+                                 class="profile-avatar">
+                            <div class="status-indicator">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="profile-name">Ann Pine</h1>
+                        <p class="profile-email">ann.pine@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- end profile -->
+
+<!-- account -->
+  <div class="account-container">
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs custom-tabs" id="accountTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" 
+                        type="button" role="tab" aria-controls="account" aria-selected="true">
+                    Account
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" 
+                        type="button" role="tab" aria-controls="history" aria-selected="false">
+                    History
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" 
+                        type="button" role="tab" aria-controls="payment" aria-selected="false">
+                    Payment methods
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="accountTabsContent">
+            <!-- Account Tab -->
+            <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                <div class="account-content">
+                    <h2 class="section-title">Account</h2>
+                    
+                    <!-- Name Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Name</div>
+                                <div class="field-value">Ann Pine</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Email</div>
+                                <div class="field-value">ann.pine@gmail.com</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Password</div>
+                                <div class="field-value">••••••••••••</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Phone number</div>
+                                <div class="field-value">+233 034 3456 578</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Address</div>
+                                <div class="field-value">PR 12 East Legon, Accra, Ghana</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date of Birth Field -->
+                    <div class="field-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="field-label">Date of birth</div>
+                                <div class="field-value">02-24-1996</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn edit-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                  <div class="account-content">
+                        <!-- Flights Section -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="mb-0"><i class="fas fa-plane me-2"></i>Flights</h4>
+                            <button class="btn btn-outline-primary btn-sm">See all</button>
+                        </div>
+
+                        <div class="row g-3 mb-5">
+                            <div class="col-12">
+                                <div class="history-card">
+                                    <div class="row align-items-center g-3">
+                                        <div class="col-lg-1 col-md-2 col-3 text-center">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png" 
+                                                 alt="United Airlines" class="airline-logo">
+                                        </div>
+                                        <div class="col-lg-2 col-md-3 col-9">
+                                            <strong class="d-block">IN 230</strong>
+                                            <small class="text-muted">11:00 PM – 6:00 AM</small>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-6">
+                                            <div><strong>Date:</strong> Dec 11, 2022</div>
+                                            <div><strong>Flight time:</strong> 7h 40min</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-6">
+                                            <div><strong>Gate:</strong> 2B</div>
+                                            <div><strong>Seat:</strong> 22</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-2 col-12">
+                                            <button class="btn download-btn w-100 w-md-auto">
+                                                <i class="fas fa-download me-2"></i>Download Ticket
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 d-none d-lg-block text-end">
+                                            <button class="btn btn-outline-secondary">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="history-card">
+                                    <div class="row align-items-center g-3">
+                                        <div class="col-lg-1 col-md-2 col-3 text-center">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Emirates_logo.svg" 
+                                                 alt="Emirates" class="airline-logo">
+                                        </div>
+                                        <div class="col-lg-2 col-md-3 col-9">
+                                            <strong class="d-block">EK 142</strong>
+                                            <small class="text-muted">10:00 AM – 1:00 PM</small>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-6">
+                                            <div><strong>Date:</strong> Dec 11, 2022</div>
+                                            <div><strong>Flight time:</strong> 3h 10min</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-6">
+                                            <div><strong>Gate:</strong> 12B</div>
+                                            <div><strong>Seat:</strong> 29</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-2 col-12">
+                                            <button class="btn download-btn w-100 w-md-auto">
+                                                <i class="fas fa-download me-2"></i>Download Ticket
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 d-none d-lg-block text-end">
+                                            <button class="btn btn-outline-secondary">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hotels Section -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="mb-0"><i class="fas fa-hotel me-2"></i>Hotels</h4>
+                            <button class="btn btn-outline-primary btn-sm">See all</button>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="history-card">
+                                    <div class="row align-items-center g-3">
+                                        <div class="col-lg-1 col-md-2 col-3 text-center">
+                                            <i class="fas fa-hotel fa-2x text-primary"></i>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-9">
+                                            <div><strong>Check-in:</strong> Sun, Dec 22</div>
+                                            <div><strong>Check-out:</strong> Mon, Dec 22</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-6">
+                                            <div><strong>Check-in time:</strong> 6:40 AM</div>
+                                            <div><strong>Check-out time:</strong> 10:00 AM</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-6">
+                                            <div><strong>Room:</strong> On arrival</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-12">
+                                            <button class="btn download-btn w-100 w-md-auto">
+                                                <i class="fas fa-download me-2"></i>Download
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 d-none d-lg-block text-end">
+                                            <button class="btn btn-outline-secondary">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="history-card">
+                                    <div class="row align-items-center g-3">
+                                        <div class="col-lg-1 col-md-2 col-3 text-center">
+                                            <i class="fas fa-hotel fa-2x text-primary"></i>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-9">
+                                            <div><strong>Check-in:</strong> Thu, Jun 2</div>
+                                            <div><strong>Check-out:</strong> Sat, Jun 4</div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-6">
+                                            <div><strong>Check-in time:</strong> 1:40 AM</div>
+                                            <div><strong>Check-out time:</strong> 12:00 PM</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-6">
+                                            <div><strong>Room:</strong> On arrival</div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-12">
+                                            <button class="btn download-btn w-100 w-md-auto">
+                                                <i class="fas fa-download me-2"></i>Download
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 d-none d-lg-block text-end">
+                                            <button class="btn btn-outline-secondary">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Payment Methods Tab -->
+            <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+            <div class="account-content">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="section-title mb-0">Payment Methods</h2>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i>Add New Card
+                            </button>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <!-- Existing Payment Card -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card payment-card h-100">
+                                    <div class="card-body position-relative p-4">
+                                        <!-- Delete Button -->
+                                        <button class="delete-card-btn" data-bs-toggle="tooltip" title="Delete Card">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+
+                                        <!-- Card Content -->
+                                        <div class="mt-3">
+                                            <div class="mb-4">
+                                                <h5 class="card-number">**** **** **** 3507</h5>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <small class="text-white-50">Cardholder Name</small>
+                                                <div class="fw-semibold">Ann Pine</div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-end">
+                                                <div>
+                                                    <small class="text-white-50">Expires</small>
+                                                    <div class="fw-semibold">12/26</div>
+                                                </div>
+                                                <div>
+                                                    <small class="text-white-50">CCV</small>
+                                                    <div class="fw-semibold">***</div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="fw-bold fs-5">VISA</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add New Card -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card add-card h-100 d-flex align-items-center justify-content-center">
+                                    <div class="text-center p-4">
+                                        <button class="btn btn-outline-primary rounded-circle mb-3" style="width: 60px; height: 60px;">
+                                            <i class="fas fa-plus fa-lg"></i>
+                                        </button>
+                                        <h5 class="mb-2">Add New Card</h5>
+                                        <p class="text-muted mb-0">Add a new payment method to your account</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PayPal Option -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card h-100" style="border: 2px solid #0070ba; border-radius: 15px;">
+                                    <div class="card-body d-flex align-items-center justify-content-center text-center p-4">
+                                        <div>
+                                            <i class="fab fa-paypal fa-3x text-primary mb-3"></i>
+                                            <h5 class="mb-2">PayPal</h5>
+                                            <p class="text-muted mb-3">Link your PayPal account</p>
+                                            <button class="btn btn-outline-primary">Connect PayPal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Security Info -->
+                        <div class="mt-5">
+                            <div class="alert alert-info d-flex align-items-center" role="alert">
+                                <i class="fas fa-shield-alt fa-2x me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Your payment information is secure</h6>
+                                    <small>We use industry-standard encryption to protect your payment data. Your card details are never stored on our servers.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- account -->
+<!-- Start Footer -->
+    <footer class="pt-5 pb-5 ">
+      <div class="container">
+        <div class="row gx-4 gy-3">
+          <div class="col-lg-3 col-md-12 col-12 first-column">
+            <div class="wrap">
+              <a class="footer-logo" href="./index.html"
+                ><img
+                  src="./assets/images/Phnes. Travels.png"
+                  alt=""
+                  class="footer-img"
+              /></a>
+              <div class="social-links mt-1">
+                <a href="www.facebook.com"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="www.x.com"><i class="fa-brands fa-twitter"></i></a>
+                <a href="www.youtube.com"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="www.instagram.com"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2  heading ">Links</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">Flights</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">Stay</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">discover</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">about us</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">contact </a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading ">Our Activites</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">tours</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">kayaking</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">cruising & sailing</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">multi-activities</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2 heading ">About Us</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">our story</a></li>
+              <li class="mb-2"><a href="" class="text-capitalize">work with us</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6 ">
+            <h3 class="fw-bold p-0 mb-2 heading ">Contact</h3>
+            <ul class="footer-links">
+              <li class="mb-2 text-capitalize">Address:Pe.Holandia no.205A</li>
+              <li class="mb-2 text-capitalize">millenium city </li>
+              <li class="mb-2 text-capitalize">phone: 023 456 7890</li>
+              <li class="mb-2 text-capitalize">email:blabla@gmail.com</li>
+              <li class="mb-2 text-capitalize">maps:millenium city</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

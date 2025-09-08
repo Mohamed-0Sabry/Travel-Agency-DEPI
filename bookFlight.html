@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Travel Agency website for booking trips, tours, and vacations."
+    />
+
+    <title>Travel Agency</title>
+    <link rel="icon" href="./assets/images/Phnes. Travels-icon.ico" />
+    <!--Animation-->
+    <link rel="stylesheet" href="./assets/css/animate.css" />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="./assets/css/nav-footer.css" />
+    <link rel="stylesheet" href="./assets/css/globals.css" />
+    <link rel="stylesheet" href="./assets/css/bookFlight.css" />
+    <link rel="stylesheet" href="./assets/css/bookFlight-responsive.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand me-5" href="./landingPage.html"
+            ><img src="./assets/images/logo.png" alt="" class="nav-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item pe-lg-4">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./landingPage.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./flights.html">Flights</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Hotels</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./discover.html">Discover</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./About-Us.html">About Us</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./contact-us.html">Contact</a>
+              </li>
+            </ul>
+            <div class="login-sign-up d-flex">
+              <div class="home-login me-4">
+                <a href="./login.html" class="login">Login</a>
+              </div>
+              <div class="up">
+                <a href="./signup.html" class="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                  >Sign Up</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="p-5">
+      <!-- Start Search Bar -->
+      <section
+        class="search-bar d-flex flex-row w-100 mb-4 gap-5 justify-content-center align-items-center"
+      >
+        <div class="input-group-custom flex-grow-1">
+          <label class="input-label">From</label>
+          <input
+            placeholder="Accra (Kotota Int. Airport)"
+            class="input-field p-3 w-100"
+          />
+        </div>
+
+        <div class="input-group-custom flex-grow-1">
+          <label class="input-label">To</label>
+          <input
+            placeholder="Dubai (Dubai Int. Airport)"
+            class="input-field p-3 w-100"
+          />
+        </div>
+
+        <div class="input-group-custom flex-grow-1">
+          <label class="input-label">Date of Stay</label>
+          <input
+            placeholder="29 Dec 22 - 06 Jan 23"
+            class="input-field p-3 w-100"
+          />
+        </div>
+
+        <div class="input-group-custom flex-grow-1">
+          <label class="input-label">Traveler - Classs</label>
+          <input
+            placeholder="2 Travelers, Economy"
+            class="input-field p-3 w-100"
+          />
+        </div>
+
+        <div class="search-icon-button bg-primary text-white p-3 rounded-1">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </section>
+      <!-- End Search Bar -->
+
+      <section class="d-flex gap-5">
+        <section class="left-filters">
+          <!-- Header -->
+          <div class="filters shadow-sm rounded-top">
+            <h5 class="mb-0 text-uppercase fw-bold">Filters</h5>
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-section shadow-sm rounded-bottom">
+            <div class="accordion" id="filterAccordion">
+              <!-- Price Range -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingPrice">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsePrice"
+                  >
+                    Price Range
+                  </button>
+                </h2>
+                <div
+                  id="collapsePrice"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <input
+                      type="range"
+                      class="form-range custom-range"
+                      min="70"
+                      max="5000"
+                      step="10"
+                    />
+                    <div class="d-flex justify-content-between">
+                      <small>$70</small>
+                      <small>$5000</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Departure Time -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingTime">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTime"
+                  >
+                    Departure Time
+                  </button>
+                </h2>
+                <div id="collapseTime" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                    <input
+                      type="range"
+                      class="form-range custom-range"
+                      min="0"
+                      max="24"
+                      step="1"
+                    />
+                    <div class="d-flex justify-content-between">
+                      <small>11:00pm</small>
+                      <small>06:00am</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trips -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingTrips">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTrips"
+                  >
+                    Trips
+                  </button>
+                </h2>
+                <div
+                  id="collapseTrips"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="roundTrip"
+                      /><label class="form-check-label" for="roundTrip"
+                        >Round trip</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="oneWay"
+                      /><label class="form-check-label" for="oneWay"
+                        >One-way</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="multiCity"
+                      /><label class="form-check-label" for="multiCity"
+                        >Multi-City</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexDates"
+                      /><label class="form-check-label" for="flexDates"
+                        >Flexible dates</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Airlines -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingAirlines">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseAirlines"
+                  >
+                    Airlines
+                  </button>
+                </h2>
+                <div
+                  id="collapseAirlines"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="ghana"
+                      /><label class="form-check-label" for="ghana"
+                        >Ghana Airways</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="bmi"
+                      /><label class="form-check-label" for="bmi"
+                        >British Midland Airways Limited</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="united"
+                      /><label class="form-check-label" for="united"
+                        >United Airlines</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="delta"
+                      /><label class="form-check-label" for="delta"
+                        >Delta Airlines</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rating -->
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="headingRating">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseRating"
+                  >
+                    Rating
+                  </button>
+                </h2>
+                <div
+                  id="collapseRating"
+                  class="accordion-collapse collapse show"
+                >
+                  <div class="accordion-body text-center rating-buttons">
+                    <button class="btn btn-outline-dark">0+</button>
+                    <button class="btn btn-outline-dark">1+</button>
+                    <button class="btn btn-outline-dark">2+</button>
+                    <button class="btn btn-outline-dark">3+</button>
+                    <button class="btn btn-outline-dark">4+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- accordion -->
+          </div>
+          <!-- filter-section -->
+        </section>
+
+        <!-- Right Flights Section -->
+        <section class="right-flights flex-grow-1 p-3">
+          <!-- Top Prices Filter -->
+          <div class="top-prices-filter row g-3 mb-4 text-center text-md-start">
+            <div class="col-6 col-md-3">
+              <div class="price-option p-3 border rounded shadow-sm h-100">
+                <h6 class="mb-1 fw-bold">Cheapest</h6>
+                <span class="text-muted small">$70 - 3h 10m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="price-option p-3 border rounded shadow-sm h-100 bg-primary text-white"
+              >
+                <h6 class="mb-1 fw-bold">Best</h6>
+                <span class="small">$200 - 2h 30m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="price-option p-3 border rounded shadow-sm h-100">
+                <h6 class="mb-1 fw-bold">Quickest</h6>
+                <span class="text-muted small">$199 - 2h 12m</span>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="other-price-option p-3 border rounded shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fa-solid fa-gear mb-1"></i>
+                <span class="small">Other options</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flights Info -->
+          <div
+            class="list-info d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2"
+          >
+            <span
+              >Showing 4 of
+              <span class="flights-count text-primary fw-bold"
+                >57 flights</span
+              ></span
+            >
+            <span class="mt-2 mt-md-0">
+              Sort by <strong>Recommended</strong>
+              <i class="fa-solid fa-arrow-down ms-1"></i>
+            </span>
+          </div>
+
+          <!-- Flight List -->
+          <section class="flight-list-section">
+            <div class="flight-card card border-0 shadow-sm p-3 mb-4 rounded-3">
+              <div class="row g-3 align-items-center">
+                <!-- Airline Logo -->
+                <div class="col-12 col-md-2 text-center">
+                  <img
+                    src="./assets/images/flights-vendors/Emirates.png"
+                    alt="Airline Logo"
+                    class="img-fluid"
+                    style="max-height: 60px"
+                  />
+                </div>
+
+                <!-- Flight Details -->
+                <div class="col-12 col-md-7">
+                  <!-- Airline name and rating -->
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-light text-dark border me-2"
+                      >4.5</span
+                    >
+                    <h6 class="fw-bold mb-0">Great Airlines</h6>
+                    <small class="text-muted ms-2">(54 reviews)</small>
+                  </div>
+
+                  <!-- First flight -->
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
+                  >
+                    <div>
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        id="flight1"
+                      />
+                      <label for="flight1" class="fw-bold"
+                        >11:00 pm - 02:30 am</label
+                      ><br />
+                      <small class="text-muted">GH Airways</small>
+                    </div>
+                    <div class="text-end mt-2 mt-md-0">
+                      <small class="text-muted">non stop</small><br />
+                      <span class="fw-semibold">3h 30m</span>
+                    </div>
+                  </div>
+
+                  <!-- Second flight -->
+                  <div
+                    class="d-flex align-items-center justify-content-between flex-wrap"
+                  >
+                    <div>
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        id="flight2"
+                      />
+                      <label for="flight2" class="fw-bold"
+                        >09:00 am - 12:30 am</label
+                      ><br />
+                      <small class="text-muted">GH Airways</small>
+                    </div>
+                    <div class="text-end mt-2 mt-md-0">
+                      <small class="text-muted">non stop</small><br />
+                      <span class="fw-semibold">3h 30m</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Price -->
+                <div class="col-12 col-md-3 text-md-end text-center">
+                  <p class="text-muted mb-1 small">starting from</p>
+                  <p class="text-danger fw-bold fs-4">$200</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="my-3" />
+
+              <!-- Footer Actions -->
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-2"
+              >
+                <button class="btn btn-outline-secondary fav-btn">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="btn bg-primary text-white flex-grow-1 ms-md-2">
+                  Book now
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer class="pt-5 pb-5">
+      <div class="container">
+        <div class="row gx-4 gy-3">
+          <div class="col-lg-3 col-md-12 col-12 first-column">
+            <div class="wrap">
+              <a class="footer-logo" href="./index.html"
+                ><img
+                  src="./assets/images/Phnes. Travels.png"
+                  alt=""
+                  class="footer-img"
+              /></a>
+              <div class="social-links mt-1">
+                <a href="www.facebook.com"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="www.x.com"><i class="fa-brands fa-twitter"></i></a>
+                <a href="www.youtube.com"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="www.instagram.com"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">Links</h3>
+            <ul class="footer-links">
+              <li class="mb-2">
+                <a href="" class="text-capitalize">Flights</a>
+              </li>
+              <li class="mb-2"><a href="" class="text-capitalize">Stay</a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">discover</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">about us</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">contact </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">Our Activites</h3>
+            <ul class="footer-links">
+              <li class="mb-2"><a href="" class="text-capitalize">tours</a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">kayaking</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">cruising & sailing</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">multi-activities</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">About Us</h3>
+            <ul class="footer-links">
+              <li class="mb-2">
+                <a href="" class="text-capitalize">our story</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">work with us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">Contact</h3>
+            <ul class="footer-links">
+              <li class="mb-2 text-capitalize">Address:Pe.Holandia no.205A</li>
+              <li class="mb-2 text-capitalize">millenium city</li>
+              <li class="mb-2 text-capitalize">phone: 023 456 7890</li>
+              <li class="mb-2 text-capitalize">email:blabla@gmail.com</li>
+              <li class="mb-2 text-capitalize">maps:millenium city</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
