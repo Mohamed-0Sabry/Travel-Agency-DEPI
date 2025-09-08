@@ -85,48 +85,33 @@
     transition: all 0.2s;
 }
 
-/* Rating buttons */
-.rating-buttons .btn {
-    margin: 0.25rem;
+
+.price-option {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .price-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .flight-card {
+    transition: all 0.3s ease;
+  }
+  .flight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+
+  .fav-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     border-radius: 8px;
-    transition: all 0.2s;
-}
-
-.rating-buttons .btn:hover,
-.rating-buttons .btn:active {
-    background: #0f2d2f;
-    color: #fff;
-}
-
-
-/* Tabs */
-.nav-tabs .nav-link {
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: #333;
-    font-size: 0.9rem;
-    text-align: center;
-    margin-right: 10px;
-}
-
-.nav-tabs .nav-link.active {
-    border-bottom: 3px solid #0f2d2f;
-    color: #0f2d2f;
-}
-
-/* Flight cards */
-.flight-card {
-    border-radius: 10px;
-}
-
-.flight-card .card-body {
-    gap: 1rem;
-}
-
-.flight-card img {
-    width: 50px;
-    height: auto;
-}
+  }
 
 @media (max-width: 768px) {
     .flight-card .card-body {
