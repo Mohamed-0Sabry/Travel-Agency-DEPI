@@ -1,0 +1,73 @@
+@media (max-width: 992px) {
+    
+    .search-bar {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+  
+    .search-bar .input-group-custom {
+      width: 100% !important;
+    }
+  
+    .search-bar .search-icon-button {
+      width: 100% !important;
+      text-align: center;
+    }
+  
+    
+    .left-filters {
+      display: none;
+    }
+  
+    
+    .filter-toggle-btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  
+  @media (min-width: 993px) {
+    .filter-toggle-btn {
+      display: none;
+    }
+  }
+  
+  
+  @media (min-width: 576px) and (max-width: 991px) {
+    .search-bar {
+      flex-wrap: wrap;
+    }
+  
+    .search-bar .input-group-custom {
+      flex: 1 1 48%; 
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .flight-card .row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .flight-card .col-md-2,
+    .flight-card .col-md-7,
+    .flight-card .col-md-3 {
+      text-align: center;
+    }
+  
+    .flight-card img {
+      margin-bottom: 10px;
+    }
+  
+    .flight-card .d-flex {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .flight-card .btn {
+      width: 100%;
+    }
+  }
+  

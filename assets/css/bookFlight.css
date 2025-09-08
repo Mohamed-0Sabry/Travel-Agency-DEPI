@@ -24,7 +24,6 @@
     cursor: pointer;
 }
 
-
 .filters {
     background: #0f2d2f;
     color: #fff;
@@ -75,35 +74,26 @@
     border-color: #2ca58d;
 }
 
-.custom-range::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #0f2d2f;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-
 .price-option {
     transition: all 0.3s ease;
     cursor: pointer;
-  }
-  
-  .price-option:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .flight-card {
-    transition: all 0.3s ease;
-  }
-  .flight-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  }
+}
 
-  .fav-btn {
+.price-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flight-card {
+    transition: all 0.3s ease;
+}
+
+.flight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.fav-btn {
     width: 40px;
     height: 40px;
     display: flex;
@@ -111,15 +101,4 @@
     justify-content: center;
     padding: 0;
     border-radius: 8px;
-  }
-
-@media (max-width: 768px) {
-    .flight-card .card-body {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .flight-card img {
-        margin-bottom: 10px;
-    }
 }

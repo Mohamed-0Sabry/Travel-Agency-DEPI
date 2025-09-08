@@ -109,7 +109,7 @@
     <main class="p-5">
       <!-- Start Search Bar -->
       <section
-        class="search-bar d-flex flex-row w-100 mb-4 gap-5 justify-content-center align-items-center"
+        class="search-bar d-flex flex-wrap w-100 mb-4 gap-3 justify-content-center align-items-center"
       >
         <div class="input-group-custom flex-grow-1">
           <label class="input-label">From</label>
@@ -136,7 +136,7 @@
         </div>
 
         <div class="input-group-custom flex-grow-1">
-          <label class="input-label">Traveler - Classs</label>
+          <label class="input-label">Traveler - Class</label>
           <input
             placeholder="2 Travelers, Economy"
             class="input-field p-3 w-100"
@@ -147,9 +147,18 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </section>
+
       <!-- End Search Bar -->
 
-      <section class="d-flex gap-5">
+      <section class="d-flex flex-lg-row flex-column gap-lg-5 gap-2">
+        <button
+          class="btn bg-primary text-white mb-0 filter-toggle-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#filtersModal"
+        >
+          Filters
+        </button>
+
         <section class="left-filters">
           <!-- Header -->
           <div class="filters shadow-sm rounded-top">
@@ -508,6 +517,208 @@
           </section>
         </section>
       </section>
+
+      <!-- Filters Modal -->
+      <div
+      class="modal fade position-absolute"
+      id="filtersModal"
+      tabindex="-1"
+      aria-labelledby="filtersModalLabel"
+      aria-hidden="true"
+    >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+          <!-- Header -->
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="filtersModalLabel">
+              Filters
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+    
+          <!-- Body -->
+          <div class="modal-body">
+            <div class="accordion" id="filtersAccordion">
+              <!-- Stops -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="stopsHeading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stopsFilter"
+                    aria-expanded="false"
+                    aria-controls="stopsFilter"
+                  >
+                    Stops
+                  </button>
+                </h2>
+                <div
+                  id="stopsFilter"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="stopsHeading"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="nonStop" />
+                      <label class="form-check-label" for="nonStop">
+                        Non-stop
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="oneStop" />
+                      <label class="form-check-label" for="oneStop">
+                        1 Stop
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="twoStops" />
+                      <label class="form-check-label" for="twoStops">
+                        2+ Stops
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Airlines -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="airlinesHeading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#airlinesFilter"
+                    aria-expanded="false"
+                    aria-controls="airlinesFilter"
+                  >
+                    Airlines
+                  </button>
+                </h2>
+                <div
+                  id="airlinesFilter"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="airlinesHeading"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="emirates" />
+                      <label class="form-check-label" for="emirates">
+                        Emirates
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="qatar" />
+                      <label class="form-check-label" for="qatar">
+                        Qatar Airways
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="turkish" />
+                      <label class="form-check-label" for="turkish">
+                        Turkish Airlines
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Price Range -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="priceHeading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#priceFilter"
+                    aria-expanded="false"
+                    aria-controls="priceFilter"
+                  >
+                    Price Range
+                  </button>
+                </h2>
+                <div
+                  id="priceFilter"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="priceHeading"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <input
+                      type="range"
+                      class="form-range"
+                      min="200"
+                      max="2000"
+                      step="50"
+                    />
+                    <p class="mt-2 small text-muted">USD 200 – USD 2000</p>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Departure Time -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="departureHeading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#departureFilter"
+                    aria-expanded="false"
+                    aria-controls="departureFilter"
+                  >
+                    Departure Time
+                  </button>
+                </h2>
+                <div
+                  id="departureFilter"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="departureHeading"
+                  data-bs-parent="#filtersAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="morning" />
+                      <label class="form-check-label" for="morning"> Morning </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="afternoon" />
+                      <label class="form-check-label" for="afternoon"> Afternoon </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="evening" />
+                      <label class="form-check-label" for="evening"> Evening </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="night" />
+                      <label class="form-check-label" for="night"> Night </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn bg-primary text-white">
+              Apply Filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     </main>
 
     <footer class="pt-5 pb-5">
