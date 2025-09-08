@@ -1,0 +1,140 @@
+.search-bar {
+    background-color: #fefefe;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.input-group-custom {
+    position: relative;
+}
+
+.input-label {
+    position: absolute;
+    top: -13px;
+    left: 3%;
+    background: #fff;
+    padding: 0 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.search-icon-button:hover {
+    background-color: #0e3e3d !important;
+    cursor: pointer;
+}
+
+
+.filters {
+    background: #0f2d2f;
+    color: #fff;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.filter-section {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Remove focus outline */
+.accordion-button:focus,
+.btn:focus,
+.form-check-input:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Custom slider */
+.custom-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #0f2d2f, #2ca58d);
+    border-radius: 4px;
+    outline: none;
+}
+
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0f2d2f;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: #0f2d2f;
+    border-color: #2ca58d;
+}
+
+.custom-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0f2d2f;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Rating buttons */
+.rating-buttons .btn {
+    margin: 0.25rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.rating-buttons .btn:hover,
+.rating-buttons .btn:active {
+    background: #0f2d2f;
+    color: #fff;
+}
+
+
+/* Tabs */
+.nav-tabs .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid #0f2d2f;
+    color: #0f2d2f;
+}
+
+/* Flight cards */
+.flight-card {
+    border-radius: 10px;
+}
+
+.flight-card .card-body {
+    gap: 1rem;
+}
+
+.flight-card img {
+    width: 50px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .flight-card .card-body {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .flight-card img {
+        margin-bottom: 10px;
+    }
+}
