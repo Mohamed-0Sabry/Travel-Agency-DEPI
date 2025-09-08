@@ -121,7 +121,7 @@
   }
 
   .Destinations-section .Flights-section .Flights-card .text .b-flight {
-    width: 30%;
+    width: 21%;
     height: 150px;
     font-size: 14px;
     border-radius: 20px;
@@ -182,7 +182,7 @@
     height: 34rem;
   }
   .carousel-text {
-    top: 368px;
+    top: 252px;
   }
   p,
   h5,
@@ -649,6 +649,9 @@
     font-size: 1.1rem;
   }
 
+  .carousel-text {
+    top: 416px;
+  }
   .login,
   .signup {
     font-size: 1.1rem;

@@ -392,16 +392,17 @@ body {
 }
 
 .Destinations-section .Flights-section .Flights-card .text .b-flight {
-  width: 16%;
+  width: 8%;
   height: 150px;
   font-size: 14px;
   border-radius: 20px;
+  font-weight: bold;
 }
 
 .Destinations-section .Flights-section .Flights-card .text .b-flight:hover {
   background-color: var(--greenColorDarker);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: white;
 }
 .Destinations-section .Flights-section .Flights-card {
   width: 50%;
@@ -525,6 +526,13 @@ body {
   border-color: var(--greenColor);
 }
 
+.discount-price,.original-price{
+  color: red;
+  font-weight: bold;
+}
+.to{
+  color: white;
+}
 /* End destinations section */
 /* start testomonials section */
 .testomonials-section {
