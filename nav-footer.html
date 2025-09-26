@@ -12,6 +12,7 @@
     <title>Travel Agency</title>
     <link rel="icon" href="./assets/images/Phnes. Travels-icon.ico" />
     <!--Animation-->
+    <link rel="stylesheet" href="./assets/css/animate.css" />
     <!--Bootstrap-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -27,11 +28,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- Main Template CSS File -->
-    <link rel="stylesheet" href="./assets/css/globals.css" />
-    <link rel="stylesheet" href="./assets/css/nav-footer.css" />
-    <link rel="stylesheet" href="./assets/css/flights.css" />
-    <link rel="stylesheet" href="./assets/css/flights-responsive.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +41,9 @@
       href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="./assets/css/nav-footer.css" />
+    <link rel="stylesheet" href="./assets/css/globals.css" />
   </head>
   <body>
     <!--Navbar-->
@@ -114,142 +113,6 @@
           </div>
         </div>
       </nav>
-      <!-- Login Modal -->
-      <div
-        class="modal fade"
-        id="loginModal"
-        tabindex="-1"
-        aria-labelledby="loginModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <div class="w-100">
-                <div class="text-center mb-3">
-                  <img
-                    src="./assets/images/logo.png"
-                    alt="Logo"
-                    style="max-width: 120px"
-                  />
-                </div>
-                <h1 class="modal-title fs-4 text-center" id="loginModalLabel">
-                  Login
-                </h1>
-                <p class="text-center login-desc">
-                  Login to access your photos
-                </p>
-              </div>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    name="email"
-                    required
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    id="loginPassword"
-                    required
-                  />
-                  <span
-                    class="password-toggle"
-                    onclick="togglePassword('loginPassword', this)"
-                  >
-                    <i class="fa-solid fa-eye-slash"></i>
-                  </span>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-4"
-                >
-                  <div class="remember-me-wrapper">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      name="remember-me"
-                      id="rememberMe"
-                    />
-                    <label for="rememberMe" class="form-check-label"
-                      >Remember me</label
-                    >
-                  </div>
-                  <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100 mb-3">
-                  Login
-                </button>
-              </form>
-
-              <div class="signup-link">
-                <p>
-                  Don't Have An Account?
-                  <a
-                    href="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#signupModal"
-                    data-bs-dismiss="modal"
-                    >Sign Up</a
-                  >
-                </p>
-              </div>
-
-              <div class="social-login-divider">Or Login With</div>
-
-              <div class="social-login-buttons">
-                <button class="social-btn facebook-btn">
-                  <i class="fa-brands fa-facebook"></i>
-                </button>
-                <button class="social-btn google-btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 48 48"
-                  >
-                    <path
-                      fill="#4285F4"
-                      d="M24 9.5c3.54 0 6.69 1.22 9.19 3.6l6.85-6.85C35.9 2.4 30.47 0 24 0 14.63 0 6.43 5.4 2.56 13.28l7.98 6.19C12.26 13.09 17.73 9.5 24 9.5z"
-                    />
-                    <path
-                      fill="#34A853"
-                      d="M46.5 24.5c0-1.57-.14-3.08-.39-4.5H24v9h12.65c-.55 2.96-2.26 5.48-4.84 7.18l7.45 5.77C43.6 38.02 46.5 31.77 46.5 24.5z"
-                    />
-                    <path
-                      fill="#FBBC05"
-                      d="M10.54 28.47A14.5 14.5 0 019.5 24c0-1.57.27-3.08.74-4.47l-7.98-6.19A23.86 23.86 0 000 24c0 3.86.93 7.52 2.56 10.72l7.98-6.25z"
-                    />
-                    <path
-                      fill="#EA4335"
-                      d="M24 48c6.48 0 11.91-2.13 15.87-5.77l-7.45-5.77c-2.08 1.4-4.75 2.27-8.42 2.27-6.27 0-11.74-3.59-14.46-8.72l-7.98 6.25C6.43 42.6 14.63 48 24 48z"
-                    />
-                  </svg>
-                </button>
-                <button class="social-btn apple-btn">
-                  <i class="fa-brands fa-apple"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- Sign Up Modal -->
       <div
         class="modal fade"
@@ -410,264 +273,144 @@
           </div>
         </div>
       </div>
+      <!-- Login Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="w-100">
+                <div class="text-center mb-3">
+                  <img
+                    src="./assets/images/logo.png"
+                    alt="Logo"
+                    style="max-width: 120px"
+                  />
+                </div>
+                <h1 class="modal-title fs-4 text-center" id="loginModalLabel">
+                  Login
+                </h1>
+                <p class="text-center login-desc">
+                  Login to access your photos
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="loginPassword"
+                    required
+                  />
+                  <span
+                    class="password-toggle"
+                    onclick="togglePassword('loginPassword', this)"
+                  >
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+
+                <div
+                  class="d-flex justify-content-between align-items-center mb-4"
+                >
+                  <div class="remember-me-wrapper">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      name="remember-me"
+                      id="rememberMe"
+                    />
+                    <label for="rememberMe" class="form-check-label"
+                      >Remember me</label
+                    >
+                  </div>
+                  <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mb-3">
+                  Login
+                </button>
+              </form>
+
+              <div class="signup-link">
+                <p>
+                  Don't Have An Account?
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#signupModal"
+                    data-bs-dismiss="modal"
+                    >Sign Up</a
+                  >
+                </p>
+              </div>
+
+              <div class="social-login-divider">Or Login With</div>
+
+              <div class="social-login-buttons">
+                <button class="social-btn facebook-btn">
+                  <i class="fa-brands fa-facebook"></i>
+                </button>
+                <button class="social-btn google-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 48 48"
+                  >
+                    <path
+                      fill="#4285F4"
+                      d="M24 9.5c3.54 0 6.69 1.22 9.19 3.6l6.85-6.85C35.9 2.4 30.47 0 24 0 14.63 0 6.43 5.4 2.56 13.28l7.98 6.19C12.26 13.09 17.73 9.5 24 9.5z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M46.5 24.5c0-1.57-.14-3.08-.39-4.5H24v9h12.65c-.55 2.96-2.26 5.48-4.84 7.18l7.45 5.77C43.6 38.02 46.5 31.77 46.5 24.5z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M10.54 28.47A14.5 14.5 0 019.5 24c0-1.57.27-3.08.74-4.47l-7.98-6.19A23.86 23.86 0 000 24c0 3.86.93 7.52 2.56 10.72l7.98-6.25z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M24 48c6.48 0 11.91-2.13 15.87-5.77l-7.45-5.77c-2.08 1.4-4.75 2.27-8.42 2.27-6.27 0-11.74-3.59-14.46-8.72l-7.98 6.25C6.43 42.6 14.63 48 24 48z"
+                    />
+                  </svg>
+                </button>
+                <button class="social-btn apple-btn">
+                  <i class="fa-brands fa-apple"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <section class="flight-hero pt-5 pb-5">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col">
-            <div class="hero-text">
-              <p class="text-white hero-heading mb-3 fs-3">
-                Create your travel wish list and leave the rest for us.
-              </p>
-              <p class="fs-5">Special offers to suit your plan.</p>
-            </div>
-            <div class="search-section mt-5">
-              <a><i class="ri-map-pin-line"></i> From</a>
-              <a><i class="ri-navigation-fill"></i> To</a>
-              <a><i class="ri-calendar-line"></i> Date of stay</a>
-              <a><i class="ri-user-line"></i> Traveler-Class</a>
-              <button>Find trip now</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="destinations pt-3 mt-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div
-              class="flight-wrapper d-flex justify-content-between align-items-center"
-            >
-              <div class="flight-head">
-                <h6>Destinations</h6>
-                <h2>Discover your love</h2>
-              </div>
-              <div class="flight-see-all">
-                <button type="button" class="btn btn-outline-success ps-4 pe-4">
-                  See all
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <div class="flight-image-container w-100">
-              <img
-                src="./assets/images/flight-img-1.png"
-                alt=""
-                class="w-100"
-              />
-              <div class="flight-pricing">
-                <p class="heading m-0 p-0">Paris</p>
-                <div class="d-flex align-items-center pricing">
-                  <p class="text-capitalize m-0 p-0">a paris adventure</p>
-                  <p class="m-0 p-0">$600</p>
-                </div>
-              </div>
-              <div
-                class="w-100 flight-book mt-4 d-flex align-items-center justify-content-center"
-              >
-                <button
-                  type="button"
-                  class="book-flight-button btn btn-outline-success ps-4 pe-4 pt-2 pb-2"
-                >
-                  Book Flight
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!--Footer-->
     <footer class="pt-5 pb-5">
       <div class="container">
         <div class="row gx-4 gy-3">
@@ -755,6 +498,5 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/js/flight.js"></script>
   </body>
 </html>
