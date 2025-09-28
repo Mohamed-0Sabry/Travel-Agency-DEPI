@@ -1,0 +1,72 @@
+@media (max-width:576px) {
+    .flight-hero {
+        min-height: 40vh;
+    }
+    .flight-pricing .heading{
+        font-size: 4rem;
+    }
+    .pricing{
+        align-items: center;
+        gap:0 80%
+    }
+    .pricing p{
+        font-size: 1.3rem;
+    }
+    .search-section{
+        padding:2% 3%;
+    }
+    .search-section a{
+        padding:2% 3%;
+    }
+    .search-section button{
+        padding:2% 3%;
+    }
+}
+@media (max-width:768px){
+    .flight-pricing .heading{
+        font-size: 4rem;
+    }
+    .pricing{
+        align-items: center;
+        gap:0 80%
+    }
+    .pricing p{
+        font-size: 1.3rem;
+    }
+}
+@media (max-width:992px){
+    .flight-pricing .heading{
+        font-size: 3rem;
+    }
+    .pricing{
+        align-items: center;
+        gap:0 60%
+    }
+    .pricing p{
+        font-size: 1.3rem;
+    }
+}
+@media (max-width:1200px){
+    .flight-pricing .heading{
+        font-size: 3rem;
+    }
+    .pricing{
+        align-items: center;
+        gap:0 60%
+    }
+    .pricing p{
+        font-size: 1.3rem;
+    }
+}
+@media(min-width:1300px){
+    .flight-pricing .heading{
+        font-size: 2.5rem;
+    }
+    .pricing{
+        align-items: center;
+        gap:0 60%
+    }
+    .pricing p{
+        font-size: 1.3rem;
+    }
+}
