@@ -651,6 +651,9 @@
     font-size: 1.1rem;
   }
 
+      .testomonials-section {
+        height: 44rem;
+    }
   .carousel-text {
     top: 416px;
   }
