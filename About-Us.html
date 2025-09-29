@@ -29,30 +29,32 @@
       referrerpolicy="no-referrer"
     />
     <!-- Main Template CSS File -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/responsive.css" />
-    <link rel="stylesheet" href="./assets/css/About-Us.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/nav-footer.css">
+    <link rel="stylesheet" href="./assets/css/globals.css">
+    <link rel="stylesheet" href="./assets/css/About-Us.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-          <a class="navbar-brand me-5" href="./landingPage.html"
-            ><img src="./assets/images/logo.png" alt="" class="nav-logo"
-          /></a>
+          <a class="navbar-brand me-5" href="./landingPage.html">
+            <img src="./assets/images/logo.png" alt="Logo" class="nav-logo" />
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -68,34 +70,44 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item pe-lg-4">
                 <a
-                  class="nav-link active"
+                  class="nav-link active fs-5"
                   aria-current="page"
                   href="./landingPage.html"
                   >Home</a
                 >
               </li>
               <li class="nav-item pe-lg-4">
-                <a class="nav-link" href="./flights.html">Flights</a>
+                <a class="nav-link fs-5" href="./flights.html">Flights</a>
               </li>
               <li class="nav-item pe-lg-4">
-                <a class="nav-link" href="#">Hotels</a>
+                <a class="nav-link fs-5" href="#">Hotels</a>
               </li>
               <li class="nav-item pe-lg-4">
-                <a class="nav-link" href="./discover.html">Discover</a>
+                <a class="nav-link fs-5" href="./discover.html">Discover</a>
               </li>
               <li class="nav-item pe-lg-4">
-                <a class="nav-link" href="./About-Us.html">About Us</a>
+                <a class="nav-link fs-5" href="./About-Us.html">About Us</a>
               </li>
               <li class="nav-item pe-lg-4">
-                <a class="nav-link" href="./contact-us.html">Contact</a>
+                <a class="nav-link fs-5" href="./contact-us.html">Contact</a>
               </li>
             </ul>
             <div class="login-sign-up d-flex">
               <div class="home-login me-4">
-                <a href="./login.html" class="login">Login</a>
+                <a
+                  href="#"
+                  class="login fs-5"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                  >Login</a
+                >
               </div>
               <div class="up">
-                <a href="./signup.html" class="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                <a
+                  href="#"
+                  class="home-sign-up pe-3 ps-3 pt-2 pb-2 fs-5"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signupModal"
                   >Sign Up</a
                 >
               </div>
@@ -103,6 +115,302 @@
           </div>
         </div>
       </nav>
+      <!-- Sign Up Modal -->
+      <div
+        class="modal fade"
+        id="signupModal"
+        tabindex="-1"
+        aria-labelledby="signupModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="w-100">
+                <div class="text-center mb-3">
+                  <img
+                    src="./assets/images/logo.png"
+                    alt="Logo"
+                    style="max-width: 120px"
+                  />
+                </div>
+                <h1 class="modal-title fs-4 text-center" id="signupModalLabel">
+                  Sign Up
+                </h1>
+                <p class="text-center login-desc">
+                  Create your account to get started
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="fullName"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="signupPassword"
+                    required
+                  />
+                  <span
+                    class="password-toggle"
+                    onclick="togglePassword('signupPassword', this)"
+                  >
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    required
+                  />
+                  <span
+                    class="password-toggle"
+                    onclick="togglePassword('confirmPassword', this)"
+                  >
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+
+                <div class="form-check mb-4">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="agreeTerms"
+                    required
+                  />
+                  <label class="form-check-label" for="agreeTerms">
+                    I agree to the
+                    <a href="#" class="terms-link">Terms & Conditions</a> and
+                    <a href="#" class="terms-link">Privacy Policy</a>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mb-3">
+                  Sign Up
+                </button>
+              </form>
+
+              <div class="login-link">
+                <p>
+                  Already Have An Account?
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                    data-bs-dismiss="modal"
+                    >Login</a
+                  >
+                </p>
+              </div>
+
+              <div class="social-login-divider">Or Sign Up With</div>
+
+              <div class="social-login-buttons">
+                <button class="social-btn facebook-btn">
+                  <i class="fa-brands fa-facebook"></i>
+                </button>
+                <button class="social-btn google-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 48 48"
+                  >
+                    <path
+                      fill="#4285F4"
+                      d="M24 9.5c3.54 0 6.69 1.22 9.19 3.6l6.85-6.85C35.9 2.4 30.47 0 24 0 14.63 0 6.43 5.4 2.56 13.28l7.98 6.19C12.26 13.09 17.73 9.5 24 9.5z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M46.5 24.5c0-1.57-.14-3.08-.39-4.5H24v9h12.65c-.55 2.96-2.26 5.48-4.84 7.18l7.45 5.77C43.6 38.02 46.5 31.77 46.5 24.5z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M10.54 28.47A14.5 14.5 0 019.5 24c0-1.57.27-3.08.74-4.47l-7.98-6.19A23.86 23.86 0 000 24c0 3.86.93 7.52 2.56 10.72l7.98-6.25z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M24 48c6.48 0 11.91-2.13 15.87-5.77l-7.45-5.77c-2.08 1.4-4.75 2.27-8.42 2.27-6.27 0-11.74-3.59-14.46-8.72l-7.98 6.25C6.43 42.6 14.63 48 24 48z"
+                    />
+                  </svg>
+                </button>
+                <button class="social-btn apple-btn">
+                  <i class="fa-brands fa-apple"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Login Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="w-100">
+                <div class="text-center mb-3">
+                  <img
+                    src="./assets/images/logo.png"
+                    alt="Logo"
+                    style="max-width: 120px"
+                  />
+                </div>
+                <h1 class="modal-title fs-4 text-center" id="loginModalLabel">
+                  Login
+                </h1>
+                <p class="text-center login-desc">
+                  Login to access your photos
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="loginPassword"
+                    required
+                  />
+                  <span
+                    class="password-toggle"
+                    onclick="togglePassword('loginPassword', this)"
+                  >
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </span>
+                </div>
+
+                <div
+                  class="d-flex justify-content-between align-items-center mb-4"
+                >
+                  <div class="remember-me-wrapper">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      name="remember-me"
+                      id="rememberMe"
+                    />
+                    <label for="rememberMe" class="form-check-label"
+                      >Remember me</label
+                    >
+                  </div>
+                  <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mb-3">
+                  Login
+                </button>
+              </form>
+
+              <div class="signup-link">
+                <p>
+                  Don't Have An Account?
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#signupModal"
+                    data-bs-dismiss="modal"
+                    >Sign Up</a
+                  >
+                </p>
+              </div>
+
+              <div class="social-login-divider">Or Login With</div>
+
+              <div class="social-login-buttons">
+                <button class="social-btn facebook-btn">
+                  <i class="fa-brands fa-facebook"></i>
+                </button>
+                <button class="social-btn google-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 48 48"
+                  >
+                    <path
+                      fill="#4285F4"
+                      d="M24 9.5c3.54 0 6.69 1.22 9.19 3.6l6.85-6.85C35.9 2.4 30.47 0 24 0 14.63 0 6.43 5.4 2.56 13.28l7.98 6.19C12.26 13.09 17.73 9.5 24 9.5z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M46.5 24.5c0-1.57-.14-3.08-.39-4.5H24v9h12.65c-.55 2.96-2.26 5.48-4.84 7.18l7.45 5.77C43.6 38.02 46.5 31.77 46.5 24.5z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M10.54 28.47A14.5 14.5 0 019.5 24c0-1.57.27-3.08.74-4.47l-7.98-6.19A23.86 23.86 0 000 24c0 3.86.93 7.52 2.56 10.72l7.98-6.25z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M24 48c6.48 0 11.91-2.13 15.87-5.77l-7.45-5.77c-2.08 1.4-4.75 2.27-8.42 2.27-6.27 0-11.74-3.59-14.46-8.72l-7.98 6.25C6.43 42.6 14.63 48 24 48z"
+                    />
+                  </svg>
+                </button>
+                <button class="social-btn apple-btn">
+                  <i class="fa-brands fa-apple"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
       <!-- Hero Section -->
@@ -315,7 +623,7 @@
     <!-- end of items -->
 
     <!-- start of footer -->
-    <footer class="pt-5 pb-5 ">
+    <footer class="pt-5 pb-5">
       <div class="container">
         <div class="row gx-4 gy-3">
           <div class="col-lg-3 col-md-12 col-12 first-column">
@@ -340,37 +648,55 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-1 col-md-6 col-6 ">
-            <h3 class="fw-bold p-0 mb-2  heading ">Links</h3>
+          <div class="col-lg-1 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">Links</h3>
             <ul class="footer-links">
-              <li class="mb-2"><a href="" class="text-capitalize">Flights</a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">Flights</a>
+              </li>
               <li class="mb-2"><a href="" class="text-capitalize">Stay</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">discover</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">about us</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">contact </a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">discover</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">about us</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">contact </a>
+              </li>
             </ul>
           </div>
           <div class="col-lg-2 col-md-6 col-6">
-            <h3 class="fw-bold p-0 mb-2 heading ">Our Activites</h3>
+            <h3 class="fw-bold p-0 mb-2 heading">Our Activites</h3>
             <ul class="footer-links">
               <li class="mb-2"><a href="" class="text-capitalize">tours</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">kayaking</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">cruising & sailing</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">multi-activities</a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">kayaking</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">cruising & sailing</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">multi-activities</a>
+              </li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 col-6 ">
-            <h3 class="fw-bold p-0 mb-2 heading ">About Us</h3>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">About Us</h3>
             <ul class="footer-links">
-              <li class="mb-2"><a href="" class="text-capitalize">our story</a></li>
-              <li class="mb-2"><a href="" class="text-capitalize">work with us</a></li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">our story</a>
+              </li>
+              <li class="mb-2">
+                <a href="" class="text-capitalize">work with us</a>
+              </li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 col-6 ">
-            <h3 class="fw-bold p-0 mb-2 heading ">Contact</h3>
-            <ul class="footer-links">
+          <div class="col-lg-2 col-md-6 col-6">
+            <h3 class="fw-bold p-0 mb-2 heading">Contact</h3>
+            <ul class="footer-links" id="company-info">
               <li class="mb-2 text-capitalize">Address:Pe.Holandia no.205A</li>
-              <li class="mb-2 text-capitalize">millenium city </li>
+              <li class="mb-2 text-capitalize">millenium city</li>
               <li class="mb-2 text-capitalize">phone: 023 456 7890</li>
               <li class="mb-2 text-capitalize">email:blabla@gmail.com</li>
               <li class="mb-2 text-capitalize">maps:millenium city</li>

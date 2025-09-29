@@ -11,24 +11,24 @@
 /*end icon r-part*/
 /* start view more btn */
 .card-body .btn {
- background-color: #276968;
+ background-color: var(--backgroundColor);
 } 
 .card-body button{
-border-color: #276968;
-border: 1px solid #276968;
+border-color: var(--backgroundColor);
+border: 1px solid var(--backgroundColor);
 }
 .card-body .btn:hover {
 background-color: white;
-color: #276968;
+color: var(--backgroundColor);
 }
 /* end view more btn */
 /*start see all btn*/
 .part .btn {
-   background-color: #276968;
+   background-color: var(--backgroundColor);
 }
 .part .btn:hover{
    background-color: white;
-   color: #276968; 
+   color: var(--backgroundColor);
 }
 /*end see all btn*/
 /*start icon l-part */
@@ -37,7 +37,7 @@ color: #276968;
    transition: transform 0.5s ease;
 }
 .lpart .location:hover{
-    color: #276968;
+    color: var(--backgroundColor);
     transform: scale(1.3);
 }
 .lpart .country{
