@@ -1,3 +1,5 @@
+
+
 const swiper = new Swiper(".destinations-swiper", {
   // Optional parameters
   direction: "horizontal",
@@ -55,14 +57,4 @@ const flightsSwiper = new Swiper(".flights-swiper", {
   },
 });
 
-// video sction
-function playVideo() {
-  const video = document.getElementById("custom-video");
-  video.play();
-}
-
-function pauseVideo() {
-  const video = document.getElementById("custom-video");
-  video.pause();
-}
 

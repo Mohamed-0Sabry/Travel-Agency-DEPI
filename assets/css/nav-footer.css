@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --headerFont: "Montserrat Alternates", sans-serif;
   --linkFont: "Karla", sans-serif;
   --linkColor: rgb(119, 119, 119);
@@ -152,4 +152,371 @@ footer{
     display:flex;
     align-items:center;
   }
+} */
+
+
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--linkFont);
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+  max-width: 150px;
+}
+
+.nav-logo {
+  width: 100%;
+}
+
+.home-login a {
+  color: var(--linkColor);
+  text-decoration: none;
+}
+
+.home-sign-up {
+  background-color: var(--backgroundColor);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.home-sign-up:hover {
+  background-color: #1e5453;
+  color: white;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 2rem 2rem 1rem;
+}
+
+.modal-body {
+  padding: 1rem 2rem 2rem;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 2rem 2rem;
+}
+
+.modal-title {
+  font-family: var(--headerFont);
+  font-weight: 600;
+  color: var(--backgroundColor);
+}
+
+/* Login/Signup Form Styles */
+.login-desc {
+  color: var(--linkColor);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  background: white;
+  padding: 0 8px;
+  font-size: 0.9rem;
+  color: var(--linkColor);
+  font-weight: 500;
+}
+
+.form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--backgroundColor);
+  box-shadow: 0 0 0 0.2rem rgba(39, 105, 104, 0.25);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--linkColor);
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--backgroundColor);
+  border-color: var(--backgroundColor);
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1e5453;
+  border-color: #1e5453;
+}
+
+.remember-me-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+.forgot-password {
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+  color: #b02a37;
+}
+
+.signup-link,
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.signup-link a,
+.login-link a {
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  color: #b02a37;
+}
+
+/* Social Login Styles */
+.social-login-divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #666;
+}
+
+.social-login-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.social-login-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.social-login-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--backgroundColor);
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  background-color: var(--backgroundColor);
+  color: white;
+}
+
+.social-btn i {
+  font-size: 1.2rem;
+}
+
+.facebook-btn i {
+  color: #1877f2;
+}
+
+.apple-btn i {
+  color: #000;
+}
+
+.terms-link {
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  color: #e67e00;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-header {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .social-login-divider::before {
+    width: 27%;
+  }
+  .social-login-divider::after {
+    width: 27%;
+  }
+  .footer-img {
+    width: 150px;
+  }
+  .footer-links li a{
+    font-size:1rem;
+  }
+  #company-info li{
+    font-size:0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.footer-img {
+  max-width: 200px;
+}
+.footer-logo {
+  display: block;
+}
+footer .social-links i {
+  color: white;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+.footer-links li a {
+  color: rgb(212, 211, 211);
+}
+.footer-links li {
+  color: rgb(212, 211, 211);
+}
+footer {
+  background-color: var(--backgroundColor);
+  color: white;
 }
