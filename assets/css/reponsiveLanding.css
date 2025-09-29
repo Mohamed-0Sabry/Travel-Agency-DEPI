@@ -182,7 +182,7 @@
     height: 34rem;
   }
   .carousel-text {
-    top: 252px;
+    top: 342px;
   }
   p,
   h5,
@@ -294,6 +294,7 @@
   .About_section .left-section,
   .About_section .right-section {
     padding: 0 15px;
+            width: 100%;
   }
 
   .About_section .left-section span {
@@ -447,6 +448,7 @@
   .About_section .left-section,
   .About_section .right-section {
     padding: 0 15px;
+            width: 100%;
   }
 
   .About_section .left-section span {
@@ -557,7 +559,7 @@
   }
 
   .navbar {
-    padding: 2.2rem 7%;
+    padding: 0.2rem 7%;
   }
 
   .logo {
@@ -600,7 +602,7 @@
   /* About Section */
   .About_section {
     max-width: 1700px;
-    margin: 170px auto;
+    margin: 81px auto;
     gap: 70px;
   }
 
@@ -634,7 +636,7 @@
   }
 
   .navbar {
-    padding: 2.5rem;
+    padding: 0.5rem;
   }
 
   .logo {
@@ -689,7 +691,7 @@
   /* About Section */
   .About_section {
     max-width: 2000px;
-    margin: 250px auto;
+    margin: 116px auto;
     gap: 100px;
     gap: 45px;
   }
