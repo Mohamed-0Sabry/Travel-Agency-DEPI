@@ -1,3 +1,5 @@
+
+
 const swiper = new Swiper(".destinations-swiper", {
   // Optional parameters
   direction: "horizontal",
@@ -55,10 +57,13 @@ const flightsSwiper = new Swiper(".flights-swiper", {
   },
 });
 
-const bookNowButtons=document.querySelectorAll('.b-flight');
 
-bookNowButtons.forEach((btn)=>{
-  btn.addEventListener('click',()=>{
-    window.location.href='bookFlight.html';
-  })
-})
+function playVideo() {
+  const video = document.getElementById("custom-video");
+  video.play();
+}
+
+function pauseVideo() {
+  const video = document.getElementById("custom-video");
+  video.pause();
+}
