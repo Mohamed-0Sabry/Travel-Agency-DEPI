@@ -28,25 +28,63 @@
      <!--  Strat Hero section -->
     <div class="hero_section">
         <img class="logo" src="assets/LandingPage/HeroImage.png" alt="Travel destination">
-        
-        <div class="navbar">
-            <a href="#" class="logo">Phnes<span>.</span>Travels</a>
-            
-            <ul class="nav-list">
-                <li><a href="./landingPage.html">Home</a></li>
-                <li><a href="./flights.html">Flights</a></li>
-                <li><a href="#">Hotels</a></li>
-                <li><a href="./discover.html">Discover</a></li>
-                <li><a href="./About-Us.html">About Us</a></li>
-                <li><a href="./contact-us.html">Contact</a></li>
+       <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand me-5" href="./landingPage.html"
+            ><img src="./assets/images/logo.png" alt="" class="nav-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item pe-lg-4">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./landingPage.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./flights.html">Flights</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="#">Hotels</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./discover.html">Discover</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./About-Us.html">About Us</a>
+              </li>
+              <li class="nav-item pe-lg-4">
+                <a class="nav-link" href="./contact-us.html">Contact</a>
+              </li>
             </ul>
-            
-            <div class="nav-buttons">
+            <div class="login-sign-up d-flex">
+              <div class="home-login me-4">
                 <a href="./login.html" class="login">Login</a>
-                <a href="./signup.html" class="login">Sign Up</a>
-                <!-- <button class="signup">Signup</button> -->
+              </div>
+              <div class="up">
+                <a href="./signup.html" class="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                  >Sign Up</a
+                >
+              </div>
             </div>
+          </div>
         </div>
+      </nav>
+    </header>
         
         <div class="center-text">
         <h1>Don't call it a dream. Call it a plan</h1>
@@ -113,11 +151,33 @@
     </div>
     <!-- End About section -->
      <!-- Start Video section -->
-    <div class="video-container">
+  <div class="video-container">
   <div class="video-wrapper">
-     <iframe src="https://www.youtube.com/embed/CDx2fxb5ZF4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Use <video> instead of <iframe> -->
+    <video id="custom-video" autoplay muted loop>
+      <source src="/assets/videos/6013101_People_Person_3840x2160.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!--overlay -->
+    <div class="video-overlay"></div>
+
+    <!--buttons -->
+    <div class="video-controls">
+      <button class="control-btn play-btn" onclick="playVideo()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="control-btn pause-btn" onclick="pauseVideo()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+      </button>
+    </div>
   </div>
-      </div>
+</div>
+
      <!-- End Video section -->
     <!-- start Destinations section -->
     <div class="Destinations-section">

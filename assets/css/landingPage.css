@@ -4,6 +4,7 @@
   --greenColorDarker: #184140;
   --textColor: #555;
   --lightGray: #f5f5f5;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Strat Hero section  */
@@ -328,14 +329,66 @@ body {
   overflow: hidden;
 }
 
-.video-wrapper iframe {
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;  /* Ensures the video fills the div */
   border: none;
 }
+
+/* Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(144, 238, 144, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Controls */
+.video-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+}
+
+.control-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn svg {
+  color: #333;
+  width: 24px;
+  height: 24px;
+}
+
+
 /* End Video section */
 
 /* start Destinations section */
@@ -527,7 +580,7 @@ body {
 }
 
 .discount-price,.original-price{
-  color: red;
+  color: yellow;
   font-weight: bold;
 }
 .to{
