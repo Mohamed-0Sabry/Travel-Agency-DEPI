@@ -294,7 +294,7 @@
   .About_section .left-section,
   .About_section .right-section {
     padding: 0 15px;
-            width: 100%;
+    width: 100%;
   }
 
   .About_section .left-section span {
@@ -448,7 +448,7 @@
   .About_section .left-section,
   .About_section .right-section {
     padding: 0 15px;
-            width: 100%;
+    width: 100%;
   }
 
   .About_section .left-section span {
@@ -599,6 +599,9 @@
     padding: 20px 35px;
   }
 
+  .testomonials-section {
+    height: 40rem;
+  }
   /* About Section */
   .About_section {
     max-width: 1700px;
@@ -651,9 +654,9 @@
     font-size: 1.1rem;
   }
 
-      .testomonials-section {
-        height: 44rem;
-    }
+  .testomonials-section {
+    height: 44rem;
+  }
   .carousel-text {
     top: 416px;
   }
