@@ -109,8 +109,6 @@
   .hero_section {
     height: 60vh;
     min-height: 756px;
-    padding-left: 20px;
-    padding-top: 20px;
   }
 
   /* End Hero Destinations section */
@@ -654,9 +652,7 @@
     font-size: 1.1rem;
   }
 
-  .testomonials-section {
-    height: 44rem;
-  }
+
   .carousel-text {
     top: 416px;
   }
