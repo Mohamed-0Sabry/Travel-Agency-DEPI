@@ -1,0 +1,9 @@
+{
+  "destinations": [
+    { "id": 1, "name": "Cairo", "country": "Egypt", "price": 200, "rating": 4.5, "img": "/assets/images/cairo.jpg" },
+    { "id": 2, "name": "Berlin", "country": "Germany", "price": 1200, "rating": 4.7, "img": "/assets/images/berlin.jpg" },
+    { "id": 3, "name": "Doha", "country": "Qatar", "price": 800, "rating": 4.6, "img": "/assets/images/doha.jpg" }
+  ],
+  "bookings": [],
+  "users": []
+}

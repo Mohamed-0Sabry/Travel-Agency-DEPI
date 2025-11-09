@@ -1,0 +1,65 @@
+/* Small  768px  to 991px*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    margin: 0 auto;
+  }
+}
+/* Medium 92px  to 1199px*/
+@media (min-width: 992px) {  
+  .container {
+    width: 970px;
+    margin: 0 auto;
+  }
+}
+/* Large 1200px up to */
+@media (min-width: 1200px) { 
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+/* custom responsive  */
+@media (max-width: 992px) {
+  header nav .form {
+    display: none;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .about-us .about-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .theming-btn {
+    padding: 10px 15px;
+    min-width: 135px;
+    text-align: center;
+  }
+  .about-us .about-actions {
+    gap: 15px;
+  }
+  .top-header .header-contact {
+    display: none;
+  }
+  .top-header .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 992px) {
+  footer .footer-content .footer-top{
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0 40px;
+  }
+  .footer-bottom .footer-bottom-content {
+    flex-direction: column;
+}
+}
