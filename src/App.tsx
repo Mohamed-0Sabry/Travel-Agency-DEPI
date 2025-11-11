@@ -23,9 +23,9 @@ import TestComponentsPage from './pages/TestComponentsPage'
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
         <TestComponentsPage />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

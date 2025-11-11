@@ -1,6 +1,5 @@
 import Button from "@/Components/ui/Button";
 import Text from "@/Components/ui/Text";
-
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="space-y-3">
     <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
