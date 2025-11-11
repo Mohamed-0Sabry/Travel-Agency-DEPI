@@ -1,0 +1,516 @@
+body {
+  font-family: var(--linkFont);
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+  max-width: 150px;
+}
+
+.nav-logo {
+  width: 100%;
+}
+
+.home-login a {
+  color: var(--linkColor);
+  text-decoration: none;
+}
+
+.home-sign-up {
+  background-color: var(--backgroundColor);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.home-sign-up:hover {
+  background-color: #1e5453;
+  color: white;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 2rem 2rem 1rem;
+}
+
+.modal-body {
+  padding: 1rem 2rem 2rem;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 2rem 2rem;
+}
+
+.modal-title {
+  font-family: var(--headerFont);
+  font-weight: 600;
+  color: var(--backgroundColor);
+}
+
+/* Login/Signup Form Styles */
+.login-desc {
+  color: var(--linkColor);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  background: white;
+  padding: 0 8px;
+  font-size: 0.9rem;
+  color: var(--linkColor);
+  font-weight: 500;
+}
+
+.form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--backgroundColor);
+  box-shadow: 0 0 0 0.2rem rgba(39, 105, 104, 0.25);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--linkColor);
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--backgroundColor);
+  border-color: var(--backgroundColor);
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1e5453;
+  border-color: #1e5453;
+}
+
+.remember-me-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+.forgot-password {
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+  color: #b02a37;
+}
+
+.signup-link,
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.signup-link a,
+.login-link a {
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  color: #b02a37;
+}
+
+/* Social Login Styles */
+.social-login-divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #666;
+}
+
+.social-login-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.social-login-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.social-login-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--backgroundColor);
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  background-color: var(--backgroundColor);
+  color: white;
+}
+
+.social-btn i {
+  font-size: 1.2rem;
+}
+
+.facebook-btn i {
+  color: #1877f2;
+}
+
+.apple-btn i {
+  color: #000;
+}
+
+.terms-link {
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  color: #e67e00;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-header {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .social-login-divider::before {
+    width: 27%;
+  }
+  .social-login-divider::after {
+    width: 27%;
+  }
+  .footer-img {
+    width: 150px;
+  }
+  .footer-links li a {
+    font-size: 1rem;
+  }
+  #company-info li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-sign-up {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login {
+    margin-bottom: 10px;
+  }
+
+  .home-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-img {
+  max-width: 200px;
+}
+.footer-logo {
+  display: block;
+}
+footer .social-links i {
+  color: white;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+.footer-links li a {
+  color: rgb(212, 211, 211);
+}
+.footer-links li {
+  color: rgb(212, 211, 211);
+}
+footer {
+  background-color: var(--backgroundColor);
+  color: white;
+}
+@media (max-width: 991.98px) {
+  /* Force the collapse element to be "present" so we can animate max-height/opacity */
+  .navbar-collapse.collapse {
+    display: block !important;
+  }
+
+  .navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 260ms ease, opacity 260ms ease, transform 260ms ease;
+    transform: translateY(-6px);
+  }
+
+  .navbar-collapse.show {
+    max-height: 600px; /* large enough to contain menu */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modal.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal.d-block {
+  display: block; /* ensure it's visible while animating */
+}
+
+.modal.fade.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* animate dialog sliding down/up slightly */
+.modal .modal-dialog {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+.modal.fade.show .modal-dialog,
+.modal .modal-content.entering {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal .modal-content.exiting {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+/* Large tablets and small laptops: prevent Sign Up wrapping and keep navbar inline */
+@media (min-width: 1168px) {
+  /* Keep navbar items aligned and use full space */
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* Ensure nav links stay inline */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Login/Sign up area inline and centered */
+  .login-sign-up {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap; /* prevent children from wrapping */
+  }
+
+  /* Make sure the sign-up button stays on one line and looks like a button */
+  .login-sign-up .up .home-sign-up {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.55rem 0.9rem;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 8px;
+    min-width: auto;
+    text-align: center;
+  }
+
+  /* Slightly reduce the login link size so both fit comfortably */
+  .login-sign-up .home-login .login {
+    font-size: 0.98rem;
+  }
+
+  /* Hide the mobile toggler at these widths (desktop-like) */
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+@media (min-width: 1168px) {
+  .navbar {
+    overflow-x: visible;
+  }
+
+  .navbar .container {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    flex: 0 0 auto;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 1rem;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .navbar-nav .nav-item {
+    white-space: nowrap;
+  }
+
+  .navbar-nav .nav-item.pe-lg-4 {
+    padding-right: 0.6rem;
+    padding-left: 0.25rem;
+  }
+
+  .login-sign-up {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1168px) {
+  .navbar-brand {
+    max-width: 120px;
+    margin-right: 0.75rem;
+  }
+
+  .navbar-brand .nav-logo {
+    width: auto;
+    max-width: 110px;
+    height: auto;
+    display: block;
+  }
+
+  .about-link {
+    display: inline-block;
+    max-width: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 0.92rem;
+    vertical-align: middle;
+  }
+
+  .navbar-nav .nav-item.pe-lg-4:nth-child(5) {
+    padding-right: 0.5rem;
+  }
+}
