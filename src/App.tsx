@@ -19,3 +19,16 @@
 //     </>
 //   )
 // }
+
+
+import TestComponentsPage from './pages/TestComponentsPage'
+
+const App = () => {
+  return (
+    <div>
+        <TestComponentsPage />
+    </div>
+  )
+}
+
+export default App
