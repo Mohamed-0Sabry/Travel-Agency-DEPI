@@ -1,0 +1,84 @@
+.flight-hero {
+  background: url(../assets/images/flight-hero-2-min.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex; /* enables flexbox */
+  align-items: center; /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center; /* center text inside */
+}
+.search-section {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.search-section a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #555;
+  text-decoration: none;
+  position: relative;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-section a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.search-section a i {
+  font-size: 20px;
+  color: #3a9949;
+}
+
+.search-section button {
+  background-color: var(--greenColor);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.search-section button:hover {
+  background-color: #2e7a3a;
+}
+
+@media (max-width:576px) {
+    .flight-hero {
+        min-height: 40vh;
+    }
+    .search-section{
+        padding:2% 3%;
+    }
+    .search-section a{
+        padding:2% 3%;
+    }
+    .search-section button{
+        padding:2% 3%;
+    }
+}
+
