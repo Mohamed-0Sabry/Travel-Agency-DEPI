@@ -1,8 +1,15 @@
 {
   "destinations": [
-    { "id": 1, "name": "Cairo", "country": "Egypt", "price": 200, "rating": 4.5, "img": "/assets/images/cairo.jpg" },
-    { "id": 2, "name": "Berlin", "country": "Germany", "price": 1200, "rating": 4.7, "img": "/assets/images/berlin.jpg" },
-    { "id": 3, "name": "Doha", "country": "Qatar", "price": 800, "rating": 4.6, "img": "/assets/images/doha.jpg" }
+    { "id": 1, "name": "Cairo", "country": "Egypt", "price": 200, "rating": 4.5, "img": "src/assets/images/Cairo.jpg" },
+    { "id": 2, "name": "Berlin", "country": "Germany", "price": 1200, "rating": 4.7, "img": "src/assets/images/Germany.jpg" },
+    { "id": 3, "name": "Doha", "country": "Qatar", "price": 800, "rating": 4.6, "img": "src/assets/images/Doha.jpg" },
+    { "id": 4, "name": "Tokyo", "country": "Japan", "price": 1800, "rating": 4.9, "img": "src/assets/images/Tokyo.jpg" },
+    { "id": 5, "name": "Paris", "country": "France", "price": 1500, "rating": 4.8, "img": "src/assets/images/flight-img-1.png" },
+    { "id": 6, "name": "Istanbul", "country": "Turkey", "price": 700, "rating": 4.4, "img": "src/assets/images/Istanbul.jpg" },
+    { "id": 7, "name": "New York", "country": "USA", "price": 2200, "rating": 4.7, "img": "src/assets/images/NewYork.jpg" },
+    { "id": 8, "name": "Dubai", "country": "UAE", "price": 950, "rating": 4.6, "img": "src/assets/images/Dubai.jpg" },
+    { "id": 9, "name": "Rome", "country": "Italy", "price": 1300, "rating": 4.5, "img": "src/assets/images/Rome.jpg" },
+    { "id": 10, "name": "Bangkok", "country": "Thailand", "price": 1100, "rating": 4.3, "img": "src/assets/images/Bangok.jpg" }
   ],
   "bookings": [],
   "users": []

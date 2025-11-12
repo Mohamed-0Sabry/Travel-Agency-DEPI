@@ -1,0 +1,7 @@
+.flight-head h6 {
+  color: var(--bs-primary);
+}
+.flight-head h2 {
+  font-family: var(--headerFont);
+  font-weight: 700;
+}
