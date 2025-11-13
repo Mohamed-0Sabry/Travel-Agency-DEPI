@@ -12,5 +12,119 @@
     { "id": 10, "name": "Bangkok", "country": "Thailand", "price": 1100, "rating": 4.3, "img": "src/assets/images/Bangok.jpg" }
   ],
   "bookings": [],
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Ann Pine",
+      "email": "ann.pine@gmail.com",
+      "password": "hashed_password_here",
+      "phoneNumber": "+233 034 3456 578",
+      "address": "PR 12 East Legon, Accra, Ghana",
+      "dateOfBirth": "02-24-1996",
+      "avatarUrl": "src/assets/images/PP.png",
+      "hasPhoneVerified": true,
+      "createdAt": "2023-01-15T10:30:00Z",
+      "updatedAt": "2024-11-13T08:45:00Z"
+    }
+  ],
+  "flights": [
+    {
+      "id": 1,
+      "userId": 1,
+      "flightNumber": "IN 230",
+      "airline": "United Airlines",
+      "airlineLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png",
+      "departureTime": "11:00 PM",
+      "arrivalTime": "6:00 AM",
+      "departureAirport": "ACC",
+      "arrivalAirport": "LHR",
+      "date": "Dec 11, 2022",
+      "flightDuration": "7h 40min",
+      "gate": "2B",
+      "seat": "22",
+      "class": "Economy",
+      "price": 850,
+      "bookingReference": "ABC123XYZ",
+      "ticketUrl": "/tickets/flight-1.pdf",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "flightNumber": "EK 142",
+      "airline": "Emirates",
+      "airlineLogo": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Emirates_logo.svg",
+      "departureTime": "10:00 AM",
+      "arrivalTime": "1:00 PM",
+      "departureAirport": "DXB",
+      "arrivalAirport": "CAI",
+      "date": "Dec 11, 2022",
+      "flightDuration": "3h 10min",
+      "gate": "12B",
+      "seat": "29",
+      "class": "Business",
+      "price": 1250,
+      "bookingReference": "DEF456ABC",
+      "ticketUrl": "/tickets/flight-2.pdf",
+      "status": "completed"
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "userId": 1,
+      "hotelName": "Kempinski Hotel",
+      "hotelLogo": "https://example.com/hotel-logo-1.png",
+      "checkInDate": "Sun, Dec 22",
+      "checkOutDate": "Mon, Dec 22",
+      "checkInTime": "6:40 AM",
+      "checkOutTime": "10:00 AM",
+      "roomNumber": "On arrival",
+      "roomType": "Deluxe Suite",
+      "numberOfGuests": 2,
+      "numberOfNights": 1,
+      "pricePerNight": 180,
+      "totalPrice": 180,
+      "bookingReference": "HTL789GHI",
+      "confirmationUrl": "/confirmations/hotel-1.pdf",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "hotelName": "Marriott Resort",
+      "hotelLogo": "https://example.com/hotel-logo-2.png",
+      "checkInDate": "Thu, Jun 2",
+      "checkOutDate": "Sat, Jun 4",
+      "checkInTime": "1:40 AM",
+      "checkOutTime": "12:00 PM",
+      "roomNumber": "On arrival",
+      "roomType": "Ocean View",
+      "numberOfGuests": 2,
+      "numberOfNights": 2,
+      "pricePerNight": 250,
+      "totalPrice": 500,
+      "bookingReference": "HTL321JKL",
+      "confirmationUrl": "/confirmations/hotel-2.pdf",
+      "status": "completed"
+    }
+  ],
+  "paymentMethods": [
+    {
+      "id": 1,
+      "userId": 1,
+      "cardType": "VISA",
+      "lastFourDigits": "3507",
+      "cardholderName": "Ann Pine",
+      "expiryDate": "12/26",
+      "isDefault": true,
+      "billingAddress": {
+        "street": "PR 12 East Legon",
+        "city": "Accra",
+        "country": "Ghana",
+        "postalCode": "00233"
+      },
+      "addedAt": "2023-05-10T14:20:00Z"
+    }
+  ]
 }

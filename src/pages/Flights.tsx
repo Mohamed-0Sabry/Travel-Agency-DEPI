@@ -1,6 +1,6 @@
-import FlightDestinations from "@/Features/FlightDestinations";
-import FlightDiscover from "@/Features/FlightDiscover";
-import FlightHero from "@/Features/FlightHero";
+import FlightDestinations from "@/features/FlightDestinations";
+import FlightDiscover from "@/features/FlightDiscover";
+import FlightHero from "@/features/FlightHero";
 
 const Flights = () => {
   return (
