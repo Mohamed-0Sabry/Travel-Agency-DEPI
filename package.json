@@ -1,4 +1,5 @@
 {
+  "homepage":"https://Mohamed-0Sabry.github.io/Travel-Agency-DEPI",
   "name": "Travel-Agency",
   "private": true,
   "version": "0.0.0",
@@ -9,7 +10,9 @@
     "dev:all": "concurrently \"npm run serve:api\" \"npm run dev\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy":"npm run build",
+"deploy":"gh-pages -d build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",

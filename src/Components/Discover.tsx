@@ -1,7 +1,7 @@
 import React from 'react';
 
-// Discover Component فقط بدون Navbar أو Footer
-// انسخه داخل مشروعك واستخدمه بكتابة: <Discover />
+// Discover Component using Bootstrap
+// Usage: <Discover />
 
 export default function Discover() {
   return (
@@ -15,7 +15,7 @@ export default function Discover() {
           <a href="#contact" className="btn btn-outline-secondary">Contact Us</a>
         </div>
         <div className="col-md-6">
-          <img src="/images/discover-hero.jpg" className="img-fluid rounded" alt="Discover" />
+          <img src="src/assets/images/banner.png" className="img-fluid rounded" alt="Discover" />
         </div>
       </div>
 
@@ -26,7 +26,7 @@ export default function Discover() {
           {[1,2,3].map((num) => (
             <div key={num} className="col-md-4 mb-3">
               <div className="card h-100">
-                <img src={`/images/package${num}.jpg`} className="card-img-top" alt={`Package ${num}`} />
+                <img src={`src/assets/images/destination-${num}.jpg`} className="card-img-top" alt={`Package ${num}`} />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">Package {num}</h5>
                   <p className="card-text">Description of package {num} goes here.</p>
@@ -54,7 +54,7 @@ export default function Discover() {
                 <input className="form-control" placeholder="Email" />
               </div>
               <div className="col-12">
-                <textarea className="form-control" rows="4" placeholder="Message"></textarea>
+                <textarea className="form-control" rows={4} placeholder="Message"></textarea>
               </div>
               <div className="col-12 text-end">
                 <button type="submit" className="btn btn-primary mt-2">Send</button>

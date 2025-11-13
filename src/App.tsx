@@ -3,7 +3,7 @@ import Layout from "./shared/Layout";
 import Flights from "./pages/Flights";
 import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
-
+import Discover from "./Components/Discover";
 function ComingSoon({ title }: { title: string }) {
   return (
     <section className="py-5">
@@ -25,7 +25,7 @@ export default function App() {
         <Route path="flights" element={<Flights />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="hotels" element={<ComingSoon title="Hotels" />} />
-        <Route path="discover" element={<ComingSoon title="Discover" />} />
+        <Route path="discover" element={<Discover />} />
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="contact" element={<ComingSoon title="Contact" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
