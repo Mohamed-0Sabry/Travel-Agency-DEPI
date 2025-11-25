@@ -3,7 +3,7 @@ import Layout from "./shared/Layout";
 import Flights from "./pages/Flights";
 import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
-import Discover from "./Components/Discover";
+import Discover from "./pages/Discover";
 function ComingSoon({ title }: { title: string }) {
   return (
     <section className="py-5">
