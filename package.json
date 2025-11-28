@@ -1,5 +1,5 @@
 {
-  "homepage":"https://Mohamed-0Sabry.github.io/Travel-Agency-DEPI",
+  "homepage": "https://Mohamed-0Sabry.github.io/Travel-Agency-DEPI",
   "name": "Travel-Agency",
   "private": true,
   "version": "0.0.0",
@@ -11,8 +11,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy":"npm run build",
-"deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -32,7 +32,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.5",
     "react-toastify": "^11.0.5",
-    "yup": "^1.7.1"
+    "yup": "^1.7.1",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

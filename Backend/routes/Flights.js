@@ -4,8 +4,13 @@ const router = express.Router();
 const upload = require("./uploader");
 
 router.get("/", async (req, res) => {
-  const flights = await Flights.find();
-  res.send(flights);
+  try {
+    const flights = await Flights.find();
+    res.send(flights);
+  } catch (e) {
+    console.err(e);
+    res.status(500).send("Error Fetching Flights");
+  }
 });
 
 router.get("/:id", async (req, res) => {
@@ -50,9 +55,10 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
   let flight = new Flights(payload);
   try {
-    flight = await flight.save();
-    res.status(201).send(flight);
+    const newFlight = await flight.save();
+    res.status(201).send(newFlight);
   } catch (e) {
+    console.err(e);
     res.status(500).send("Error Occured While Saving The Flight");
   }
 });
@@ -90,28 +96,27 @@ router.put("/:id", upload.single("image"), async (req, res) => {
   }
   let updatedFlight = new Flights(payload);
   try {
-    updatedFlight = await updatedFlight.findByIdAndUpdate(
+    const update = await Flights.findByIdAndUpdate(
       req.params.id,
       updatedFlight,
       { new: true }
     );
-    res.status(200).send(updatedFlight);
+    res.status(200).send(update);
   } catch (e) {
     res.status(500).send("Error Updating Flight Info");
   }
 });
 
-router.delete("/:id",async(req,res)=>{
-  const flight=await Flights.findById(req.params.id);
-  if(!flight){
-    return res.status(404).send("No Flight Found With That Id")
+router.delete("/:id", async (req, res) => {
+  const flight = await Flights.findById(req.params.id);
+  if (!flight) {
+    return res.status(404).send("No Flight Found With That Id");
   }
-  try{
-    flight=await flight.findByIdAndDelete(req.params.id);
+  try {
+    const deleted = await Flights.findByIdAndDelete(req.params.id);
     res.status(200).send("The Flight Is Deleted Successfully");
-  }catch(e){
+  } catch (e) {
     res.status(500).send("Error Deleting The Flight");
   }
-
-})
+});
 module.exports = router;
