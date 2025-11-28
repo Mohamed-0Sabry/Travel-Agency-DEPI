@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "../Components/Card"; // named import
 import RatingStars from "../Features/RatingStars";
-
 import type { Flight } from "@/types/Flight";
-import axios from "axios";
-
+import useFlightStore from "@/store/useFlightStore";
+import axiosInstance from "@/networks/axiosInstance";
 const BeautifulDestinationCard: React.FC = () => {
-  const [flights, setFlights] = useState<Flight[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
-
-  const fetchFlights = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get(`http://localhost:3500/flights`);
-      setFlights(response.data);
-    } catch (error: any) {
-      setError(error.message || "Something Went Wrong");
-    }
-    setLoading(false);
-  };
-
+  const flights: Flight[] = useFlightStore((state) => state.flights);
+  const loading:boolean=useFlightStore((state)=>state.loading);
+  const error:string|null=useFlightStore((state)=>state.error);
   useEffect(() => {
-    fetchFlights();
+    useFlightStore.getState().fetchFlights();
   }, []);
-
   if (loading) return <p>Loading ....</p>;
   if (error) return <p>{error}</p>;
 
@@ -38,7 +23,7 @@ const BeautifulDestinationCard: React.FC = () => {
 
       <div className="row justify-content-center">
         {flights.map((flight) => {
-          const imageUrl = `http://localhost:3500/uploads/${flight.image.replace(
+          const imageUrl = `${axiosInstance.defaults.baseURL}/uploads/${flight.image.replace(
             /\\/g,
             "/"
           )}`;
