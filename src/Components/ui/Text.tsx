@@ -1,66 +1,64 @@
-import React, { type JSX } from "react";
-import { cn } from "@/utils/cnhelper";
-import type { TextProps } from "@/types/ui/text.interface";
+import type { JSX } from "react";
+import React from "react";
 
-const Text: React.FC<TextProps> = ({
-  className,
-  type = "Paragraph",
-  size = "md",
-  flow = "Block",
+export type TextProps = {
+  className?: string;
+  type?: 'Header' | 'SubHeader' | 'Paragraph' | 'Highlight' | 'Inverted' | 'Label';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+  flow?: 'Block' | 'Inline' | 'InlineBlock';
+  children?: React.ReactNode;
+  invertedWithBg?: boolean;
+};
+
+export const Text: React.FC<TextProps> = ({
+  className = '',
+  type = 'Paragraph',
+  size = 'md',
+  flow = 'Block',
   children,
   invertedWithBg = false,
 }) => {
-  const base = "transition-colors duration-200";
+  const base = 'transition-all';
 
-  const typeStyles: Record<string, string> = {
-    Header: "font-bold text-gray-900",
-    SubHeader: "font-semibold text-gray-800",
-    Paragraph: "text-gray-700 leading-relaxed",
-    Highlight: "bg-primary text-white inline-block rounded px-2 py-0.5",
-    Inverted: invertedWithBg
-      ? "text-white bg-gray-900 inline-block rounded px-2 py-0.5"
-      : "text-white",
-    Label: "text-primary font-semibold tracking-wide uppercase",
+  const typeClasses: Record<NonNullable<TextProps['type']>, string> = {
+    Header: 'fw-bold text-dark',
+    SubHeader: 'fw-semibold text-dark',
+    Paragraph: 'lh-base',
+    Highlight: 'bg-success text-white d-inline-block rounded px-2 py-1',
+    Inverted: invertedWithBg 
+      ? 'text-white bg-dark d-inline-block rounded px-2 py-1' 
+      : 'text-white',
+    Label: 'text-success fw-semibold text-uppercase',
   };
 
-  const sizeStyles: Record<string, string> = {
-    sm: "text-sm",
-    md: "text-base",
-    lg: "text-lg",
-    xl: "text-xl",
-    "2xl": "text-2xl",
-    "3xl": "text-3xl",
-    "4xl": "text-4xl",
-    "5xl": "text-5xl",
-    "6xl": "text-6xl",
+  const sizeClasses: Record<NonNullable<TextProps['size']>, string> = {
+    sm: 'fs-6',
+    md: 'fs-5',
+    lg: 'fs-4',
+    xl: 'fs-3',
+    '2xl': 'fs-2',
+    '3xl': 'fs-1',
+    '4xl': 'display-6',
+    '5xl': 'display-4',
+    '6xl': 'display-1',
   };
 
-  const sizeClass =
-    type === "Label" && !size ? "text-xs" : sizeStyles[size] || "text-base";
+  const sizeClass = type === 'Label' && !size ? 'small' : sizeClasses[size];
 
-  const tagMap: Record<string, keyof JSX.IntrinsicElements> = {
-    Header: "h1",
-    SubHeader: "h2",
-    Paragraph: "p",
-    Highlight: "span",
-    Inverted: "p",
-    Label: "span",
+  const tagMap: Record<NonNullable<TextProps['type']>, keyof JSX.IntrinsicElements> = {
+    Header: 'h1',
+    SubHeader: 'h2',
+    Paragraph: 'p',
+    Highlight: 'span',
+    Inverted: 'p',
+    Label: 'span',
   };
 
-  const tag =
-    flow === "Inline" || flow === "InlineBlock"
-      ? "span"
-      : tagMap[type] || "p";
+  const tag = flow === 'Inline' || flow === 'InlineBlock' ? 'span' : tagMap[type];
 
-  const classes = cn(
-    base,
-    typeStyles[type],
-    sizeClass,
-    flow === "InlineBlock" && "inline-block",
-    className
-  );
+  const flowClass = flow === 'InlineBlock' ? 'd-inline-block' : '';
+
+  const classes = `${base} ${typeClasses[type]} ${sizeClass} ${flowClass} ${className}`.trim();
 
   return React.createElement(tag, { className: classes }, children);
 };
-
-export default Text;
