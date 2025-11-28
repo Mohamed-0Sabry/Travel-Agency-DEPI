@@ -12,7 +12,7 @@ interface FlightStore {
   deleteFlight: (id: string) => void,
   setLoading: (value: boolean) => void,
   setError: (value: string | null) => void;
-  fetchFlights:()=>void;
+  fetchFlights:()=>Promise<void>;
 };
 const useFlightStore = create<FlightStore>((set) => ({
   flights: [],
