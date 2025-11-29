@@ -3,19 +3,22 @@ import { create } from "zustand";
 import flightsApi from "@/networks/Api/flightsApi";
 import axios from "axios";
 interface FlightStore {
-  flights: Flight[],
-  loading: boolean,
-  error: string | null,
-  setFlights: (data: Flight[]) => void,
-  addFlight: (data: Flight) => void,
-  updateFlight: (id: string, data: Flight) => void,
-  deleteFlight: (id: string) => void,
-  setLoading: (value: boolean) => void,
+  flights: Flight[];
+  activeOffers: Flight[];
+  loading: boolean;
+  error: string | null;
+  setFlights: (data: Flight[]) => void;
+  addFlight: (data: Flight) => void;
+  updateFlight: (id: string, data: Flight) => void;
+  deleteFlight: (id: string) => void;
+  setLoading: (value: boolean) => void;
   setError: (value: string | null) => void;
-  fetchFlights:()=>Promise<void>;
-};
+  fetchFlights: () => Promise<void>;
+  fetchOffers: () => Promise<void>;
+}
 const useFlightStore = create<FlightStore>((set) => ({
   flights: [],
+  activeOffers: [],
   loading: false,
   error: null,
 
@@ -40,6 +43,18 @@ const useFlightStore = create<FlightStore>((set) => ({
     try {
       const response = await flightsApi.getAll();
       set({ flights: response.data });
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        set({ error: err.response?.data?.message || "Something went wrong" });
+      }
+    }
+    set({ loading: false });
+  },
+  fetchOffers: async () => {
+    set({ loading: true, error: null });
+    try {
+      const offers = await flightsApi.getOffers();
+      set({ activeOffers: offers.data });
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         set({ error: err.response?.data?.message || "Something went wrong" });

@@ -48,15 +48,13 @@ export const Modal: React.FC<ModalProps> = ({
   const contentRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
 
-  // mount/unmount with fade animation
   useEffect(() => {
     if (show) {
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
       setMounted(true);
-      // wait next frame to add "show"
+
       requestAnimationFrame(() => setVisible(true));
     } else {
-      // start exit animation
       setVisible(false);
       timeoutRef.current = window.setTimeout(() => {
         setMounted(false);
@@ -67,7 +65,6 @@ export const Modal: React.FC<ModalProps> = ({
     };
   }, [show, animationDuration]);
 
-  // Escape to close
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && show) onClose();
@@ -76,7 +73,6 @@ export const Modal: React.FC<ModalProps> = ({
     return () => window.removeEventListener("keydown", onKey);
   }, [show, onClose]);
 
-  // autofocus first focusable element
   useEffect(() => {
     if (!mounted) return;
     const el = contentRef.current;
@@ -109,7 +105,6 @@ export const Modal: React.FC<ModalProps> = ({
       aria-modal="true"
       tabIndex={-1}
       onMouseDown={(e) => {
-        // close when clicking on backdrop only
         if (e.target === backdropRef.current) onClose();
       }}
       style={{
@@ -155,10 +150,7 @@ export const Modal: React.FC<ModalProps> = ({
             )}
           </div>
 
-          <div className="modal-body">
-            {children}
-            {/* Keep a placeholder for "logos at the end" if the caller didn't include them */}
-          </div>
+          <div className="modal-body">{children}</div>
         </div>
       </div>
     </div>
