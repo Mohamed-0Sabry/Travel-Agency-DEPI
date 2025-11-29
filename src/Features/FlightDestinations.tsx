@@ -7,12 +7,12 @@ import useFlightStore from "@/store/useFlightStore";
 import axiosInstance from "@/networks/axiosInstance";
 import Loading from "@/Components/Loading";
 const Destination: React.FC = () => {
-  const flights: Flight[] = useFlightStore((state) => state.activeOffers);
+  const flights: Flight[] = useFlightStore((state) => state.flights);
   const loading: boolean = useFlightStore((state) => state.loading);
   const error: string | null = useFlightStore((state) => state.error);
   const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   useEffect(() => {
-    useFlightStore.getState().fetchOffers();
+    useFlightStore.getState().fetchFlights();
   }, []);
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
