@@ -1,0 +1,129 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "title": "Summer Sale",
+      "description": "Get 20% off on all flights to Europe",
+      "discount": 20,
+      "validUntil": "2025-08-31"
+    },
+    {
+      "id": 2,
+      "title": "Weekend Special",
+      "description": "Special weekend rates for domestic flights",
+      "discount": 15,
+      "validUntil": "2025-07-15"
+    },
+    {
+      "id": 3,
+      "title": "Early Bird Discount",
+      "description": "Book 30 days in advance and save 25%",
+      "discount": 25,
+      "validUntil": "2025-12-31"
+    },
+    {
+      "id": 4,
+      "title": "Holiday Season",
+      "description": "Special holiday rates for all destinations",
+      "discount": 30,
+      "validUntil": "2025-12-25"
+    }
+  ],
+  "flights": [
+    {
+      "id": 1,
+      "flightNumber": "AA101",
+      "origin": "New York",
+      "destination": "London",
+      "departureTime": "2025-06-15T10:00",
+      "arrivalTime": "2025-06-15T22:00",
+      "price": 750
+    },
+    {
+      "id": 2,
+      "flightNumber": "BA202",
+      "origin": "Los Angeles",
+      "destination": "Tokyo",
+      "departureTime": "2025-06-20T14:00",
+      "arrivalTime": "2025-06-21T18:00",
+      "price": 950
+    },
+    {
+      "id": 3,
+      "flightNumber": "EK303",
+      "origin": "Dubai",
+      "destination": "Sydney",
+      "departureTime": "2025-07-01T23:30",
+      "arrivalTime": "2025-07-02T19:00",
+      "price": 1200
+    },
+    {
+      "id": 4,
+      "flightNumber": "LH404",
+      "origin": "Frankfurt",
+      "destination": "Singapore",
+      "departureTime": "2025-07-10T15:45",
+      "arrivalTime": "2025-07-11T10:30",
+      "price": 880
+    },
+    {
+      "id": 5,
+      "flightNumber": "QF505",
+      "origin": "Melbourne",
+      "destination": "Los Angeles",
+      "departureTime": "2025-07-15T20:00",
+      "arrivalTime": "2025-07-15T16:30",
+      "price": 1050
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "userId": "user_001",
+      "amount": 750,
+      "date": "2025-05-15",
+      "status": "Completed",
+      "method": "Credit Card"
+    },
+    {
+      "id": 2,
+      "userId": "user_002",
+      "amount": 950,
+      "date": "2025-05-16",
+      "status": "Pending",
+      "method": "PayPal"
+    },
+    {
+      "id": 3,
+      "userId": "user_003",
+      "amount": 1200,
+      "date": "2025-05-17",
+      "status": "Completed",
+      "method": "Credit Card"
+    },
+    {
+      "id": 4,
+      "userId": "user_004",
+      "amount": 880,
+      "date": "2025-05-18",
+      "status": "Failed",
+      "method": "Bank Transfer"
+    },
+    {
+      "id": 5,
+      "userId": "user_005",
+      "amount": 1050,
+      "date": "2025-05-19",
+      "status": "Completed",
+      "method": "PayPal"
+    },
+    {
+      "id": 6,
+      "userId": "user_006",
+      "amount": 675,
+      "date": "2025-05-20",
+      "status": "Pending",
+      "method": "Credit Card"
+    }
+  ]
+}
