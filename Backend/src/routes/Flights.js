@@ -1,4 +1,4 @@
-const { Flights, handleFlightValidation } = require("../models/Flights");
+const { Flights, handleFlightValidation } = require("../models/FlightsModified");
 const express = require("express");
 const router = express.Router();
 const upload = require("./uploader");
