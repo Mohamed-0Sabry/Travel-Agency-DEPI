@@ -1,6 +1,6 @@
 import React from "react";
 import DestinationCard, {
-  DestinationCardProps,
+  type DestinationCardProps,
 } from "../ReusableCard/DestinationCard";
 import "../../../Styles/DestinationCard.css";
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
 import DestinationCard, {
-  DestinationCardProps,
+  type DestinationCardProps,
 } from "../ReusableCard/DestinationCard";
 import "../../../Styles/TourPackages.css";
 

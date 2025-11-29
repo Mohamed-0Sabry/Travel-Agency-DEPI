@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import data from "../../../public/landingPageDate.json";
+import data from "../../../src/data/destinationsData.json";
 import "../../Styles/videoSection.css";
 import "../../Styles/responsiveLandingPage.css";
 

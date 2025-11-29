@@ -1,0 +1,93 @@
+.Destinations-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0 1%;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.Flights-section {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.Flights-card {
+  position: relative;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.Flights-card img {
+  width: 88%;
+  height: 78%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.Flights-card .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.Flights-card .deal-badge {
+  background-color: var(--greenColor);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.Flights-card .deal-badge.popular {
+  background-color: orange;
+}
+
+.Flights-card .deal-badge.discount {
+  background-color: crimson;
+}
+
+.Flights-card .price {
+  color: white;
+  font-weight: bold;
+}
+
+.discount-price {
+  color: yellow;
+}
+
+.original-price {
+  color: white;
+  text-decoration: line-through;
+}
+
+.b-flight {
+  background-color: var(--greenColor);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.b-flight:hover {
+  background-color: var(--greenColorDarker);
+  transform: translateY(-2px);
+}
