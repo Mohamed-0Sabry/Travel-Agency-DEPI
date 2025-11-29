@@ -12,21 +12,7 @@ const FlightHero = () => {
                 </p>
                 <p className="fs-5 text-white fw-bolder">Special offers to suit your plan.</p>
               </div>
-              <div className="search-section mt-5">
-                <a>
-                  <i className="ri-map-pin-line"></i> From
-                </a>
-                <a>
-                  <i className="ri-navigation-fill"></i> To
-                </a>
-                <a>
-                  <i className="ri-calendar-line"></i> Date of stay
-                </a>
-                <a>
-                  <i className="ri-user-line"></i> Traveler
-                </a>
-                <button>Find trip now</button>
-              </div>
+              
             </div>
           </div>
         </div>

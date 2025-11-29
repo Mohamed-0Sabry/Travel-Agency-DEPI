@@ -3,6 +3,7 @@ const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const flightSchema = new mongoose.Schema(
   {
+    
     price: {
       type: Number,
       required: [true, "Price is required"],

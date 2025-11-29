@@ -1,19 +1,29 @@
-import React, { useEffect } from "react";
-import Card from "../Components/Card"; // named import
+import React, { useEffect,useState } from "react";
+import Card from "../Components/Card";
+import FlightDetails from "./FlightDetails";
 import RatingStars from "../Features/RatingStars";
 import type { Flight } from "@/types/Flight";
 import useFlightStore from "@/store/useFlightStore";
 import axiosInstance from "@/networks/axiosInstance";
-const BeautifulDestinationCard: React.FC = () => {
+import Loading from "@/Components/Loading";
+const Destination: React.FC = () => {
   const flights: Flight[] = useFlightStore((state) => state.flights);
-  const loading:boolean=useFlightStore((state)=>state.loading);
-  const error:string|null=useFlightStore((state)=>state.error);
+  const loading: boolean = useFlightStore((state) => state.loading);
+  const error: string | null = useFlightStore((state) => state.error);
+  const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   useEffect(() => {
     useFlightStore.getState().fetchFlights();
   }, []);
-  if (loading) return <p>Loading ....</p>;
+  if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
-
+  if (selectedFlightId) {
+    return (
+      <FlightDetails
+        flightId={selectedFlightId}
+        onBack={() => setSelectedFlightId(null)}
+      />
+    );
+  }
   return (
     <div className="container py-4">
       <style>{`
@@ -23,10 +33,9 @@ const BeautifulDestinationCard: React.FC = () => {
 
       <div className="row justify-content-center">
         {flights.map((flight) => {
-          const imageUrl = `${axiosInstance.defaults.baseURL}/uploads/${flight.image.replace(
-            /\\/g,
-            "/"
-          )}`;
+          const imageUrl = `${
+            axiosInstance.defaults.baseURL
+          }/uploads/${flight.image.replace(/\\/g, "/")}`;
           return (
             <div key={flight._id} className="col-lg-3 col-md-8 col-12 mb-4">
               <Card
@@ -59,7 +68,9 @@ const BeautifulDestinationCard: React.FC = () => {
                     <div className="mb-2">
                       <span className="badge bg-primary">Popular</span>
                     </div>
-                    <button className="btn btn-sm btn-outline-primary">
+                    <button className="btn btn-sm btn-outline-primary"
+                    onClick={() => setSelectedFlightId(flight._id)}
+                    >
                       Details
                     </button>
                   </div>
@@ -82,4 +93,4 @@ const BeautifulDestinationCard: React.FC = () => {
   );
 };
 
-export default BeautifulDestinationCard;
+export default Destination;

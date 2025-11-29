@@ -6,6 +6,7 @@ const express = require("express");
 const cors=require("cors");
 const path=require("path");
 const flightRouter=require("./routes/Flights");
+const offersRouter=require("./routes/Offers");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -14,7 +15,7 @@ const port = 3500;
 mongoose.set("strictQuery", false);
 mongoose
   .connect(
-    "mongodb+srv://mazenhaytham:xme5Ig4Ke3cnkALZ@cluster-1.khjoctg.mongodb.net/?appName=Cluster-1"
+    "mongodb+srv://mazenhaytham:xme5Ig4Ke3cnkALZ@cluster-1.khjoctg.mongodb.net/test?appName=Cluster-1"
   )
   .then(() => {
     console.log("Connected To DB");
@@ -23,6 +24,7 @@ mongoose
     console.error("Couldn't Connect To DB");
   });
 app.use("/flights",flightRouter);
+app.use("/offers",offersRouter);
 app.listen(port, () => {
   console.log(`Connected On The Server On Port ${port} `);
 });
