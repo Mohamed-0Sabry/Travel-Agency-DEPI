@@ -1,0 +1,304 @@
+{
+  "heroSection": {
+    "logo": "/assets/HeroImage.png",
+    "heading": "Don't call it a dream. Call it a plan",
+    "description": "Travel the way you wish to go with Phnes Travels helping you discover, live and travel at your own pace.",
+    "searchFields": [
+      {
+        "id": "from",
+        "icon": "ri-map-pin-line",
+        "label": "From",
+        "placeholder": "Enter city"
+      },
+      {
+        "id": "to",
+        "icon": "ri-compass-discover-line",
+        "label": "To",
+        "placeholder": "Enter destination"
+      },
+      {
+        "id": "date",
+        "icon": "ri-calendar-line",
+        "label": "Date of stay",
+        "placeholder": "Select date"
+      },
+      {
+        "id": "traveler-class",
+        "icon": "ri-user-line",
+        "label": "Traveler-Class",
+        "placeholder": "Select Traveler-Class"
+      }
+    ],
+    "button": {
+      "label": "Find trip now",
+      "icon": "ri-search-line",
+      "action": "/search"
+    }
+  },
+
+  "aboutSection": {
+    "image": "/assets/About.png",
+    "subtitle": "About",
+    "title": "Plan your perfect trip",
+    "description": "Are you looking for an adventurous travel, or just carrying your work alongside you while you travel and explore open places? Then your perfect trip is one with us. Phone Travels helps you reach flights, book local phones at your comfort, and discover your dream destination. Welcome to a new experience.",
+    "stats": [
+      {
+        "id": "destinations",
+        "value": "150+",
+        "label": "Flight Destinations"
+      },
+      {
+        "id": "transportation",
+        "value": "250+",
+        "label": "Elite Transportation"
+      },
+      {
+        "id": "hotels",
+        "value": "250+",
+        "label": "Hotels"
+      },
+      {
+        "id": "dream_place",
+        "value": "40+",
+        "label": "We help to find your dream place"
+      }
+    ]
+  },
+
+  "videoSection": {
+    "videoSource": "/videos/6013101_People_Person_3840x2160.mp4",
+    "overlay": true,
+    "controls": {
+      "playIcon": "M8 5v14l11-7z",
+      "pauseIconLeft": "M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+    }
+  },
+
+  "topDestinations": [
+    {
+      "id": 101,
+      "title": "Yunnan Province",
+      "location": "China",
+      "image": "/assets/LandingPage/Des2.png"
+    },
+    {
+      "id": 102,
+      "title": "Paris",
+      "location": "France",
+      "image": "/assets/LandingPage/Des1.png"
+    },
+    {
+      "id": 103,
+      "title": "Big Buddha of Phuket",
+      "location": "Thailand",
+      "image": "/assets/LandingPage/Des3.png"
+    },
+    {
+      "id": 104,
+      "title": "Colosseum",
+      "location": "Rome, Italy",
+      "image": "/assets/LandingPage/Des4.jpg"
+    },
+    {
+      "id": 105,
+      "title": "Zhangjiajie National Forest",
+      "location": "Hunan, China",
+      "image": "/assets/LandingPage/Des8.jpg"
+    },
+    {
+      "id": 106,
+      "title": "Cappadocia Hot Air Balloons",
+      "location": "Cappadocia, Turkey",
+      "image": "/assets/LandingPage/Des14.jpg"
+    },
+    {
+      "id": 107,
+      "title": "Blue Village of Yunnan",
+      "location": "Yunnan, China",
+      "image": "/assets/LandingPage/Des12.jpg"
+    },
+    {
+      "id": 108,
+      "title": "Cappadocia Hot Air Balloons",
+      "location": "Cappadocia, Turkey",
+      "image": "/assets/LandingPage/Des10.jpg"
+    }
+  ],
+
+  "specialOffers": [
+    {
+      "id": 201,
+      "title": "Lisbon, Portugal",
+      "image": "/assets/LandingPage/Des14.jpg",
+      "rating": 5,
+      "description": "5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the renaissance.",
+      "price": "€500"
+    },
+    {
+      "id": 202,
+      "title": "Cappadocia, Turkey",
+      "image": "/assets/LandingPage/Des10.jpg",
+      "rating": 5,
+      "description": "Experience the magical hot air balloon rides over the unique rock formations of Cappadocia.",
+      "price": "€450"
+    },
+    {
+      "id": 203,
+      "title": "Paris, France",
+      "image": "/assets/LandingPage/Des1.png",
+      "rating": 5,
+      "description": "Romantic city tour including Eiffel Tower visit, Seine River cruise, and gourmet dining experience.",
+      "price": "€600"
+    },
+    {
+      "id": 204,
+      "title": "Lisbon, Portugal (Promo)",
+      "image": "/assets/LandingPage/Des14.jpg",
+      "rating": 5,
+      "description": "Flash sale: 5 nights in 4-star property.",
+      "price": "€450"
+    },
+    {
+      "id": 205,
+      "title": "Cappadocia, Turkey (Early Bird)",
+      "image": "/assets/LandingPage/Des10.jpg",
+      "rating": 5,
+      "description": "Early bird discount for balloon rides.",
+      "price": "€420"
+    },
+    {
+      "id": 206,
+      "title": "Paris, France (Romance)",
+      "image": "/assets/LandingPage/Des1.png",
+      "rating": 5,
+      "description": "Romantic getaway package with dinner experience.",
+      "price": "€650"
+    }
+  ],
+
+  "tourPackages": [
+    {
+      "id": 301,
+      "title": "Lisbon, Portugal",
+      "image": "/assets/LandingPage/package1.png",
+      "rating": 5,
+      "description": "5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the renaissance.",
+      "price": "€500"
+    },
+    {
+      "id": 302,
+      "title": "Cappadocia, Turkey",
+      "image": "/assets/LandingPage/package2.png",
+      "rating": 5,
+      "description": "Experience the magical hot air balloon rides over the unique rock formations of Cappadocia.",
+      "price": "€450"
+    },
+    {
+      "id": 303,
+      "title": "Paris, France",
+      "image": "/assets/LandingPage/package2.png",
+      "rating": 5,
+      "description": "Romantic city tour including Eiffel Tower visit, Seine River cruise, and gourmet dining experience.",
+      "price": "€600"
+    },
+    {
+      "id": 304,
+      "title": "Cappadocia (Adventure)",
+      "image": "/assets/LandingPage/package2.png",
+      "rating": 5,
+      "description": "Adventure-focused Cappadocia package.",
+      "price": "€470"
+    },
+    {
+      "id": 305,
+      "title": "Paris (Luxury)",
+      "image": "/assets/LandingPage/package2.png",
+      "rating": 5,
+      "description": "Luxury Paris package with premium experiences.",
+      "price": "€900"
+    }
+  ],
+
+  "flightOffers": [
+    {
+      "id": 401,
+      "destination": "New York, USA",
+      "image": "/assets/LandingPage/flight1.png",
+      "badge": {
+        "text": "LIMITED TIME OFFER",
+        "type": "limited"
+      },
+      "discountPrice": "€349",
+      "originalPrice": "€499",
+      "description": "Round-trip flight with 23kg baggage allowance"
+    },
+    {
+      "id": 402,
+      "destination": "Tokyo, Japan",
+      "image": "/assets/LandingPage/flight2.png",
+      "badge": {
+        "text": "MOST POPULAR",
+        "type": "popular"
+      },
+      "discountPrice": "€699",
+      "originalPrice": "€899",
+      "description": "Premium economy with flexible booking"
+    },
+    {
+      "id": 403,
+      "destination": "Paris, France",
+      "image": "/assets/LandingPage/flight2.png",
+      "badge": {
+        "text": "30% OFF",
+        "type": "discount"
+      },
+      "discountPrice": "€199",
+      "originalPrice": "€299",
+      "description": "Direct flight with free seat selection"
+    },
+    {
+      "id": 404,
+      "destination": "Paris, France (Night)",
+      "image": "/assets/LandingPage/flight2.png",
+      "badge": {
+        "text": "30% OFF",
+        "type": "discount"
+      },
+      "discountPrice": "€189",
+      "originalPrice": "€279",
+      "description": "Red-eye flight with free seat selection"
+    },
+    {
+      "id": 405,
+      "destination": "Paris, France (Weekend)",
+      "image": "/assets/LandingPage/flight2.png",
+      "badge": {
+        "text": "30% OFF",
+        "type": "discount"
+      },
+      "discountPrice": "€179",
+      "originalPrice": "€269",
+      "description": "Weekend special fare"
+    },
+    {
+      "id": 406,
+      "destination": "Paris, France (Flexible)",
+      "image": "/assets/LandingPage/flight2.png",
+      "badge": {
+        "text": "30% OFF",
+        "type": "discount"
+      },
+      "discountPrice": "€209",
+      "originalPrice": "€309",
+      "description": "Flexible ticket with free changes"
+    }
+  ],
+
+  "filters": [
+    "Everything",
+    "Africa",
+    "Budget Friendly",
+    "Adventure Trails",
+    "City Exploring"
+  ]
+}

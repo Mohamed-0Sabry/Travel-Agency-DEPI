@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./shared/Layout";
+import LandingPage from "./pages/LandingPage";
 import Flights from "./pages/Flights";
 import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
@@ -22,14 +23,14 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<Flights />} />
+        <Route index element={<LandingPage />} />
         <Route path="flights" element={<Flights />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="hotels" element={<ComingSoon title="Hotels" />} />
         <Route path="discover" element={<Discover />} />
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="contact" element={<ComingSoon title="Contact" />} />
-        <Route path="testing" element={<TestComponentsPage/>} />
+        <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
