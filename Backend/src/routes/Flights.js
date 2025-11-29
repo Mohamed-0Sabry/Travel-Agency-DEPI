@@ -1,4 +1,4 @@
-const { Flights, handleFlightValidation } = require("../models/FlightsModified");
+const { Flights, handleFlightValidation } = require("../models/Flights");
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
@@ -59,9 +59,10 @@ router.get("/:id", async (req, res) => {
     const id = req.params.id.trim();
     console.log("Looking for ID:", id);
     
-    // Direct query using the raw collection
-    const coll = mongoose.connection.db.collection("flights");
-    const flight = await coll.findOne({ _id: id });
+    
+    // const coll = mongoose.connection.db.collection("flights");
+    // const flight = await coll.findOne({ _id: id });
+    const flight = await Flights.findById(id);
     
     console.log("Flight found:", flight);
     
@@ -112,7 +113,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     const newFlight = await flight.save();
     return res.status(201).send(newFlight);
   } catch (e) {
-    console.err(e);
+    console.error(e);
     return res.status(500).send("Error Occured While Saving The Flight");
   }
 });
@@ -122,9 +123,9 @@ router.put("/:id", upload.single("image"), async (req, res) => {
     const id = req.params.id.trim();
     
     // Check if flight exists using raw collection
-    const coll = mongoose.connection.db.collection("flights");
-    const flight = await coll.findOne({ _id: id });
-    
+    // const coll = mongoose.connection.db.collection("flights");
+    // const flight = await coll.findOne({ _id: id });
+    const flight = await Flights.findById(id);
     if (!flight) {
       return res.status(404).send("No Flight Found With That Id");
     }
@@ -158,11 +159,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
     }
     
     // Update using raw collection
-    const update = await coll.findOneAndUpdate(
-      { _id: id },
-      { $set: payload },
-      { returnDocument: 'after' }
-    );
+    const update=await Flights.findByIdAndUpdate(id,flight,{new:true});
     
     return res.status(200).send(update);
   } catch (e) {
@@ -175,14 +172,15 @@ router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id.trim();
     
-    const coll = mongoose.connection.db.collection("flights");
-    const flight = await coll.findOne({ _id: id });
+    // const coll = mongoose.connection.db.collection("flights");
+    // const flight = await coll.findOne({ _id: id });
+    const flight = await Flights.findById(id);
     
     if (!flight) {
       return res.status(404).send("No Flight Found With That Id");
     }
     
-    await coll.deleteOne({ _id: id });
+    const deletedFlight=await Flights.findByIdAndDelete(id);
     return res.status(200).send("The Flight Is Deleted Successfully");
   } catch (e) {
     console.error(e);

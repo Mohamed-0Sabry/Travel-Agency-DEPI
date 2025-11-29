@@ -7,12 +7,12 @@ import useFlightStore from "@/store/useFlightStore";
 import axiosInstance from "@/networks/axiosInstance";
 import Loading from "@/Components/Loading";
 const Destination: React.FC = () => {
-  const flights: Flight[] = useFlightStore((state) => state.flights);
+  const flights: Flight[] = useFlightStore((state) => state.activeOffers);
   const loading: boolean = useFlightStore((state) => state.loading);
   const error: string | null = useFlightStore((state) => state.error);
   const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   useEffect(() => {
-    useFlightStore.getState().fetchFlights();
+    useFlightStore.getState().fetchOffers();
   }, []);
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
@@ -33,6 +33,7 @@ const Destination: React.FC = () => {
 
       <div className="row justify-content-center">
         {flights.map((flight) => {
+          //Backend\src\uploads
           const imageUrl = `${
             axiosInstance.defaults.baseURL
           }/uploads/${flight.image.replace(/\\/g, "/")}`;

@@ -5,12 +5,12 @@ const config = require("config");
 const express = require("express");
 const cors=require("cors");
 const path=require("path");
-const flightRouter=require("./routes/Flights");
-const offersRouter=require("./routes/Offers");
+const flightRouter=require("./src/routes/Flights");
+const offersRouter=require("./src/routes/Offers");
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname,'src', 'uploads')));
 const port = 3500;
 mongoose.set("strictQuery", false);
 mongoose
