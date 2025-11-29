@@ -229,6 +229,7 @@ const seedDatabase = async () => {
       hasPhoneVerified: true
     });
 
+    
     console.log('Created users');
 
     // Insert destinations

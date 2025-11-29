@@ -1,4 +1,4 @@
-const { Flights, handleFlightValidation } = require("../models/FlightsModified");
+const { Flights, handleFlightValidation } = require("../models/Flights");
 const express = require("express");
 const router = express.Router();
 const upload = require("./uploader");
@@ -119,4 +119,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).send("Error Deleting The Flight");
   }
 });
+
 module.exports = router;

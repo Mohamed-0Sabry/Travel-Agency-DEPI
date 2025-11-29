@@ -17,6 +17,7 @@ exports.getFlights = async (req, res, next) => {
 // Get single flight
 exports.getFlight = async (req, res, next) => {
   try {
+    console.log(req.params.id);
     const flight = await flightService.getFlightById(req.params.id);
     res.status(200).json({
       success: true,
