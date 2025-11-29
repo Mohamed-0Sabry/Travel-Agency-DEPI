@@ -1,20 +1,30 @@
 {
-  "name": "backend",
+  "name": "travel-booking-backend",
   "version": "1.0.0",
-  "description": "Travel-agency-backend",
+  "description": "Backend for Travel Booking System",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "app.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/utils/seed.js"
   },
+  "keywords": [
+    "travel",
+    "booking",
+    "flights",
+    "hotels"
+  ],
   "dependencies": {
-    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "config": "^4.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
     "joi": "^18.0.2",
     "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^9.0.2",
@@ -22,6 +32,7 @@
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.0",
     "mongoose-sequence": "^6.0.1",
+    "morgan": "^1.10.1",
     "multer": "^2.0.2"
   },
   "devDependencies": {
