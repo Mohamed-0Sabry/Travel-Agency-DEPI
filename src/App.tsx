@@ -6,6 +6,7 @@ import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import Discover from "./pages/Discover";
 import TestComponentsPage from "./pages/TestComponentsPage";
+import Admin from "./pages/Admin";
 function ComingSoon({ title }: { title: string }) {
   return (
     <section className="py-5">
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="hotels" element={<ComingSoon title="Hotels" />} />
         <Route path="discover" element={<Discover />} />
         <Route path="about-us" element={<AboutUsPage />} />
+        <Route path="Admin" element={<Admin />} />
         <Route path="contact" element={<ComingSoon title="Contact" />} />
         <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
