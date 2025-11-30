@@ -8,14 +8,15 @@ const {
   checkAvailability,
   createFlight,
   updateFlight,
-  deleteFlight
+  deleteFlight,
+  getFlightsWithOffers
 } = require('../controllers/flightController');
 
 router.get('/', getFlights);
 router.get('/search', searchFlights);
 router.get('/check-availability', checkAvailability);
+router.get('/offers', getFlightsWithOffers);
 router.get('/:id', getFlight);
-
 // Admin routes
 router.post('/', protect, authorize('admin'), createFlight);
 router.put('/:id', protect, authorize('admin'), updateFlight);

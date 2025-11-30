@@ -28,6 +28,19 @@ exports.getFlight = async (req, res, next) => {
   }
 };
 
+// Get flights with Offers
+exports.getFlightsWithOffers = async (req, res, next) => {
+  try {
+    const flights = await flightService.getFlightsWithOffers(req.query);
+    res.status(200).json({
+      success: true,
+      count: flights.length,
+      data: flights
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 // Search flights
 exports.searchFlights = async (req, res, next) => {
   try {

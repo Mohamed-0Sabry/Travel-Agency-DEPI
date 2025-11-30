@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname,'src', 'uploads')));
-const port = 3500;
+const port = 5000;
 mongoose.set("strictQuery", false);
 mongoose
   .connect(

@@ -37,6 +37,12 @@ class FlightService {
     return flight;
   }
 
+  // Get Flights with Offers
+  async getFlightsWithOffers(){
+    const flights = await Flight.find({ "offer.isActive": true });
+    return flights;
+  }
+
   // Create new flight (Admin)
   async createFlight(flightData) {
     const flight = await Flight.create(flightData);
