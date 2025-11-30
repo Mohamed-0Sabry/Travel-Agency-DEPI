@@ -1,170 +1,141 @@
-'use client';
+import "@/styles/globals.css"
+import '@/styles/flight-discover.css'
+const MiniCard = ({ image, title, subtitle, cta }) => (
+  <article className="mini-card">
+    <div className="media">
+      <img src={image} alt={title} />
+    </div>
+    <div className="meta">
+      <h6 className="mb-1">{title}</h6>
+      <small className="text-muted d-block mb-2">{subtitle}</small>
+      <a className="btn btn-sm btn-outline-secondary" href={cta?.href || '#'}>{cta?.text || 'View'}</a>
+    </div>
+  </article>
+);
 
-import React from 'react';
-
-export default function Discover() {
+export default function DiscoverModern() {
   return (
     <>
-      {/* Hero Section */}
-      <section
-        className="position-relative text-white text-center"
-        style={{
-          background: 'url(src/assets/images/banner.png) center/cover no-repeat',
-          height: '80vh',
-        }}
-      >
-        <div className="d-flex align-items-start h-100">
-          <h1 className="display-4 fw-bold position-absolute top-50 translate-middle-y ps-sm-5 px-lg-5">
-            Discover
-          </h1>
+      <section className="modern-hero position-relative d-flex align-items-center text-white">
+        <div className="hero-media" aria-hidden="true"></div>
+
+        <div className="container position-relative" style={{ zIndex: 2 }}>
+          <div className="row align-items-center">
+            <div className="col-lg-8 mx-auto text-center">
+              <p className="eyebrow">Explore</p>
+              <h1 className="display-4 fw-bold hero-title">Discover the <span className="accent">World</span> Differently</h1>
+              <p className="lead text-white-75 mb-4">Immersive travels, local secrets and curated experiences — crafted for the modern explorer.</p>
+
+              <div className="d-flex justify-content-center gap-2 flex-wrap">
+                <a className="btn btn-primary btn-lg btn-cta me-2" href="#content">Get inspired</a>
+                <a className="btn btn-outline-light btn-lg" href="#book">Book a tour</a>
+              </div>
+
+              <div className="chip-row mt-4 d-flex justify-content-center gap-2 flex-wrap">
+                <span className="chip">Adventure</span>
+                <span className="chip">Nature</span>
+                <span className="chip">Culture</span>
+                <span className="chip">Family</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* subtle gradient glow */}
+        <div className="hero-glow" aria-hidden="true"></div>
       </section>
 
-      {/* Content Section */}
-      <div className="container">
-        <div className="row mt-5">
-          {/* Left Column */}
-          <div className="col-lg-8 mt-5 lpart col-sm-12">
-            <h2 className="pb-3">South Island</h2>
-            <p className="pb-3">
-              The Scuth Isfand of Now Zealand is renowned for its mountains, lakes
-              and plociers. The Southern Alps home to 3,724m-high Aoraki ML. Cook,
-              run along the entire length of the island, in the southwviat is
-              Viertiond Notinnal Park, with steon-gided Mittord Scnd.
-            </p>
-            <p className="pb-3">
-              In the north is Abel Tasman National Park, known foe its trails and
-              ocean kayaking, Gueenstewn is fared for udventurs sporta lixe bungee
-              jumping and shiing TASMANSEA OCEAN Other Destinations Suw all
-            </p>
-            <img
-              src="/src/assets/images/south-island.png"
-              className="img-fluid rounded mb-4"
-              alt="South Island"
-            />
+      <main id="content" className="container my-5">
+        <div className="row g-4">
+          <article className="col-lg-8">
+            <div className="card shadow-lg border-0 overflow-hidden modern-article">
+              <div className="row g-0">
+                <div className="col-12 position-relative hero-article-media">
+                  <img src="/src/assets/images/south-island.png" alt="South Island" className="w-100" />
+                  <div className="article-badge">South Island</div>
+                </div>
 
-            <h3 className="">Natural Geographic Features</h3>
-            <a href="#">
-              <i className="fa-solid fa-location-dot pb-4 fs-3"></i>
-            </a>
-            <span className="country text-capitalize">new Zealand</span>
-            <p className="pb-3">
-              O Now Zesland The Scuth Iefand has 15 named rsaritima fiords which
-              ars all lecated in the vouthwust of the istand in a although all the
-              mantime fiords use the wurd Sound in their name instead.
-            </p>
-            <p className="pb-0">
-              The istand of-maul Ylew mor Turks and Caicos Islands* O torth ot
-              Dominicun.go Most of New Zoalands g'acier are in the South inland.
-              Thay aro ganerally foued in the Southemn Nps near the Muin Divide. An
-              inventory of Seath istane giseiers during thei tunos indicatent thore
-              were about 2,116 glaciers with an area ol at lsast onu hectare (2.5
-              vcrus).
-            </p>
-            <div className="row g-3 mt-4">
-              <div className="col-md-6">
-                <img
-                  src="/src/assets/images/image-1.png"
-                  className="img-fluid rounded"
-                  alt=""
-                />
-              </div>
-              <div className="col-md-6">
-                <img
-                  src="/src/assets/images/image-2.png"
-                  className="img-fluid rounded"
-                  alt=""
-                />
+                <div className="col-12 p-4">
+                  <h2 className="fw-bold">South Island — New Zealand</h2>
+                  <p className="lead text-muted">Mountains, fjords and dramatic coastlines. The South Island is an adventurer's playground with scenic drives, glacier hikes, and world-class stargazing.</p>
+
+                  <div className="row g-3 mt-3">
+                    <div className="col-md-6">
+                      <p className="text-muted">The Southern Alps run along the island's spine, culminating in Aoraki / Mt Cook. National parks, rivers and fiords create a diverse landscape for every traveler.</p>
+                    </div>
+                    <div className="col-md-6">
+                      <p className="text-muted">From kayaking Abel Tasman to glacier walks near Fox and Franz Josef, you'll find both gentle and adrenaline-fuelled experiences.</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 gallery row g-3">
+                    <div className="col-md-6">
+                      <img src="/src/assets/images/image-1.png" alt="scenery 1" className="img-fluid rounded-3" />
+                    </div>
+                    <div className="col-md-6">
+                      <img src="/src/assets/images/image-2.png" alt="scenery 2" className="img-fluid rounded-3" />
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam voluptate, quibusdam cumque rerum vero earum delectus tenetur doloribus ipsa.</p>
+
+                  <div className="d-flex gap-2 mt-4 align-items-center">
+                    <a className="btn btn-outline-secondary" href="#">Read more</a>
+                    <a className="btn btn-primary" href="#book">Book now</a>
+                    <div className="ms-auto text-muted small">Estimated trip: <strong>7 days</strong></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-              voluptate, quibusdam cumque rerum vero earum delectus tenetur
-              doloribus ipsa? Exercitationem!
-            </p>
-            <p className="mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-              voluptate, quibusdam cumque rerum vero earum delectus tenetur
-              doloribus ipsa? Exercitationem! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Totam voluptate, quibusdam cumque
-              rerum vero earum delectus tenetur doloribus ipsa? Exercitationem!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-          </div>
+          </article>
 
-          {/* Right Column */}
-          <div className="rightpart col-lg-4 mt-5 col-sm-12">
-            <img
-              src="src/assets/images/Map.png"
-              className="img-fluid image rounded mb-5 "
-              alt="NZ Map"
-            />
-            <div className="part mb-4 d-flex justify-content-between">
-              <span className="fw-bold text-capitalize">Other Destinations</span>
-              <a
-                href="#"
-                className="btn btn-sm btn-success border-1 text-center text-capitalize pt-lg-3 pb-lg-3 ps-lg-4 pe-lg-4 ps-md-3 pe-md-3 pt-md-2 pb-md-2"
-              >
-                see all
-              </a>
-            </div>
+          <aside className="col-lg-4">
+            <div className="sticky-top" style={{ top: '100px' }}>
+              <div className="glass-card mb-4 p-3 shadow-sm">
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  <img src="/src/assets/images/Map.png" alt="map" style={{ width: 64, height: 64, objectFit: 'cover' }} className="rounded" />
+                  <div>
+                    <div className="small text-muted">Plan</div>
+                    <div className="fw-bold">Other Destinations</div>
+                  </div>
+                </div>
 
-            {/* Card 1 */}
-            <div className="card mb-3">
-              <img
-                src="/src/assets/images/des1.jpg"
-                className="card-img-top photo1 position-relative img-fluid h-auto"
-                alt="The Island of Maui"
-              />
-              <div className="card-body mt-4 position-absolute">
-                <h4 className="card-title text-white pb-2">The Island of Maui</h4>
-                <a href="#">
-                  <i className="fa-solid fa-location-dot fs-4 pb-4 d-block"></i>
-                </a>
-                <button className="btn btn-sm btn-success text-center pt-lg-3 pb-lg-3 ps-4 pe-4 pt-md-2 pb-md-2 pt-sm-1 pb-sm-1">
-                  View more
-                </button>
+                <div className="d-flex gap-2 flex-column">
+                  <MiniCard
+                    image={'/src/assets/images/des1.jpg'}
+                    title={'The Island of Maui'}
+                    subtitle={'Hawaii — USA'}
+                    cta={{ text: 'View more' }}
+                  />
+
+                  <MiniCard
+                    image={'/src/assets/images/des2.jpg'}
+                    title={'Turks and Caicos'}
+                    subtitle={'Caribbean'}
+                    cta={{ text: 'View more' }}
+                  />
+
+                  <MiniCard
+                    image={'/src/assets/images/des3.webp'}
+                    title={'Glacier National Park'}
+                    subtitle={'Canada / USA'}
+                    cta={{ text: 'View more' }}
+                  />
+                </div>
+              </div>
+
+              <div className="glass-card p-3 shadow-sm">
+                <h6 className="mb-2">Quick Facts</h6>
+                <ul className="list-unstyled small text-muted mb-0">
+                  <li className="mb-2"><strong>Best time:</strong> Oct — Apr</li>
+                  <li className="mb-2"><strong>Language:</strong> English (Maori)</li>
+                  <li className="mb-2"><strong>Currency:</strong> NZD</li>
+                </ul>
               </div>
             </div>
-
-            {/* Card 2 */}
-            <div className="card mb-3">
-              <img
-                src="/src/assets/images/des2.jpg"
-                className="card-img-top photo1 position-relative img-fluid"
-                alt="Turks and Caicos Islands"
-              />
-              <div className="card-body mt-4 position-absolute">
-                <h4 className="card-title text-white pb-2">Turks and Caicos Islands</h4>
-                <a href="#">
-                  <i className="fa-solid fa-location-dot mt-3 fs-4 pb-4 d-block"></i>
-                </a>
-                <button className="btn btn-sm btn-success text-center pt-lg-3 pb-lg-3 ps-4 pe-4 pt-md-2 pb-md-2 pt-sm-1 pb-sm-1">
-                  View more
-                </button>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="card">
-              <img
-                src="/src/assets/images/des3.webp"
-                className="card-img-top photo1 position-relative img-fluid"
-                alt="Glacier National Park"
-              />
-              <div className="card-body mt-3 position-absolute">
-                <h4 className="card-title text-white pb-2">Glacier National Park</h4>
-                <a href="#">
-                  <i className="fa-solid fa-location-dot pb-4 fs-4 d-block"></i>
-                </a>
-                <button className="btn btn-sm btn-success text-center pt-lg-3 pb-lg-3 ps-4 pe-4 pt-md-2 pb-md-2 pt-sm-1 pb-sm-1">
-                  View more
-                </button>
-              </div>
-            </div>
-          </div>
+          </aside>
         </div>
-      </div>
+      </main>
     </>
   );
 }

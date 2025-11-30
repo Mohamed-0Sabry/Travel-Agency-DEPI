@@ -7,6 +7,8 @@ import AboutUsPage from "./pages/AboutUsPage";
 import Discover from "./pages/Discover";
 import TestComponentsPage from "./pages/TestComponentsPage";
 import Admin from "./pages/Admin";
+import "remixicon/fonts/remixicon.css";
+
 function ComingSoon({ title }: { title: string }) {
   return (
     <section className="py-5">

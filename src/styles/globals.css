@@ -1,0 +1,53 @@
+:root {
+  /* Brand Colors */
+  --headerFont: "Montserrat Alternates", sans-serif;
+  --linkFont: "Karla", sans-serif;
+  --linkColor: rgb(119, 119, 119);
+  --backgroundColor: #276968;
+  --bs-primary: #276968;
+  --bs-dark: #051721;
+  --bs-secondary: #e9f0f0e5;
+  --bs-primary-rgb: 39, 105, 104;
+  --bs-secondary-rgb: 233, 240, 240;
+  --bs-dark-rgb: 5, 23, 33;
+  --greenColor: #276968;
+  --greenColorDarker: #184140;
+  --textColor: #555;
+  --lightGray: #f5f5f5;
+
+  /* Modern Gradients */
+  --primary-gradient: linear-gradient(135deg, #276968 0%, #184140 100%);
+  --secondary-gradient: linear-gradient(135deg, #276968 0%, #051721 100%);
+  --accent-gradient: linear-gradient(135deg, #276968 0%, #3a8786 100%);
+  --dark-gradient: linear-gradient(135deg, #051721 0%, #0a2837 100%);
+  --light-gradient: linear-gradient(135deg, #e9f0f0 0%, #ffffff 100%);
+  --accent: #6ee7b7; /* mint */
+  
+  --primary-color: #276968;
+  --secondary-color: #184140;
+  --accent-color: #3a8786;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+
+  --text-dark: #051721;
+  --text-primary: #555;
+  --text-muted: #777777;
+  --text-light: #999999;
+
+  --bg-light: #f5f5f5;
+  --bg-secondary: #e9f0f0;
+  --bg-white: #ffffff;
+
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-lg: 1.5rem;
+
+  --shadow-sm: 0 1px 3px rgba(5, 23, 33, 0.1);
+  --shadow-md: 0 4px 6px rgba(5, 23, 33, 0.1);
+  --shadow-lg: 0 10px 25px rgba(5, 23, 33, 0.15);
+  --shadow-xl: 0 20px 40px rgba(5, 23, 33, 0.2);
+
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+  }

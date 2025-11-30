@@ -32,6 +32,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.5",
     "react-toastify": "^11.0.5",
+    "remixicon": "^4.7.0",
     "swiper": "^12.0.3",
     "yup": "^1.7.1",
     "zustand": "^5.0.8"
