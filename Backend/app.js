@@ -23,8 +23,8 @@ mongoose
   .catch(() => {
     console.error("Couldn't Connect To DB");
   });
-app.use("/flights",flightRouter);
-app.use("/offers",offersRouter);
+app.use("/api/flights",flightRouter);
+app.use("/api/offers",offersRouter);
 app.listen(port, () => {
   console.log(`Connected On The Server On Port ${port} `);
 });

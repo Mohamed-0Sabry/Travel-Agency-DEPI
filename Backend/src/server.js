@@ -5,10 +5,10 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const connectDB = require('./config/database');
 const errorHandler = require('./middleware/error');
-
+const path = require('path');
 // Import routes
 const authRoutes = require('./routes/auth');
-const flightRoutes = require('./routes/flightModified');
+const flightRoutes = require('./routes/Flights');
 const hotelRoutes = require('./routes/hotels');
 const cartRoutes = require('./routes/cart');
 const bookingRoutes = require('./routes/bookings');
@@ -20,11 +20,11 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(helmet());
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
 }));
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -41,7 +41,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+
 // Mount routes
+app.use('/api/uploads', express.static(path.join(__dirname, '/uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
 app.use('/api/hotels', hotelRoutes);

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = require('../config/database');
 const User = require('../models/User');
 const Destination = require('../models/Destination');
-const Flight = require('../models/FlightsModified');
+const Flight = require('../models/Flight');
 const Hotel = require('../models/Hotel');
 
 // Sample data
@@ -22,64 +22,156 @@ const destinations = [
 
 const flights = [
   {
-    flightNumber: "IN230",
-    airline: "United Airlines",
-    airlineLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png",
-    departureAirport: "ACC",
-    arrivalAirport: "LHR",
-    departureTime: "11:00 PM",
-    arrivalTime: "6:00 AM",
-    date: new Date("2025-12-11"),
-    flightDuration: "7h 40min",
-    availableSeats: 120,
-    totalSeats: 180,
-    classes: [
-      { name: "Economy", price: 850, availableSeats: 90 },
-      { name: "Business", price: 1800, availableSeats: 20 },
-      { name: "First Class", price: 3200, availableSeats: 10 }
-    ],
-    gate: "2B",
-    status: "scheduled"
+    price: 850,
+    origin: {
+      city: "Accra",
+      country: "Ghana"
+    },
+    destination: {
+      city: "London",
+      country: "United Kingdom"
+    },
+    offer: {
+      isActive: true,
+      oldPrice: 850,
+      newPrice: 699,
+      badge: "Hot Deal",
+      expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
+    },
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800",
+    description: "Direct flight from Accra to London with premium service and comfortable seating.",
+    rating: 4.5
   },
   {
-    flightNumber: "EK142",
-    airline: "Emirates",
-    airlineLogo: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Emirates_logo.svg",
-    departureAirport: "DXB",
-    arrivalAirport: "CAI",
-    departureTime: "10:00 AM",
-    arrivalTime: "1:00 PM",
-    date: new Date("2025-12-15"),
-    flightDuration: "3h 10min",
-    availableSeats: 100,
-    totalSeats: 150,
-    classes: [
-      { name: "Economy", price: 650, availableSeats: 70 },
-      { name: "Business", price: 1250, availableSeats: 25 },
-      { name: "First Class", price: 2500, availableSeats: 5 }
-    ],
-    gate: "12B",
-    status: "scheduled"
+    price: 1250,
+    origin: {
+      city: "Dubai",
+      country: "UAE"
+    },
+    destination: {
+      city: "Cairo",
+      country: "Egypt"
+    },
+    offer: {
+      isActive: false
+    },
+    image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=800",
+    description: "Experience luxury travel from Dubai to Cairo with world-class amenities.",
+    rating: 4.7
   },
   {
-    flightNumber: "BA456",
-    airline: "British Airways",
-    airlineLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/42/British_Airways_Logo.svg/1200px-British_Airways_Logo.svg.png",
-    departureAirport: "LHR",
-    arrivalAirport: "JFK",
-    departureTime: "2:00 PM",
-    arrivalTime: "5:00 PM",
-    date: new Date("2025-12-20"),
-    flightDuration: "8h 00min",
-    availableSeats: 140,
-    totalSeats: 200,
-    classes: [
-      { name: "Economy", price: 1200, availableSeats: 110 },
-      { name: "Business", price: 2800, availableSeats: 20 },
-      { name: "First Class", price: 5000, availableSeats: 10 }
-    ],
-    gate: "5A",
-    status: "scheduled"
+    price: 2200,
+    origin: {
+      city: "New York",
+      country: "USA"
+    },
+    destination: {
+      city: "Tokyo",
+      country: "Japan"
+    },
+    offer: {
+      isActive: true,
+      oldPrice: 2200,
+      newPrice: 1899,
+      badge: "Limited Offer",
+      expiresAt: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days from now
+    },
+    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800",
+    description: "Non-stop flight to Tokyo with entertainment system and gourmet meals.",
+    rating: 4.8
+  },
+  {
+    price: 1500,
+    origin: {
+      city: "Paris",
+      country: "France"
+    },
+    destination: {
+      city: "Rome",
+      country: "Italy"
+    },
+    offer: {
+      isActive: false
+    },
+    image: "https://images.unsplash.com/photo-1525624286412-4099c83c1bc8?w=800",
+    description: "Quick and comfortable flight between two historic European capitals.",
+    rating: 4.6
+  },
+  {
+    price: 950,
+    origin: {
+      city: "Istanbul",
+      country: "Turkey"
+    },
+    destination: {
+      city: "Doha",
+      country: "Qatar"
+    },
+    offer: {
+      isActive: true,
+      oldPrice: 950,
+      newPrice: 799,
+      badge: "Flash Sale",
+      expiresAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000) // 2 days from now
+    },
+    image: "https://images.unsplash.com/photo-1542296332-2e4473faf563?w=800",
+    description: "Affordable and reliable service connecting Turkey and Qatar.",
+    rating: 4.4
+  },
+  {
+    price: 1800,
+    origin: {
+      city: "London",
+      country: "United Kingdom"
+    },
+    destination: {
+      city: "Bangkok",
+      country: "Thailand"
+    },
+    offer: {
+      isActive: false
+    },
+    image: "https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=800",
+    description: "Long-haul flight with spacious seating and excellent in-flight service.",
+    rating: 4.7
+  },
+  {
+    price: 750,
+    origin: {
+      city: "Berlin",
+      country: "Germany"
+    },
+    destination: {
+      city: "Barcelona",
+      country: "Spain"
+    },
+    offer: {
+      isActive: true,
+      oldPrice: 750,
+      newPrice: 599,
+      badge: "Weekend Special",
+      expiresAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000) // 5 days from now
+    },
+    image: "https://images.unsplash.com/photo-1544016768-982d1554f0b9?w=800",
+    description: "Explore the vibrant culture of Barcelona with our convenient flights.",
+    rating: 4.5
+  },
+  {
+    price: 3200,
+    origin: {
+      city: "Sydney",
+      country: "Australia"
+    },
+    destination: {
+      city: "Los Angeles",
+      country: "USA"
+    },
+    offer: {
+      isActive: false
+    },
+    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800",
+    description: "Premium trans-Pacific service with lie-flat seats and fine dining.",
+    rating: 4.9
   }
 ];
 
@@ -229,7 +321,6 @@ const seedDatabase = async () => {
       hasPhoneVerified: true
     });
 
-    
     console.log('Created users');
 
     // Insert destinations

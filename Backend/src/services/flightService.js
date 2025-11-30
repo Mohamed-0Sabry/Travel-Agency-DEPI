@@ -1,30 +1,37 @@
-const Flight = require('../models/FlightsModified');
+const Flight = require('../models/Flights');
+const { handleFlightValidation } = require('../utils/flightValidation');
 
 class FlightService {
   // Get all flights with filters
   async getAllFlights(filters = {}) {
     const query = {};
     
-    if (filters.departureAirport) {
-      query.departureAirport = new RegExp(filters.departureAirport, 'i');
+    if (filters.originCity) {
+      query['origin.city'] = new RegExp(filters.originCity, 'i');
     }
-    if (filters.arrivalAirport) {
-      query.arrivalAirport = new RegExp(filters.arrivalAirport, 'i');
+    if (filters.originCountry) {
+      query['origin.country'] = new RegExp(filters.originCountry, 'i');
     }
-    if (filters.date) {
-      const startDate = new Date(filters.date);
-      const endDate = new Date(filters.date);
-      endDate.setDate(endDate.getDate() + 1);
-      query.date = { $gte: startDate, $lt: endDate };
+    if (filters.destinationCity) {
+      query['destination.city'] = new RegExp(filters.destinationCity, 'i');
     }
-    if (filters.airline) {
-      query.airline = new RegExp(filters.airline, 'i');
+    if (filters.destinationCountry) {
+      query['destination.country'] = new RegExp(filters.destinationCountry, 'i');
     }
-    if (filters.status) {
-      query.status = filters.status;
+    if (filters.minPrice) {
+      query.price = { ...query.price, $gte: parseFloat(filters.minPrice) };
+    }
+    if (filters.maxPrice) {
+      query.price = { ...query.price, $lte: parseFloat(filters.maxPrice) };
+    }
+    if (filters.minRating) {
+      query.rating = { $gte: parseFloat(filters.minRating) };
+    }
+    if (filters.hasOffer === 'true') {
+      query['offer.isActive'] = true;
     }
 
-    const flights = await Flight.find(query).sort({ date: 1, departureTime: 1 });
+    const flights = await Flight.find(query).sort({ createdAt: -1 });
     return flights;
   }
 
@@ -37,20 +44,34 @@ class FlightService {
     return flight;
   }
 
-  // Get Flights with Offers
-  async getFlightsWithOffers(){
-    const flights = await Flight.find({ "offer.isActive": true });
-    return flights;
-  }
-
   // Create new flight (Admin)
   async createFlight(flightData) {
-    const flight = await Flight.create(flightData);
+    // Validate flight data
+    const validation = handleFlightValidation(flightData);
+    
+    if (!validation.valid) {
+      const error = new Error('Validation failed');
+      error.errors = validation.errors;
+      throw error;
+    }
+
+    const flight = await Flight.create(validation.value);
     return flight;
   }
 
   // Update flight (Admin)
   async updateFlight(id, updateData) {
+    // If updating, validate the data
+    if (Object.keys(updateData).length > 0) {
+      const validation = handleFlightValidation(updateData);
+      
+      if (!validation.valid) {
+        const error = new Error('Validation failed');
+        error.errors = validation.errors;
+        throw error;
+      }
+    }
+
     const flight = await Flight.findByIdAndUpdate(
       id,
       updateData,
@@ -77,81 +98,141 @@ class FlightService {
 
   // Search flights
   async searchFlights(searchParams) {
-    const { from, to, date, passengers, flightClass } = searchParams;
+    const { from, to, minPrice, maxPrice, hasOffer } = searchParams;
     
-    const query = {
-      departureAirport: new RegExp(from, 'i'),
-      arrivalAirport: new RegExp(to, 'i'),
-      status: { $in: ['scheduled', 'boarding'] }
-    };
+    const query = {};
 
-    if (date) {
-      const startDate = new Date(date);
-      const endDate = new Date(date);
-      endDate.setDate(endDate.getDate() + 1);
-      query.date = { $gte: startDate, $lt: endDate };
+    if (from) {
+      query.$or = [
+        { 'origin.city': new RegExp(from, 'i') },
+        { 'origin.country': new RegExp(from, 'i') }
+      ];
     }
 
-    let flights = await Flight.find(query).sort({ date: 1, departureTime: 1 });
-
-    // Filter by class availability if specified
-    if (flightClass && passengers) {
-      flights = flights.filter(flight => {
-        const classInfo = flight.classes.find(c => c.name === flightClass);
-        return classInfo && classInfo.availableSeats >= passengers;
-      });
+    if (to) {
+      const destQuery = {
+        $or: [
+          { 'destination.city': new RegExp(to, 'i') },
+          { 'destination.country': new RegExp(to, 'i') }
+        ]
+      };
+      
+      if (query.$or) {
+        query.$and = [
+          { $or: query.$or },
+          destQuery
+        ];
+        delete query.$or;
+      } else {
+        query.$or = destQuery.$or;
+      }
     }
+
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = parseFloat(minPrice);
+      if (maxPrice) query.price.$lte = parseFloat(maxPrice);
+    }
+
+    if (hasOffer === 'true') {
+      query['offer.isActive'] = true;
+    }
+
+    const flights = await Flight.find(query).sort({ rating: -1, price: 1 });
+    return flights;
+  }
+
+  // Get flights with active offers
+  async getFlightsWithOffers() {
+    const flights = await Flight.find({
+      'offer.isActive': true,
+      $or: [
+        { 'offer.expiresAt': { $exists: false } },
+        { 'offer.expiresAt': { $gte: new Date() } }
+      ]
+    }).sort({ 'offer.newPrice': 1 });
 
     return flights;
   }
 
-  // Check seat availability
-  async checkAvailability(flightId, flightClass, numberOfSeats) {
-    const flight = await Flight.findById(flightId);
+  // Get popular flights (by rating)
+  async getPopularFlights(limit = 10) {
+    const flights = await Flight.find()
+      .sort({ rating: -1 })
+      .limit(limit);
     
-    if (!flight) {
-      throw new Error('Flight not found');
-    }
-
-    const classInfo = flight.classes.find(c => c.name === flightClass);
-    
-    if (!classInfo) {
-      throw new Error('Flight class not found');
-    }
-
-    if (classInfo.availableSeats < numberOfSeats) {
-      throw new Error('Not enough seats available');
-    }
-
-    return {
-      available: true,
-      availableSeats: classInfo.availableSeats,
-      price: classInfo.price
-    };
+    return flights;
   }
 
-  // Update seat availability (used during booking)
-  async updateSeatAvailability(flightId, flightClass, numberOfSeats, operation = 'decrease') {
-    const flight = await Flight.findById(flightId);
+  // Get flights by destination
+  async getFlightsByDestination(city, country) {
+    const query = {
+      'destination.city': new RegExp(city, 'i')
+    };
+
+    if (country) {
+      query['destination.country'] = new RegExp(country, 'i');
+    }
+
+    const flights = await Flight.find(query).sort({ price: 1 });
+    return flights;
+  }
+
+  // Get flights by origin
+  async getFlightsByOrigin(city, country) {
+    const query = {
+      'origin.city': new RegExp(city, 'i')
+    };
+
+    if (country) {
+      query['origin.country'] = new RegExp(country, 'i');
+    }
+
+    const flights = await Flight.find(query).sort({ price: 1 });
+    return flights;
+  }
+
+  // Update flight rating
+  async updateFlightRating(id, rating) {
+    if (rating < 0 || rating > 5) {
+      throw new Error('Rating must be between 0 and 5');
+    }
+
+    const flight = await Flight.findByIdAndUpdate(
+      id,
+      { rating },
+      { new: true, runValidators: true }
+    );
+
+    if (!flight) {
+      throw new Error('Flight not found');
+    }
+
+    return flight;
+  }
+
+  // Activate/Deactivate offer
+  async toggleOffer(id, offerData) {
+    const flight = await Flight.findById(id);
     
     if (!flight) {
       throw new Error('Flight not found');
     }
 
-    const classInfo = flight.classes.find(c => c.name === flightClass);
-    
-    if (!classInfo) {
-      throw new Error('Flight class not found');
+    if (offerData.isActive) {
+      // Activating offer - validate prices
+      if (!offerData.oldPrice || !offerData.newPrice) {
+        throw new Error('Old price and new price are required for active offers');
+      }
+      if (offerData.newPrice >= offerData.oldPrice) {
+        throw new Error('New price must be lower than old price');
+      }
     }
 
-    if (operation === 'decrease') {
-      if (classInfo.availableSeats < numberOfSeats) {
-        throw new Error('Not enough seats available');
-      }
-      classInfo.availableSeats -= numberOfSeats;
-    } else {
-      classInfo.availableSeats += numberOfSeats;
-    }
+    flight.offer = {
+      ...flight.offer,
+      ...offerData
+    };
 
     await flight.save();
     return flight;

@@ -7,10 +7,6 @@ import type {
   UpdateProfileData,
   ChangePasswordData,
   User,
-  Flight,
-  SearchFlightsParams,
-  CheckFlightAvailabilityParams,
-  CreateFlightData,
   Hotel,
   SearchHotelsParams,
   CheckHotelAvailabilityParams,
@@ -31,7 +27,7 @@ import type {
   PaymentResponse,
 } from '@/types/api.types';
 
-// ==================== AUTH API ====================
+// AUTH API
 export const authAPI = {
   // Register new user
   register: async (data: RegisterData): Promise<ApiResponse<AuthResponse>> => {
@@ -64,56 +60,8 @@ export const authAPI = {
   },
 };
 
-// ==================== FLIGHT API ====================
-export const flightAPI = {
-  // Get all flights
-  getFlights: async (filters?: Record<string, string>): Promise<ApiResponse<Flight[]>> => {
-    const response = await axiosInstance.get('/flights', { params: filters });
-    return response.data;
-  },
 
-  // Get single flight
-  getFlight: async (id: string): Promise<ApiResponse<Flight>> => {
-    const response = await axiosInstance.get(`/flights/${id}`);
-    return response.data;
-  },
-
-  // Search flights
-  searchFlights: async (params: SearchFlightsParams): Promise<ApiResponse<Flight[]>> => {
-    const response = await axiosInstance.get('/flights/search', { params });
-    return response.data;
-  },
-
-  // Check flight availability
-  checkAvailability: async (params: CheckFlightAvailabilityParams): Promise<ApiResponse<{
-    available: boolean;
-    availableSeats: number;
-    price: number;
-  }>> => {
-    const response = await axiosInstance.get('/flights/check-availability', { params });
-    return response.data;
-  },
-
-  // Create flight (Admin)
-  createFlight: async (data: CreateFlightData): Promise<ApiResponse<Flight>> => {
-    const response = await axiosInstance.post('/flights', data);
-    return response.data;
-  },
-
-  // Update flight (Admin)
-  updateFlight: async (id: string, data: Partial<CreateFlightData>): Promise<ApiResponse<Flight>> => {
-    const response = await axiosInstance.put(`/flights/${id}`, data);
-    return response.data;
-  },
-
-  // Delete flight (Admin)
-  deleteFlight: async (id: string): Promise<ApiResponse<{ message: string }>> => {
-    const response = await axiosInstance.delete(`/flights/${id}`);
-    return response.data;
-  },
-};
-
-// ==================== HOTEL API ====================
+// HOTEL API
 export const hotelAPI = {
   // Get all hotels
   getHotels: async (filters?: Record<string, string>): Promise<ApiResponse<Hotel[]>> => {
@@ -163,7 +111,7 @@ export const hotelAPI = {
   },
 };
 
-// ==================== CART API ====================
+// CART API
 export const cartAPI = {
   // Get user's cart
   getCart: async (): Promise<ApiResponse<Cart>> => {
@@ -202,7 +150,7 @@ export const cartAPI = {
   },
 };
 
-// ==================== BOOKING API ====================
+// BOOKING API
 export const bookingAPI = {
   // Create flight booking
   createFlightBooking: async (data: CreateFlightBookingData): Promise<ApiResponse<Booking>> => {
@@ -253,7 +201,7 @@ export const bookingAPI = {
   },
 };
 
-// ==================== PAYMENT API ====================
+// PAYMENT API
 export const paymentAPI = {
   // Get payment methods
   getPaymentMethods: async (): Promise<ApiResponse<PaymentMethod[]>> => {
@@ -298,10 +246,9 @@ export const paymentAPI = {
   },
 };
 
-// ==================== COMBINED API CLIENT ====================
+// eveything
 const apiClient = {
   auth: authAPI,
-  flights: flightAPI,
   hotels: hotelAPI,
   cart: cartAPI,
   bookings: bookingAPI,

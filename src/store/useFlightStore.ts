@@ -42,7 +42,7 @@ const useFlightStore = create<FlightStore>((set) => ({
     set({ loading: true, error: null });
     try {
       const response = await flightsApi.getAll();
-      set({ flights: response.data });
+      set({ flights: response });
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         set({ error: err.response?.data?.message || "Something went wrong" });
@@ -54,7 +54,7 @@ const useFlightStore = create<FlightStore>((set) => ({
     set({ loading: true, error: null });
     try {
       const offers = await flightsApi.getOffers();
-      set({ activeOffers: offers.data });
+      set({ activeOffers: offers });
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         set({ error: err.response?.data?.message || "Something went wrong" });

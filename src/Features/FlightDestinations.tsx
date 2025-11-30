@@ -24,6 +24,8 @@ const Destination: React.FC = () => {
       />
     );
   }
+
+  console.log(flights);
   return (
     <div className="container py-4">
       <style>{`

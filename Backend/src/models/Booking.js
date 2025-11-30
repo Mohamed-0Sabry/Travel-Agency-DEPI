@@ -18,18 +18,27 @@ const bookingSchema = new mongoose.Schema({
     ref: 'Flight'
   },
   flightDetails: {
-    flightNumber: String,
-    airline: String,
-    airlineLogo: String,
-    departureTime: String,
-    arrivalTime: String,
-    departureAirport: String,
-    arrivalAirport: String,
-    date: Date,
-    flightDuration: String,
-    gate: String,
-    seat: String,
-    class: String
+    origin: {
+      city: String,
+      country: String
+    },
+    destination: {
+      city: String,
+      country: String
+    },
+    price: Number,
+    image: String,
+    description: String,
+    passengers: {
+      type: Number,
+      min: 1,
+      default: 1
+    },
+    travelClass: {
+      type: String,
+      enum: ['Economy', 'Business', 'First Class'],
+      default: 'Economy'
+    }
   },
   
   // Hotel booking details

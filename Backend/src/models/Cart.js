@@ -12,13 +12,14 @@ const cartItemSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Flight'
   },
-  flightClass: {
-    type: String,
-    enum: ['Economy', 'Business', 'First Class']
-  },
   passengers: {
     type: Number,
     min: [1, 'At least 1 passenger required']
+  },
+  travelClass: {
+    type: String,
+    enum: ['Economy', 'Business', 'First Class'],
+    default: 'Economy'
   },
   
   // Hotel item

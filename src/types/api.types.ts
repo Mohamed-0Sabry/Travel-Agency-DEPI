@@ -80,6 +80,7 @@ export interface Flight {
     gate?: string;
     createdAt?: string;
     updatedAt?: string;
+    image?: string
 }
 
 export interface SearchFlightsParams {

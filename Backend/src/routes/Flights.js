@@ -1,191 +1,35 @@
-const { Flights, handleFlightValidation } = require("../models/Flights");
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
 const router = express.Router();
-const upload = require("./uploader");
+const { protect, authorize } = require('../middleware/auth');
+const {
+  getFlights,
+  getFlight,
+  searchFlights,
+  getFlightsWithOffers,
+  getPopularFlights,
+  getFlightsByDestination,
+  getFlightsByOrigin,
+  createFlight,
+  updateFlight,
+  deleteFlight,
+  updateFlightRating,
+  toggleOffer
+} = require('../controllers/flightController');
 
-router.get("/", async (req, res) => {
-  try {
-    const flights = await Flights.find();
-    return res.send(flights);
-  } catch (e) {
-    console.err(e);
-    return res.status(500).send("Error Fetching Flights");
-  }
-});
+// Public routes
+router.get('/', getFlights);
+router.get('/search', searchFlights);
+router.get('/offers', getFlightsWithOffers);
+router.get('/popular', getPopularFlights);
+router.get('/by-destination', getFlightsByDestination);
+router.get('/by-origin', getFlightsByOrigin);
+router.get('/:id', getFlight);
 
-
-router.get("/debug/:id", async (req, res) => {
-  const id = req.params.id.trim();
-  try {
-    const dbName = mongoose.connection && mongoose.connection.name;
-    const isValid = mongoose.Types.ObjectId.isValid(id);
-    if (!isValid) return res.status(400).send({ error: "Invalid ObjectId" });
-    const objId = new mongoose.Types.ObjectId(id);
-    const coll = mongoose.connection.db.collection("flights");
-    const rawByObjectId = await coll.findOne({ _id: objId });
-    // try matching by string _id in case documents store _id as string
-    const rawByStringId = await coll.findOne({ _id: id });
-    const byModel = await Flights.findById(id);
-    const total = await coll.countDocuments();
-    // get a breakdown of _id types in the collection
-    const idTypes = await coll
-      .aggregate([
-        { $project: { _idType: { $type: "$_id" } } },
-        { $group: { _id: "$ _idType", count: { $sum: 1 } } },
-      ])
-      .toArray()
-      .catch(() => []);
-
-    return res.send({
-      dbName,
-      totalDocuments: total,
-      idTypes,
-      rawByObjectIdExists: !!rawByObjectId,
-      rawByObjectId: rawByObjectId,
-      rawByStringIdExists: !!rawByStringId,
-      rawByStringId: rawByStringId,
-      byModelExists: !!byModel,
-      byModel,
-    });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).send({ error: err.message });
-  }
-});
-
-router.get("/:id", async (req, res) => {
-  try {
-    const id = req.params.id.trim();
-    console.log("Looking for ID:", id);
-    
-    
-    // const coll = mongoose.connection.db.collection("flights");
-    // const flight = await coll.findOne({ _id: id });
-    const flight = await Flights.findById(id);
-    
-    console.log("Flight found:", flight);
-    
-    if (!flight) {
-      return res.status(404).send("No Flight Found With That Id");
-    }
-    
-    return res.send(flight);
-  } catch (e) {
-    console.error("Error:", e);
-    return res.status(500).send("Error fetching flight: " + e.message);
-  }
-});
-
-router.post("/", upload.single("image"), async (req, res) => {
-  if (!req.file) {
-    return res.status(400).send("Flight Image Is Not Sent");
-  }
-  const payload = {
-    price: req.body["price"],
-    origin: {
-      city: req.body["origin.city"],
-      country: req.body["origin.country"],
-    },
-    destination: {
-      city: req.body["destination.city"],
-      country: req.body["destination.country"],
-    },
-    image: req.file.filename,
-    offer: {
-      isActive: req.body["offer.isActive"] === "true",
-      oldPrice: req.body["offer.oldPrice"],
-      newPrice: req.body["offer.newPrice"],
-      badge: req.body["offer.badge"],
-      expiresAt: req.body["offer.expiresAt"],
-    },
-    description: req.body["description"],
-    rating: req.body["rating"],
-  };
-
-  const { error } = handleFlightValidation(payload);
-  if (error) {
-    const errorMessages = error.details.map((err) => err.message);
-    return res.status(400).send(errorMessages);
-  }
-  let flight = new Flights(payload);
-  try {
-    const newFlight = await flight.save();
-    return res.status(201).send(newFlight);
-  } catch (e) {
-    console.error(e);
-    return res.status(500).send("Error Occured While Saving The Flight");
-  }
-});
-
-router.put("/:id", upload.single("image"), async (req, res) => {
-  try {
-    const id = req.params.id.trim();
-    
-    // Check if flight exists using raw collection
-    // const coll = mongoose.connection.db.collection("flights");
-    // const flight = await coll.findOne({ _id: id });
-    const flight = await Flights.findById(id);
-    if (!flight) {
-      return res.status(404).send("No Flight Found With That Id");
-    }
-    
-    const payload = {
-      price: req.body.price,
-      origin: {
-        city: req.body["origin.city"],
-        country: req.body["origin.country"],
-      },
-      destination: {
-        city: req.body["destination.city"],
-        country: req.body["destination.country"],
-      },
-      image: req.file ? req.file.filename : flight.image,
-      offer: {
-        isActive: req.body["offer.isActive"] === "true",
-        oldPrice: req.body["offer.oldPrice"],
-        newPrice: req.body["offer.newPrice"],
-        badge: req.body["offer.badge"],
-        expiresAt: req.body["offer.expiresAt"],
-      },
-      description: req.body.description,
-      rating: req.body.rating,
-    };
-    
-    const { error } = handleFlightValidation(payload);
-    if (error) {
-      const errorMessages = error.details.map((err) => err.message);
-      return res.status(400).send(errorMessages);
-    }
-    
-    // Update using raw collection
-    const update=await Flights.findByIdAndUpdate(id,flight,{new:true});
-    
-    return res.status(200).send(update);
-  } catch (e) {
-    console.error(e);
-    return res.status(500).send("Error Updating Flight Info");
-  }
-});
-
-router.delete("/:id", async (req, res) => {
-  try {
-    const id = req.params.id.trim();
-    
-    // const coll = mongoose.connection.db.collection("flights");
-    // const flight = await coll.findOne({ _id: id });
-    const flight = await Flights.findById(id);
-    
-    if (!flight) {
-      return res.status(404).send("No Flight Found With That Id");
-    }
-    
-    const deletedFlight=await Flights.findByIdAndDelete(id);
-    return res.status(200).send("The Flight Is Deleted Successfully");
-  } catch (e) {
-    console.error(e);
-    return res.status(500).send("Error Deleting The Flight");
-  }
-});
+// Admin routes
+router.post('/', protect, authorize('admin'), createFlight);
+router.put('/:id', protect, authorize('admin'), updateFlight);
+router.delete('/:id', protect, authorize('admin'), deleteFlight);
+router.put('/:id/rating', protect, authorize('admin'), updateFlightRating);
+router.put('/:id/offer', protect, authorize('admin'), toggleOffer);
 
 module.exports = router;
