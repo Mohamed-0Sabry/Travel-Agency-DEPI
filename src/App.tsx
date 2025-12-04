@@ -6,8 +6,10 @@ import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import Discover from "./pages/Discover";
 import TestComponentsPage from "./pages/TestComponentsPage";
+import ContactPage from "./pages/ContactPage";
 import Admin from "./pages/Admin";
 import "remixicon/fonts/remixicon.css";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function ComingSoon({ title }: { title: string }) {
   return (
@@ -33,7 +35,10 @@ export default function App() {
         <Route path="discover" element={<Discover />} />
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="Admin" element={<Admin />} />
-        <Route path="contact" element={<ComingSoon title="Contact" />} />
+        {/* <Route path="contact" element={<ComingSoon title="Contact" />} /> */}
+        <Route path="contact" element={<ContactPage/>} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Modal from "../Components/Modal";
+import CartDrawer from "@/Components/ui/Drawer";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useCartStore } from "@/store/useCartStore";
 
 const togglePasswordIcon = (inputId: string) => {
   const input = document.getElementById(inputId) as HTMLInputElement | null;
@@ -17,6 +20,88 @@ const Navbar: React.FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showCartDrawer, setShowCartDrawer] = useState(false);
+
+  // Auth Store
+  const { login, register, logout, isAuthenticated, user, isLoading, error, clearError } = useAuthStore();
+  
+  // Cart Store
+  const { cart, getCart } = useCartStore();
+
+  // Get cart on mount and when user logs in
+  useEffect(() => {
+    if (isAuthenticated) {
+      getCart();
+    }
+  }, [isAuthenticated, getCart]);
+
+  const cartItemCount = cart?.items?.length || 0;
+
+  // Login Form State
+  const [loginForm, setLoginForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Signup Form State
+  const [signupForm, setSignupForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  // Handle Login
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await login(loginForm);
+      setShowLoginModal(false);
+      setLoginForm({ email: "", password: "" });
+    } catch (err) {
+      console.error("Login failed:", err);
+    }
+  };
+
+  // Handle Signup
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate passwords match
+    if (signupForm.password !== signupForm.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    try {
+      await register({
+        name: signupForm.name,
+        email: signupForm.email,
+        password: signupForm.password,
+      });
+      setShowSignupModal(false);
+      setSignupForm({ name: "", email: "", password: "", confirmPassword: "" });
+    } catch (err) {
+      console.error("Signup failed:", err);
+    }
+  };
+
+  // Handle Logout
+  const handleLogout = () => {
+    logout();
+    setIsNavOpen(false);
+  };
+
+  // Clear error when modals close
+  const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+    clearError();
+  };
+
+  const handleCloseSignupModal = () => {
+    setShowSignupModal(false);
+    clearError();
+  };
 
   return (
     <>
@@ -30,7 +115,6 @@ const Navbar: React.FC = () => {
                 className="nav-logo"
               />
             </NavLink>
-
             <button
               className={`navbar-toggler ${isNavOpen ? "" : "collapsed"}`}
               type="button"
@@ -41,7 +125,6 @@ const Navbar: React.FC = () => {
             >
               <span className="navbar-toggler-icon" />
             </button>
-
             <div
               className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
               id="navbarSupportedContent"
@@ -109,34 +192,75 @@ const Navbar: React.FC = () => {
                   </NavLink>
                 </li>
               </ul>
-
-              <div className="login-sign-up d-flex">
-                <div className="home-login me-4">
-                  <a
-                    href="#"
-                    className="login fs-5"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setShowLoginModal(true);
-                      setIsNavOpen(false);
-                    }}
-                  >
-                    Login
-                  </a>
-                </div>
-                <div className="up">
-                  <a
-                    href="#"
-                    className="home-sign-up pe-3 ps-3 pt-2 pb-2"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setShowSignupModal(true);
-                      setIsNavOpen(false);
-                    }}
-                  >
-                    Sign Up
-                  </a>
-                </div>
+              <div className="login-sign-up d-flex align-items-center">
+                {isAuthenticated && user ? (
+                  <>
+                    <div className="cart-icon me-3">
+                      <button 
+                        className="btn btn-link position-relative p-0"
+                        onClick={() => setShowCartDrawer(true)}
+                        aria-label="Shopping Cart"
+                      >
+                        <i className="fa-solid fa-cart-shopping fs-5"></i>
+                        {cartItemCount > 0 && (
+                          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {cartItemCount}
+                          </span>
+                        )}
+                      </button>
+                    </div>
+                    <div className="dashboard-btn me-3">
+                      <NavLink
+                        to="/dashboard"
+                        className="btn btn-outline-primary"
+                      >
+                        <i className="fa-solid fa-gauge me-2"></i>
+                        Dashboard
+                      </NavLink>
+                    </div>
+                    <div className="up">
+                      <a
+                        href="#"
+                        className="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleLogout();
+                        }}
+                      >
+                        Logout
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="home-login me-4">
+                      <a
+                        href="#"
+                        className="login fs-5"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowLoginModal(true);
+                          setIsNavOpen(false);
+                        }}
+                      >
+                        Login
+                      </a>
+                    </div>
+                    <div className="up">
+                      <a
+                        href="#"
+                        className="home-sign-up pe-3 ps-3 pt-2 pb-2"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowSignupModal(true);
+                          setIsNavOpen(false);
+                        }}
+                      >
+                        Sign Up
+                      </a>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -161,19 +285,40 @@ const Navbar: React.FC = () => {
             </div>
           }
           show={showSignupModal}
-          onClose={() => setShowSignupModal(false)}
+          onClose={handleCloseSignupModal}
         >
-          <form>
+          <form onSubmit={handleSignup}>
+            {error && (
+              <div className="alert alert-danger" role="alert">
+                {error}
+              </div>
+            )}
             <div className="form-group">
               <label className="form-label">Full Name</label>
-              <input type="text" className="form-control" name="fullName" />
+              <input
+                type="text"
+                className="form-control"
+                name="fullName"
+                value={signupForm.name}
+                onChange={(e) =>
+                  setSignupForm({ ...signupForm, name: e.target.value })
+                }
+                required
+              />
             </div>
-
             <div className="form-group">
               <label className="form-label">Email</label>
-              <input type="email" className="form-control" name="email" />
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                value={signupForm.email}
+                onChange={(e) =>
+                  setSignupForm({ ...signupForm, email: e.target.value })
+                }
+                required
+              />
             </div>
-
             <div className="form-group">
               <label className="form-label">Password</label>
               <input
@@ -181,6 +326,11 @@ const Navbar: React.FC = () => {
                 className="form-control"
                 id="signupPassword"
                 name="password"
+                value={signupForm.password}
+                onChange={(e) =>
+                  setSignupForm({ ...signupForm, password: e.target.value })
+                }
+                required
               />
               <span
                 className="password-toggle"
@@ -189,7 +339,6 @@ const Navbar: React.FC = () => {
                 <i className="fa-solid fa-eye-slash" />
               </span>
             </div>
-
             <div className="form-group">
               <label className="form-label">Confirm Password</label>
               <input
@@ -197,6 +346,14 @@ const Navbar: React.FC = () => {
                 className="form-control"
                 id="confirmPassword"
                 name="confirmPassword"
+                value={signupForm.confirmPassword}
+                onChange={(e) =>
+                  setSignupForm({
+                    ...signupForm,
+                    confirmPassword: e.target.value,
+                  })
+                }
+                required
               />
               <span
                 className="password-toggle"
@@ -205,12 +362,12 @@ const Navbar: React.FC = () => {
                 <i className="fa-solid fa-eye-slash" />
               </span>
             </div>
-
             <div className="form-check mb-4">
               <input
                 type="checkbox"
                 className="form-check-input"
                 id="agreeTerms"
+                required
               />
               <label className="form-check-label" htmlFor="agreeTerms">
                 I agree to the{" "}
@@ -223,16 +380,14 @@ const Navbar: React.FC = () => {
                 </a>
               </label>
             </div>
-
             <button
-              type="button"
+              type="submit"
               className="btn btn-primary w-100 mb-3"
-              onClick={() => setShowSignupModal(false)}
+              disabled={isLoading}
             >
-              Sign Up
+              {isLoading ? "Signing Up..." : "Sign Up"}
             </button>
           </form>
-
           <div className="login-link">
             <p>
               Already Have An Account?{" "}
@@ -248,21 +403,20 @@ const Navbar: React.FC = () => {
               </a>
             </p>
           </div>
-
           <div className="social-login-divider">Or Sign Up With</div>
-
           <div className="social-login-buttons d-flex gap-2">
             <button
               className="social-btn facebook-btn"
               aria-label="Sign up with Facebook"
+              type="button"
             >
               <i className="fa-brands fa-facebook" />
             </button>
             <button
               className="social-btn google-btn"
               aria-label="Sign up with Google"
+              type="button"
             >
-              {/* google svg */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -290,12 +444,11 @@ const Navbar: React.FC = () => {
             <button
               className="social-btn apple-btn"
               aria-label="Sign up with Apple"
+              type="button"
             >
               <i className="fa-brands fa-apple" />
             </button>
           </div>
-
-          {/* logos at the end of the modal */}
           <div className="modal-foot-logos text-center mt-3">
             <img
               src="src/assets/images/logo.png"
@@ -324,14 +477,27 @@ const Navbar: React.FC = () => {
             </div>
           }
           show={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
+          onClose={handleCloseLoginModal}
         >
-          <form>
+          <form onSubmit={handleLogin}>
+            {error && (
+              <div className="alert alert-danger" role="alert">
+                {error}
+              </div>
+            )}
             <div className="form-group">
               <label className="form-label">Email</label>
-              <input type="email" className="form-control" name="email" />
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                value={loginForm.email}
+                onChange={(e) =>
+                  setLoginForm({ ...loginForm, email: e.target.value })
+                }
+                required
+              />
             </div>
-
             <div className="form-group">
               <label className="form-label">Password</label>
               <input
@@ -339,6 +505,11 @@ const Navbar: React.FC = () => {
                 className="form-control"
                 id="loginPassword"
                 name="password"
+                value={loginForm.password}
+                onChange={(e) =>
+                  setLoginForm({ ...loginForm, password: e.target.value })
+                }
+                required
               />
               <span
                 className="password-toggle"
@@ -347,7 +518,6 @@ const Navbar: React.FC = () => {
                 <i className="fa-solid fa-eye-slash" />
               </span>
             </div>
-
             <div className="d-flex justify-content-between align-items-center mb-4">
               <div className="remember-me-wrapper">
                 <input
@@ -363,16 +533,14 @@ const Navbar: React.FC = () => {
                 Forgot Password?
               </a>
             </div>
-
             <button
-              type="button"
+              type="submit"
               className="btn btn-primary w-100 mb-3"
-              onClick={() => setShowLoginModal(false)}
+              disabled={isLoading}
             >
-              Login
+              {isLoading ? "Logging in..." : "Login"}
             </button>
           </form>
-
           <div className="signup-link">
             <p>
               Don't Have An Account?{" "}
@@ -388,21 +556,20 @@ const Navbar: React.FC = () => {
               </a>
             </p>
           </div>
-
           <div className="social-login-divider">Or Login With</div>
-
           <div className="social-login-buttons d-flex gap-2">
             <button
               className="social-btn facebook-btn"
               aria-label="Login with Facebook"
+              type="button"
             >
               <i className="fa-brands fa-facebook" />
             </button>
             <button
               className="social-btn google-btn"
               aria-label="Login with Google"
+              type="button"
             >
-              {/* google svg */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -430,11 +597,11 @@ const Navbar: React.FC = () => {
             <button
               className="social-btn apple-btn"
               aria-label="Login with Apple"
+              type="button"
             >
               <i className="fa-brands fa-apple" />
             </button>
           </div>
-
           <div className="modal-foot-logos text-center mt-3">
             <img
               src="src/assets/images/logo.png"
@@ -443,6 +610,9 @@ const Navbar: React.FC = () => {
             />
           </div>
         </Modal>
+
+        {/* Cart Drawer */}
+        <CartDrawer isOpen={showCartDrawer} onClose={() => setShowCartDrawer(false)} />
       </header>
     </>
   );

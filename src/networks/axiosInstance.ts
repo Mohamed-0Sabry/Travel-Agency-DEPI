@@ -15,8 +15,8 @@ const axiosInstance: AxiosInstance = axios.create({
 // Request interceptor - Add auth token to requests
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('token');
-    
+    const authStorage = localStorage.getItem('auth-storage');
+    const token = authStorage ? JSON.parse(authStorage).state.token : null;
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -43,7 +43,7 @@ axiosInstance.interceptors.response.use(
           // Unauthorized - Clear token and redirect to login
           localStorage.removeItem('token');
           localStorage.removeItem('user');
-          window.location.href = '/login';
+          window.location.href = '/';
           break;
         case 403:
           // Forbidden - User doesn't have permission

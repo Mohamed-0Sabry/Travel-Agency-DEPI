@@ -12,7 +12,7 @@ interface Form {
   message: string;
 }
 
-export default function ContactModern() {
+export default function ContactPage() {
   const [form, setForm] = useState<Form>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
@@ -192,7 +192,6 @@ export default function ContactModern() {
             </div>
 
             <div className="glass-panel p-0 overflow-hidden shadow-sm">
-              {/* Map (use your own embed or a static image) */}
               <iframe
                 title="office-location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.123456789012!2d31.233334!3d30.044420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145847b8f8c8a1a1%3A0xabcdef1234567890!2sCairo!5e0!3m2!1sen!2seg!4v0000000000000"
@@ -210,7 +209,7 @@ export default function ContactModern() {
       <style>{`
         :root{ --accent: #6ee7b7; }
         .contact-hero{ min-height: 36vh; position: relative; display: flex; align-items: center; justify-content: center; }
-        .hero-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,20,0.32), rgba(10,10,20,0.62)), url('/assets/images/contact-banner.jpg') center/cover no-repeat; filter:saturate(1.02) contrast(1.03); }
+        .hero-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,20,0.32), rgba(10,10,20,0.62)), url('/assets/images/banner.jpg') center/cover no-repeat; filter:saturate(1.02) contrast(1.03); }
         .accent{ color: var(--accent); }
         .glass-panel{ background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius: 12px; border:1px solid rgba(255,255,255,0.05); backdrop-filter: blur(8px) saturate(120%); }
         .form-label{ font-weight:600; }
