@@ -10,6 +10,24 @@ export const Card = ({
   style = {},
   bodyClassName = '',
   rounded = true,
+} : {
+  header?: React.ReactNode;
+  image?: {
+    src: string;
+    alt?: string;
+    style?: React.CSSProperties;
+    height?: number;
+    cover?: boolean;
+    top?: boolean;
+  };
+  badge?: string;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+  actions?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  bodyClassName?: string;
+  rounded?: boolean;
 }) => {
   const roundedClass = rounded ? 'rounded-3' : '';
 

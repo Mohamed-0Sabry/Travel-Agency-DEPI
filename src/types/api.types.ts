@@ -1,4 +1,4 @@
-// API Response wrapper
+
 export interface ApiResponse<T> {
     success: boolean;
     data: T;
@@ -6,7 +6,7 @@ export interface ApiResponse<T> {
     count?: number;
 }
 
-// User Types
+
 export interface User {
     _id?: string;
     id?: string;
@@ -54,67 +54,63 @@ export interface ChangePasswordData {
     newPassword: string;
 }
 
-// Flight Types
-export interface FlightClass {
-    name: 'Economy' | 'Business' | 'First Class';
-    price: number;
-    availableSeats: number;
-    _id?: string;
+
+export interface Origin {
+    city: string;
+    country: string;
+}
+
+export interface Destination {
+    city: string;
+    country: string;
+}
+
+export interface Offer {
+    isActive: boolean;
+    oldPrice?: number;
+    newPrice?: number;
+    badge?: string;
+    expiresAt?: Date | string;
 }
 
 export interface Flight {
     _id: string;
-    flightNumber: string;
-    airline: string;
-    airlineLogo?: string;
-    departureAirport: string;
-    arrivalAirport: string;
-    departureTime: string;
-    arrivalTime: string;
-    date: Date | string;
-    flightDuration: string;
-    availableSeats: number;
-    totalSeats: number;
-    classes: FlightClass[];
-    status: 'scheduled' | 'boarding' | 'departed' | 'arrived' | 'cancelled' | 'delayed';
-    gate?: string;
+    price: number;
+    origin: Origin;
+    destination: Destination;
+    offer?: Offer;
+    image: string;
+    description: string;
+    rating: number;
     createdAt?: string;
     updatedAt?: string;
-    image?: string
 }
 
 export interface SearchFlightsParams {
-    from: string;
-    to: string;
+    from?: string;
+    to?: string;
     date?: string;
     passengers?: number;
-    flightClass?: 'Economy' | 'Business' | 'First Class';
+    travelClass?: 'Economy' | 'Business' | 'First Class';
 }
 
 export interface CheckFlightAvailabilityParams {
     flightId: string;
-    flightClass: string;
+    travelClass: string;
     numberOfSeats: number;
 }
 
 export interface CreateFlightData {
-    flightNumber: string;
-    airline: string;
-    airlineLogo?: string;
-    departureAirport: string;
-    arrivalAirport: string;
-    departureTime: string;
-    arrivalTime: string;
-    date: string;
-    flightDuration: string;
-    availableSeats: number;
-    totalSeats: number;
-    classes: Omit<FlightClass, '_id'>[];
-    gate?: string;
-    status?: string;
+    price: number;
+    origin: Origin;
+    destination: Destination;
+    offer?: Offer;
+    image: string;
+    description: string;
+    rating?: number;
 }
 
-// Hotel Types
+
 export interface RoomType {
     name: string;
     description?: string;
@@ -176,14 +172,14 @@ export interface CreateHotelData {
     checkOutTime?: string;
 }
 
-// Cart Types
+
 export interface CartItem {
     _id: string;
     itemType: 'flight' | 'hotel';
-    flight?: Flight;
-    flightClass?: 'Economy' | 'Business' | 'First Class';
+    flight?: string | Flight; 
     passengers?: number;
-    hotel?: Hotel;
+    travelClass?: 'Economy' | 'Business' | 'First Class'; 
+    hotel?: string | Hotel; 
     roomType?: string;
     checkInDate?: Date | string;
     checkOutDate?: Date | string;
@@ -204,7 +200,7 @@ export interface Cart {
 
 export interface AddFlightToCartData {
     flightId: string;
-    flightClass: 'Economy' | 'Business' | 'First Class';
+    travelClass: 'Economy' | 'Business' | 'First Class'; 
     passengers: number;
 }
 
@@ -221,23 +217,18 @@ export interface UpdateCartItemData {
     numberOfGuests?: number;
 }
 
-// Booking Types
-export interface FlightDetails {
-    flightNumber: string;
-    airline: string;
-    airlineLogo?: string;
-    departureTime: string;
-    arrivalTime: string;
-    departureAirport: string;
-    arrivalAirport: string;
-    date: Date | string;
-    flightDuration: string;
-    gate?: string;
-    seat?: string;
-    class: string;
+
+export interface FlightBookingDetails {
+    origin: Origin;
+    destination: Destination;
+    price: number;
+    image: string;
+    description: string;
+    passengers: number;
+    travelClass: 'Economy' | 'Business' | 'First Class';
 }
 
-export interface HotelDetails {
+export interface HotelBookingDetails {
     hotelName: string;
     hotelLogo?: string;
     checkInDate: Date | string;
@@ -255,10 +246,10 @@ export interface Booking {
     _id: string;
     user: User | string;
     bookingType: 'flight' | 'hotel';
-    flight?: Flight;
-    flightDetails?: FlightDetails;
-    hotel?: Hotel;
-    hotelDetails?: HotelDetails;
+    flight?: Flight | string;
+    flightDetails?: FlightBookingDetails;
+    hotel?: Hotel | string;
+    hotelDetails?: HotelBookingDetails;
     bookingReference: string;
     totalPrice: number;
     status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
@@ -272,7 +263,7 @@ export interface Booking {
 
 export interface CreateFlightBookingData {
     flightId: string;
-    flightClass: 'Economy' | 'Business' | 'First Class';
+    travelClass: 'Economy' | 'Business' | 'First Class'; 
     passengers: number;
     seat?: string;
     paymentMethodId: string;
@@ -295,7 +286,7 @@ export interface UpdateBookingStatusData {
     status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
 }
 
-// Payment Types
+
 export interface BillingAddress {
     street: string;
     city: string;
@@ -348,9 +339,7 @@ export interface PaymentResponse {
     timestamp: Date | string;
 }
 
-// Destination Types
-export interface Destination {
-    _id: string;
+export interface DestinationLocation {
     name: string;
     country: string;
     price: number;

@@ -6,6 +6,7 @@ import type { Flight } from "@/types/Flight";
 import useFlightStore from "@/store/useFlightStore";
 import axiosInstance from "@/networks/axiosInstance";
 import Loading from "@/Components/Loading";
+
 const Destination: React.FC = () => {
   const flights: Flight[] = useFlightStore((state) => state.flights);
   const loading: boolean = useFlightStore((state) => state.loading);

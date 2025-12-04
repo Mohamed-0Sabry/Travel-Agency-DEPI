@@ -1,16 +1,25 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React, { useState } from 'react';
 
 
+interface Form {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export default function ContactModern() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [errors, setErrors] = useState({});
+  const [form, setForm] = useState<Form>({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState<any>({});
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // success | error
+  const [status, setStatus] = useState(null); 
 
   const validate = () => {
-    const e = {};
+    const e: any = {};
     if (!form.name.trim()) e.name = 'Please enter your name';
     if (!form.email.trim()) e.email = 'Please enter your email';
     else if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = 'Email looks invalid';
@@ -190,7 +199,7 @@ export default function ContactModern() {
                 width="100%"
                 height="260"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen={false}
                 loading="lazy"
               ></iframe>
             </div>
@@ -198,7 +207,7 @@ export default function ContactModern() {
         </div>
       </main>
 
-      <style jsx>{`
+      <style>{`
         :root{ --accent: #6ee7b7; }
         .contact-hero{ min-height: 36vh; position: relative; display: flex; align-items: center; justify-content: center; }
         .hero-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,20,0.32), rgba(10,10,20,0.62)), url('/assets/images/contact-banner.jpg') center/cover no-repeat; filter:saturate(1.02) contrast(1.03); }

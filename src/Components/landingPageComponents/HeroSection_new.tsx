@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import data from "../../../data/destinationsData.json";
+import data from "@/data/destinationsData.json";
 import "../../styles/heroSection.css";
 import "../../styles/responsiveLandingPage.css";
 
