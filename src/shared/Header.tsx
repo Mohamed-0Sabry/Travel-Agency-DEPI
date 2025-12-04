@@ -211,11 +211,11 @@ const Navbar: React.FC = () => {
                     </div>
                     <div className="dashboard-btn me-3">
                       <NavLink
-                        to="/dashboard"
+                        to="/account"
                         className="btn btn-outline-primary"
                       >
-                        <i className="fa-solid fa-gauge me-2"></i>
-                        Dashboard
+                        <i className="fa-solid fa-user"></i>
+                        Account
                       </NavLink>
                     </div>
                     <div className="up">

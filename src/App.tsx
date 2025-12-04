@@ -10,8 +10,9 @@ import ContactPage from "./pages/ContactPage";
 import Admin from "./pages/Admin";
 import "remixicon/fonts/remixicon.css";
 import CheckoutPage from "./pages/CheckoutPage";
+import Hotels from "./pages/HotelPage";
 
-function ComingSoon({ title }: { title: string }) {
+export function ComingSoon({ title }: { title: string }) {
   return (
     <section className="py-5">
       <div className="container text-center">
@@ -31,14 +32,14 @@ export default function App() {
         <Route index element={<LandingPage />} />
         <Route path="flights" element={<Flights />} />
         <Route path="account" element={<AccountPage />} />
-        <Route path="hotels" element={<ComingSoon title="Hotels" />} />
+        {/* <Route path="hotels" element={<ComingSoon title="Hotels" />} /> */}
+        <Route path="hotels" element={<Hotels />} />
         <Route path="discover" element={<Discover />} />
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="Admin" element={<Admin />} />
         {/* <Route path="contact" element={<ComingSoon title="Contact" />} /> */}
         <Route path="contact" element={<ContactPage/>} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

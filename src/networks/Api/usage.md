@@ -32,7 +32,7 @@ const handleRegister = async () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
       console.log('User registered:', response.data.user);
-      // Redirect to dashboard
+      // Redirect to account
     }
   } catch (error) {
     console.error('Registration failed:', error);
@@ -56,7 +56,7 @@ const handleLogin = async (email: string, password: string) => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
       console.log('Logged in:', response.data.user);
-      // Redirect to dashboard
+      // Redirect to account
     }
   } catch (error) {
     console.error('Login failed:', error);

@@ -63,8 +63,14 @@ const bookingSchema = new mongoose.Schema({
   // Common booking fields
   bookingReference: {
     type: String,
-    required: true,
-    unique: true
+    required: [true, 'Booking reference is required.'],
+    unique: true,
+    default: function() {
+      const prefix = this.bookingType === 'flight' ? 'FLT' : 'HTL';
+      const random = Math.random().toString(36).substring(2, 8).toUpperCase();
+      return `${prefix}${random}${Date.now().toString().slice(-4)}`;
+    }
+
   },
   totalPrice: {
     type: Number,
@@ -97,14 +103,5 @@ const bookingSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Generate unique booking reference before saving
-bookingSchema.pre('save', async function(next) {
-  if (!this.bookingReference) {
-    const prefix = this.bookingType === 'flight' ? 'FLT' : 'HTL';
-    const random = Math.random().toString(36).substring(2, 8).toUpperCase();
-    this.bookingReference = `${prefix}${random}${Date.now().toString().slice(-4)}`;
-  }
-  next();
-});
 
 module.exports = mongoose.model('Booking', bookingSchema);

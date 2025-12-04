@@ -168,7 +168,7 @@ const CheckoutPage: React.FC = () => {
 
       // 4) Navigate to success / dashboard
       alert("Booking successful! Redirecting to your dashboard...");
-      navigate("/dashboard");
+      navigate("/account");
     } catch (err) {
       console.error("Checkout failed:", err);
       alert("Payment failed. Please try again.");
@@ -240,7 +240,6 @@ const CheckoutPage: React.FC = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Email *</label>
                       <input
                         type="email"
                         className="form-control"
@@ -253,7 +252,6 @@ const CheckoutPage: React.FC = () => {
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Phone *</label>
                       <input
                         type="tel"
                         className="form-control"
@@ -326,7 +324,6 @@ const CheckoutPage: React.FC = () => {
                     <form onSubmit={handleAddPaymentMethod} className="mt-4">
                       <div className="row">
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">Cardholder Name</label>
                           <input
                             type="text"
                             className="form-control"
@@ -342,10 +339,9 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">Card Number</label>
                           <input
                             type="text"
-                            className="form-control"
+                            className="form-control"                            
                             value={newPaymentForm.cardNumber}
                             onChange={(e) =>
                               setNewPaymentForm({
@@ -360,7 +356,6 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-4 mb-3">
-                          <label className="form-label">Expiry Date</label>
                           <input
                             type="text"
                             className="form-control"
@@ -378,7 +373,6 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-4 mb-3">
-                          <label className="form-label">CVV</label>
                           <input
                             type="text"
                             className="form-control"
@@ -421,9 +415,9 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">Street</label>
                           <input
                             type="text"
+                            placeholder="Enter street address"
                             className="form-control"
                             value={newPaymentForm.billingStreet}
                             onChange={(e) =>
@@ -437,10 +431,10 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">City</label>
                           <input
                             type="text"
                             className="form-control"
+                            placeholder="Enter city"
                             value={newPaymentForm.billingCity}
                             onChange={(e) =>
                               setNewPaymentForm({
@@ -453,10 +447,10 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">Country</label>
                           <input
                             type="text"
                             className="form-control"
+                            placeholder="Enter country"
                             value={newPaymentForm.billingCountry}
                             onChange={(e) =>
                               setNewPaymentForm({
@@ -469,10 +463,10 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label className="form-label">Postal Code</label>
                           <input
                             type="text"
                             className="form-control"
+                            placeholder="Enter postal code"
                             value={newPaymentForm.billingPostalCode}
                             onChange={(e) =>
                               setNewPaymentForm({
