@@ -75,9 +75,20 @@ const cartSchema = new mongoose.Schema({
 });
 
 // Calculate total price before saving
-cartSchema.pre('save', function(next) {
-  this.totalPrice = this.items.reduce((total, item) => total + item.price, 0);
-  next();
+cartSchema.pre('save', async function () {
+  try {
+    if (!Array.isArray(this.items) || this.items.length === 0) {
+      this.totalPrice = 0;
+      return;
+    }
+
+    this.totalPrice = this.items.reduce((total, item) => {
+      const p = typeof item.price === 'number' ? item.price : Number(item.price) || 0;
+      return total + p;
+    }, 0);
+  } catch (err) {
+    throw err;
+  }
 });
 
 module.exports = mongoose.model('Cart', cartSchema);
