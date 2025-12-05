@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "@/styles/account.css";
+import { useAuthStore } from "@/store/useAuthStore";
+import type { UpdateProfileData } from "@/types/api.types";
 
-const PROFILE = {
-  name: "Ann Pine",
-  email: "ann.pine@gmail.com",
-  phone: "+233 034 3456 578",
-  address: "PR 12 East Legon, Accra, Ghana",
-  dateOfBirth: "02-24-1996",
-  avatar: "src/assets/images/user-profile-icon-free-vector.jpg",
+// Helper function to format date
+const formatDate = (date: Date | string | undefined): string => {
+  if (!date) return "Not set";
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "Not set";
+  return d.toLocaleDateString("en-US", { month: "2-digit", day: "2-digit", year: "numeric" });
 };
 
-const ACCOUNT_FIELDS: Array<{ label: string; value: string; secure?: boolean }> = [
-  { label: "Name", value: PROFILE.name },
-  { label: "Email", value: PROFILE.email },
-  { label: "Password", value: "••••••••••••", secure: true },
-  { label: "Phone number", value: PROFILE.phone },
-  { label: "Address", value: PROFILE.address },
-  { label: "Date of birth", value: PROFILE.dateOfBirth },
-];
+// Helper function to format date for input (YYYY-MM-DD)
+const formatDateForInput = (date: Date | string | undefined): string => {
+  if (!date) return "";
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "";
+  return d.toISOString().split("T")[0];
+};
 
 type HistoryMeta = { label: string; value: string };
 type HistoryItem = {
@@ -105,25 +105,8 @@ type PaymentCard = {
   isDefault?: boolean;
 };
 
-const PAYMENT_CARDS: PaymentCard[] = [
-  {
-    id: "card-visa",
-    brand: "VISA",
-    last4: "3507",
-    holder: PROFILE.name,
-    expiry: "12/26",
-    ccv: "***",
-    isDefault: true,
-  },
-  {
-    id: "card-mastercard",
-    brand: "Mastercard",
-    last4: "9921",
-    holder: PROFILE.name,
-    expiry: "03/27",
-    ccv: "***",
-  },
-];
+// Payment cards will be fetched from backend in future
+const PAYMENT_CARDS: PaymentCard[] = [];
 
 const ACCOUNT_TABS = [
   { id: "account", label: "Account" },
@@ -132,6 +115,9 @@ const ACCOUNT_TABS = [
 ];
 
 function ProfileHeader() {
+  const { user } = useAuthStore();
+  const defaultAvatar = "src/assets/images/user-profile-icon-free-vector.jpg";
+
   return (
     <header className="profile-header">
       <div className="container">
@@ -139,13 +125,19 @@ function ProfileHeader() {
           <div className="col-12 text-center">
             <div className="profile-info">
               <div className="avatar-container">
-                <img src={PROFILE.avatar} alt={PROFILE.name} className="profile-avatar" />
-                <span className="status-indicator" aria-label="Verified contact">
-                  <i className="fas fa-phone text-white" aria-hidden="true" />
-                </span>
+                <img 
+                  src={user?.avatarUrl || defaultAvatar} 
+                  alt={user?.name || "User"} 
+                  className="profile-avatar" 
+                />
+                {user?.hasPhoneVerified && (
+                  <span className="status-indicator" aria-label="Verified contact">
+                    <i className="fas fa-phone text-white" aria-hidden="true" />
+                  </span>
+                )}
               </div>
-              <h1 className="profile-name">{PROFILE.name}</h1>
-              <p className="profile-email">{PROFILE.email}</p>
+              <h1 className="profile-name">{user?.name || "User"}</h1>
+              <p className="profile-email">{user?.email || ""}</p>
             </div>
           </div>
         </div>
@@ -155,21 +147,160 @@ function ProfileHeader() {
 }
 
 function AccountDetails() {
+  const { user, updateProfile, isLoading } = useAuthStore();
+  const [editingField, setEditingField] = useState<string | null>(null);
+  const [editValue, setEditValue] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  const handleEdit = (field: string, currentValue: string) => {
+    setEditingField(field);
+    setEditValue(currentValue);
+    setError(null);
+  };
+
+  const handleCancel = () => {
+    setEditingField(null);
+    setEditValue("");
+    setError(null);
+  };
+
+  const handleSave = async (field: string) => {
+    try {
+      setError(null);
+      const updateData: UpdateProfileData = {};
+      
+      if (field === "Name") {
+        updateData.name = editValue;
+      } else if (field === "Phone number") {
+        updateData.phoneNumber = editValue;
+      } else if (field === "Address") {
+        updateData.address = editValue;
+      } else if (field === "Date of birth") {
+        updateData.dateOfBirth = editValue;
+      }
+
+      await updateProfile(updateData);
+      setEditingField(null);
+      setEditValue("");
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Failed to update profile");
+    }
+  };
+
+  const accountFields = [
+    { 
+      label: "Name", 
+      value: user?.name || "Not set", 
+      fieldKey: "name",
+      editable: true 
+    },
+    { 
+      label: "Email", 
+      value: user?.email || "Not set", 
+      fieldKey: "email",
+      editable: false 
+    },
+    { 
+      label: "Password", 
+      value: "••••••••••••", 
+      fieldKey: "password",
+      secure: true,
+      editable: false 
+    },
+    { 
+      label: "Phone number", 
+      value: user?.phoneNumber || "Not set", 
+      fieldKey: "phoneNumber",
+      editable: true 
+    },
+    { 
+      label: "Address", 
+      value: user?.address || "Not set", 
+      fieldKey: "address",
+      editable: true 
+    },
+    { 
+      label: "Date of birth", 
+      value: formatDate(user?.dateOfBirth), 
+      fieldKey: "dateOfBirth",
+      editable: true 
+    },
+  ];
+
   return (
     <section className="account-content">
       <h2 className="section-title">Account</h2>
-      {ACCOUNT_FIELDS.map(({ label, value, secure }) => (
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
+      {accountFields.map(({ label, value, secure, editable, fieldKey }) => (
         <div className="field-group" key={label}>
           <div className="row align-items-center g-3 g-md-0">
             <div className="col-md-8">
               <div className="field-label">{label}</div>
-              <div className="field-value">{value}</div>
-              {secure && <small className="text-muted">Last updated 3 months ago</small>}
+              {editingField === label ? (
+                <div className="mt-2">
+                  {fieldKey === "dateOfBirth" ? (
+                    <input
+                      type="date"
+                      className="form-control"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                    />
+                  ) : (
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                      placeholder={`Enter ${label.toLowerCase()}`}
+                    />
+                  )}
+                  <div className="mt-2">
+                    <button
+                      className="btn btn-sm btn-primary me-2"
+                      onClick={() => handleSave(label)}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Saving..." : "Save"}
+                    </button>
+                    <button
+                      className="btn btn-sm btn-secondary"
+                      onClick={handleCancel}
+                      disabled={isLoading}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="field-value">{value}</div>
+                  {secure && <small className="text-muted">Last updated 3 months ago</small>}
+                </>
+              )}
             </div>
             <div className="col-md-4 text-md-end">
-              <button className="btn edit-btn" type="button">
-                <i className="fas fa-edit" aria-hidden="true" /> Edit
-              </button>
+              {editable && !editingField && (
+                <button
+                  className="btn edit-btn"
+                  type="button"
+                  onClick={() => handleEdit(label, fieldKey === "dateOfBirth" ? formatDateForInput(user?.dateOfBirth) : (user as any)?.[fieldKey] || "")}
+                >
+                  <i className="fas fa-edit" aria-hidden="true" /> Edit
+                </button>
+              )}
+              {!editable && label === "Password" && (
+                <button
+                  className="btn edit-btn"
+                  type="button"
+                  onClick={() => alert("Password change feature coming soon!")}
+                >
+                  <i className="fas fa-edit" aria-hidden="true" /> Change
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -360,6 +491,36 @@ function HistoryTab() {
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState<string>(ACCOUNT_TABS[0].id);
+  const { user, getCurrentUser, isLoading, isAuthenticated } = useAuthStore();
+
+  useEffect(() => {
+    // Fetch user data if authenticated but user data is not loaded
+    if (isAuthenticated && !user) {
+      getCurrentUser().catch((err) => {
+        console.error("Failed to fetch user data:", err);
+      });
+    }
+  }, [isAuthenticated, user, getCurrentUser]);
+
+  if (isLoading && !user) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "400px" }}>
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-warning" role="alert">
+          Please log in to view your account information.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
