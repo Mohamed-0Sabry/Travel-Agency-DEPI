@@ -19,7 +19,7 @@ export default function AccountPage() {
     <div>
       <ProfileHeader />
       <div className="account-container container mt-4">
-        <ul className="nav nav-tabs custom-tabs" role="tablist">
+        <ul className="nav nav-bar-tabs custom-bar-tabs" role="tablist">
           {ACCOUNT_TABS.map((tab) => (
             <li className="nav-item" role="presentation" key={tab.id}>
               <button
