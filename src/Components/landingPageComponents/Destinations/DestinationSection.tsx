@@ -8,7 +8,7 @@ const DestinationsSection = () => {
   const [offers, setOffers] = useState([]);
   const navigate = useNavigate();
 
-  // ========================= FETCH FLIGHTS =========================
+  // Fetch flights
   useEffect(() => {
     fetch("http://localhost:5000/api/flights")
       .then((res) => res.json())
@@ -24,7 +24,7 @@ const DestinationsSection = () => {
           return;
         }
 
-        // ---------- TOP DESTINATIONS ----------
+        // Top destinations
         const mappedDestinations = flights.map((flight: any) => ({
           id: flight._id,
           image: flight.image
@@ -39,7 +39,7 @@ const DestinationsSection = () => {
 
         setDestinations(mappedDestinations);
 
-        // ---------- SPECIAL OFFERS ----------
+        // Special offers
         const mappedOffers = flights
           .filter((f: any) => f.offer?.isActive === true)
           .map((flight: any) => {
@@ -69,18 +69,10 @@ const DestinationsSection = () => {
       });
   }, []);
 
-  // Filters UI only
-  const filterButtons = [
-    "All Destinations",
-    "Beach Paradise",
-    "Mountain Retreat",
-    "City Explorer",
-    "Cultural Tour",
-  ];
-
+  
   return (
     <div className="destinations-section">
-      {/* ============================= TOP DESTINATIONS ============================= */}
+      {/* Top destinations */}
       <section className="py-5 py-lg-6 bg-white">
         <div className="container">
           <div className="row justify-content-center mb-5">
@@ -140,7 +132,7 @@ const DestinationsSection = () => {
         </div>
       </section>
 
-      {/* ============================= SPECIAL OFFERS ============================= */}
+      {/* Special offers*/}
       <section className="py-5 py-lg-6 bg-light">
         <div className="container">
           <div className="row justify-content-center mb-5">

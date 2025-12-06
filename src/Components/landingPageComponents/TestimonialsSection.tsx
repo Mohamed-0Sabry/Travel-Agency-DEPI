@@ -7,7 +7,7 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: 'Alice Smith',
+      name: 'Nour ',
       role: 'Travel Blogger',
       image: 'https://i.pravatar.cc/150?img=1',
       text: 'A real sense of community, nurtured. Really appreciate the help and support from the staff during my trips. Very helpful and always available when needed. The experience was absolutely incredible!',
@@ -15,7 +15,7 @@ const TestimonialsSection = () => {
       trips: 12,
     },
     {
-      name: 'John Doe',
+      name: 'Rahma',
       role: 'Adventure Enthusiast',
       image: 'https://i.pravatar.cc/150?img=2',
       text: 'Excellent service and support throughout my journey. The team was always there when I needed assistance. Highly recommend to anyone looking for a seamless travel experience.',
@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
       trips: 8,
     },
     {
-      name: 'Sarah Johnson',
+      name: 'Amgad',
       role: 'Digital Nomad',
       image: 'https://i.pravatar.cc/150?img=3',
       text: 'Outstanding experience! The attention to detail and customer care was beyond my expectations. They truly understand what travelers need.',
@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
                 </div>
                 <div className="col-6">
                   <div>
-                    <h3 className="fw-bold mb-0">4.9★</h3>
+                    <h3 className="fw-bold mb-0">4.9</h3>
                     <p className="text-muted small mb-0">Average Rating</p>
                   </div>
                 </div>
