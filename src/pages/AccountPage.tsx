@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import "@/styles/account.css";
 import { useAuthStore } from "@/store/useAuthStore";
-import ProfileHeader from "../Components/AccountPageComponents/ProfileHeader";
-import AccountDetails from "../Components/AccountPageComponents/AccountDetails";
-import HistoryTab from "../Components/AccountPageComponents/HistoryTab";
-import PaymentMethods from "../Components/AccountPageComponents/PaymentMethods";
+import ProfileHeader from "../Components/ProfileHeader";
+import AccountDetails from "../Components/AccountDetails";
+import HistoryTab from "../Components/HistoryTab";
+import PaymentMethods from "../Components/PaymentMethods";
 
 const ACCOUNT_TABS = [
   { id: "account", label: "Account" },
