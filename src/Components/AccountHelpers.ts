@@ -1,11 +1,11 @@
 import type {
-  UpdateProfileData,
   Booking,
   Flight,
   Hotel,
   PaymentMethod,
-  AddPaymentMethodData,
 } from "@/types/api.types";
+import axiosInstance from "@/networks/axiosInstance";
+
 
 export const formatDate = (date: Date | string | undefined): string => {
   if (!date) return "Not set";
@@ -49,6 +49,7 @@ export const calculateNights = (
 
 export type HistoryMeta = { label: string; value: string };
 export type HistoryItem = {
+  type: "flight" | "hotel";
   id: string;
   logo: string;
   logoAlt: string;
@@ -65,12 +66,19 @@ export type HistoryItem = {
 export const transformFlightBooking = (booking: Booking): HistoryItem => {
   const flight = booking.flight as Flight;
   const flightDetails = booking.flightDetails;
+  const base = axiosInstance.defaults.baseURL;
   const defaultLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/United_Airlines_Logo.svg/120px-United_Airlines_Logo.svg.png";
 
   const origin = flightDetails?.origin || flight?.origin;
   const destination = flightDetails?.destination || flight?.destination;
   const route = `${origin?.city || "N/A"} → ${destination?.city || "N/A"}`;
+
+
+  const imageUrl = flight?.image 
+  ? `${base}/uploads/${flight.image.replace(/\\/g, "/")}`
+  : defaultLogo;
+
 
   const handleDownloadTicket = () => {
     if (booking.ticketUrl) {
@@ -91,7 +99,8 @@ export const transformFlightBooking = (booking: Booking): HistoryItem => {
   return {
     id: booking._id || booking.bookingReference,
     bookingId: booking._id,
-    logo: flight?.image || defaultLogo,
+    type: "flight",
+    logo: imageUrl,
     logoAlt: `${origin?.city} to ${destination?.city}`,
     title: booking.bookingReference,
     subtitle: route,
@@ -131,6 +140,7 @@ export const transformFlightBooking = (booking: Booking): HistoryItem => {
 export const transformHotelBooking = (booking: Booking): HistoryItem => {
   const hotel = booking.hotel as Hotel;
   const hotelDetails = booking.hotelDetails;
+  const base = axiosInstance.defaults.baseURL;
   const defaultLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Star_logo.svg/120px-Star_logo.svg.png";
 
@@ -141,6 +151,12 @@ export const transformHotelBooking = (booking: Booking): HistoryItem => {
       ? calculateNights(hotelDetails.checkInDate, hotelDetails.checkOutDate)
       : 0);
   const roomType = hotelDetails?.roomType || "Room";
+
+  const hotelLogo = hotelDetails?.hotelLogo || hotel?.hotelLogo;
+  const imageUrl = hotelLogo
+    ? `${base}/uploads/Hotel-2.webp`
+    : defaultLogo;
+
 
   const handleDownloadInvoice = () => {
     if (booking.confirmationUrl) {
@@ -161,7 +177,8 @@ export const transformHotelBooking = (booking: Booking): HistoryItem => {
   return {
     id: booking._id || booking.bookingReference,
     bookingId: booking._id,
-    logo: hotelDetails?.hotelLogo || hotel?.hotelLogo || defaultLogo,
+    type: "hotel",
+    logo: imageUrl,
     logoAlt: hotelName,
     title: hotelName,
     subtitle: `${nights} ${nights === 1 ? "night" : "nights"}, ${roomType}`,

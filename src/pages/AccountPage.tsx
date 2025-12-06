@@ -7,6 +7,7 @@ import HistoryTab from "../Components/HistoryTab";
 import PaymentMethods from "../Components/PaymentMethods";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useNavigate } from "react-router-dom";
+
 const ACCOUNT_TABS = [
   { id: "account", label: "Account" },
   { id: "history", label: "History" },
@@ -17,7 +18,7 @@ export default function AccountPage() {
   const [activeTab, setActiveTab] = useState<string>(ACCOUNT_TABS[0].id);
   const { user } = useAuthStore();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!user) return; 
     if (user.role === "admin") {
