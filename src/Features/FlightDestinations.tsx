@@ -1,4 +1,5 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Card from "../Components/Card";
 import FlightDetails from "./FlightDetails";
 import RatingStars from "../Features/RatingStars";
@@ -8,13 +9,25 @@ import axiosInstance from "@/networks/axiosInstance";
 import Loading from "@/Components/Loading";
 
 const Destination: React.FC = () => {
+  const { id } = useParams<{ id?: string }>();
   const flights: Flight[] = useFlightStore((state) => state.flights);
   const loading: boolean = useFlightStore((state) => state.loading);
   const error: string | null = useFlightStore((state) => state.error);
-  const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
+  const [selectedFlightId, setSelectedFlightId] = useState<string | null>(
+    id ?? null
+  );
+
   useEffect(() => {
     useFlightStore.getState().fetchFlights();
   }, []);
+
+  // If a flight ID is in the URL, show its details automatically
+  useEffect(() => {
+    if (id) {
+      setSelectedFlightId(id);
+    }
+  }, [id]);
+
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
   if (selectedFlightId) {
@@ -72,8 +85,9 @@ const Destination: React.FC = () => {
                     <div className="mb-2">
                       <span className="badge bg-primary">Popular</span>
                     </div>
-                    <button className="btn btn-sm btn-outline-primary"
-                    onClick={() => setSelectedFlightId(flight._id)}
+                    <button
+                      className="btn btn-sm btn-outline-primary"
+                      onClick={() => setSelectedFlightId(flight._id)}
                     >
                       Details
                     </button>

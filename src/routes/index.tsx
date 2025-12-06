@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "@/shared/Layout";
 import Flights from "@/pages/Flights";
+import FlightDestinations from "@/Features/FlightDestinations";
 import AccountPage from "@/pages/AccountPage";
 import AboutUsPage from "@/pages/AboutUsPage";
 import Admin from "@/pages/Admin";
@@ -11,6 +12,7 @@ export default function AppRoutes() {
       <Route element={<Layout />}>
         <Route index element={<Flights />} />
         <Route path="flights" element={<Flights />} />
+        <Route path="flights/:id" element={<FlightDestinations />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="Admin" element={<Admin />} />

@@ -22,7 +22,7 @@ export default function HeroSectionNew({ hero: heroProp }: HeroProps) {
       <p>{hero.description}</p>
 
       {/* Search bar */}
-      <div className="search-section">
+      {/* <div className="search-section">
         {Array.isArray(hero.searchFields) &&
           hero.searchFields.map((field: any) => (
             <a key={field.id}>
@@ -40,7 +40,7 @@ export default function HeroSectionNew({ hero: heroProp }: HeroProps) {
         >
           {hero.button?.label} <i className={hero.button?.icon}></i>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

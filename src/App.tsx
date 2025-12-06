@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./shared/Layout";
 import LandingPage from "./pages/LandingPage";
 import Flights from "./pages/Flights";
+import FlightDestinations from "./Features/FlightDestinations";
 import AccountPage from "./pages/AccountPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import Discover from "./pages/Discover";
@@ -31,6 +32,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<LandingPage />} />
         <Route path="flights" element={<Flights />} />
+        <Route path="flights/:id" element={<FlightDestinations />} />
         <Route path="account" element={<AccountPage />} />
         {/* <Route path="hotels" element={<ComingSoon title="Hotels" />} /> */}
         <Route path="hotels" element={<Hotels />} />
@@ -38,7 +40,7 @@ export default function App() {
         <Route path="about-us" element={<AboutUsPage />} />
         <Route path="Admin" element={<Admin />} />
         {/* <Route path="contact" element={<ComingSoon title="Contact" />} /> */}
-        <Route path="contact" element={<ContactPage/>} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
