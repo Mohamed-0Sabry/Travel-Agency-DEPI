@@ -35,7 +35,7 @@ const HotelsList: React.FC = () => {
         {hotels.map((hotel) => {
           const imagePath = (hotel.images && hotel.images[0]) || hotel.hotelLogo || "";
           const imageUrl = imagePath
-            ? `${axiosInstance.defaults.baseURL}/uploads/${imagePath.replace(/\\/g, "/")}`
+            ? `${axiosInstance.defaults.baseURL}/uploads/Hotel-2.webp`
             : "/placeholder-hotel.jpg";
 
           
