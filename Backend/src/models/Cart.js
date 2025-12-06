@@ -6,8 +6,7 @@ const cartItemSchema = new mongoose.Schema({
     enum: ['flight', 'hotel'],
     required: true
   },
-  
-  // Flight item
+
   flight: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Flight'
@@ -21,8 +20,7 @@ const cartItemSchema = new mongoose.Schema({
     enum: ['Economy', 'Business', 'First Class'],
     default: 'Economy'
   },
-  
-  // Hotel item
+
   hotel: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Hotel'
@@ -44,8 +42,7 @@ const cartItemSchema = new mongoose.Schema({
     type: Number,
     min: [1, 'At least 1 night required']
   },
-  
-  // Common fields
+
   price: {
     type: Number,
     required: true,
@@ -74,7 +71,6 @@ const cartSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Calculate total price before saving
 cartSchema.pre('save', async function () {
   try {
     if (!Array.isArray(this.items) || this.items.length === 0) {

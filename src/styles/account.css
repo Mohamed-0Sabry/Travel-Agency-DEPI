@@ -13,10 +13,11 @@ body {
     overflow: hidden;
 }
 
-.custom-tabs {
+.custom-bar-tabs {
     border-bottom: 1px solid #e9ecef;
     background-color: #f8f9fa;
     padding: 0;
+    flex-direction: row;
 }
 
 .nav-link {
@@ -190,13 +191,13 @@ body {
 }
 
 /* Custom Tabs */
-.custom-tabs {
+.custom-bar-tabs {
     border-bottom: 2px solid var(--border-color);
     background: var(--background-light);
     padding: 0 1rem;
 }
 
-.custom-tabs .nav-link {
+.custom-bar-tabs .nav-link {
     border: none;
     color: var(--text-secondary);
     font-weight: 500;
@@ -205,13 +206,13 @@ body {
     background: transparent;
 }
 
-.custom-tabs .nav-link.active {
+.custom-bar-tabs .nav-link.active {
     background: white;
     color: var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
 }
 
-.custom-tabs .nav-link:hover {
+.custom-bar-tabs .nav-link:hover {
     background: rgba(26, 114, 99, 0.05);
 }
 

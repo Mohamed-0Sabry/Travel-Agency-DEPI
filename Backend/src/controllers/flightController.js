@@ -41,7 +41,7 @@ exports.searchFlights = async (req, res, next) => {
   }
 };
 
-// Get flights with active offers
+// Get flights with offers
 exports.getFlightsWithOffers = async (req, res, next) => {
   try {
     const flights = await flightService.getFlightsWithOffers();

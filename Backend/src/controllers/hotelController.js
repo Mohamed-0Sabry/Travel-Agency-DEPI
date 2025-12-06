@@ -41,7 +41,7 @@ exports.searchHotels = async (req, res, next) => {
   }
 };
 
-// Check hotel availability
+// Check hotel
 exports.checkAvailability = async (req, res, next) => {
   try {
     const { hotelId, roomType, numberOfRooms } = req.query;

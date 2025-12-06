@@ -90,7 +90,4 @@ const hotelSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for searching hotels
-hotelSchema.index({ 'location.city': 1, 'location.country': 1 });
-
 module.exports = mongoose.model('Hotel', hotelSchema);

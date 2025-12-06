@@ -29,7 +29,7 @@ const generateHotels = (count = 20) => {
 
     hotels.push({
       hotelName: faker.company.name() + " Hotel",
-      hotelLogo: `https://via.placeholder.com/150x100?text=Hotel+Logo+${i+1}`,
+      hotelLogo: `Hotel-1.jpg`,
       location: {
         city,
         country,
@@ -38,7 +38,7 @@ const generateHotels = (count = 20) => {
       description: faker.lorem.paragraph(),
       rating: faker.number.float({ min: 3, max: 5, fractionDigits: 1 }),
       amenities: ["Free WiFi", "Pool", "Spa", "Gym", "Restaurant", "Bar"].sort(() => 0.5 - Math.random()).slice(0, 4),
-      images: Array.from({ length: 3 }).map((_, idx) => `https://via.placeholder.com/400x300?text=${city}+${idx+1}`),
+      images: Array.from({ length: 3 }).map((_, idx) => `Hotel-2.webp`),
       roomTypes,
       checkInTime: "2:00 PM",
       checkOutTime: "12:00 PM",

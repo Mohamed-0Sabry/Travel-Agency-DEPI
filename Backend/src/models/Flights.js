@@ -89,8 +89,4 @@ const flightSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for searching flights
-flightSchema.index({ 'origin.city': 1, 'destination.city': 1 });
-flightSchema.index({ 'origin.country': 1, 'destination.country': 1 });
-
 module.exports = mongoose.model('Flight', flightSchema);

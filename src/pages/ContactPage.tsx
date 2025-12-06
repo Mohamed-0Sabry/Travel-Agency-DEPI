@@ -3,7 +3,8 @@
 'use client';
 
 import React, { useState } from 'react';
-
+import heroImage from "@/assets/images/banner.png";
+import "@/styles/contactPage.css"
 
 interface Form {
   name: string;
@@ -60,6 +61,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="contact-hero d-flex align-items-center text-white">
+        <img src={heroImage} alt="Group of friends celebrating during a mountain hike" aria-hidden />
         <div className="hero-overlay" aria-hidden></div>
         <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
           <p className="eyebrow mb-2">Get in touch</p>
@@ -205,24 +207,6 @@ export default function ContactPage() {
           </aside>
         </div>
       </main>
-
-      <style>{`
-        :root{ --accent: #6ee7b7; }
-        .contact-hero{ min-height: 36vh; position: relative; display: flex; align-items: center; justify-content: center; }
-        .hero-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,20,0.32), rgba(10,10,20,0.62)), url('/assets/images/banner.jpg') center/cover no-repeat; filter:saturate(1.02) contrast(1.03); }
-        .accent{ color: var(--accent); }
-        .glass-panel{ background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius: 12px; border:1px solid rgba(255,255,255,0.05); backdrop-filter: blur(8px) saturate(120%); }
-        .form-label{ font-weight:600; }
-        .social{ display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:8px; background: rgba(255,255,255,0.02); color:inherit; text-decoration:none; }
-        .social:hover{ background: rgba(255,255,255,0.04); transform: translateY(-3px); }
-
-        /* input focus */
-        .form-control:focus{ box-shadow: 0 6px 20px rgba(50,120,90,0.08); border-color: rgba(110,231,183,0.5); }
-
-        .invalid-feedback{ font-size: .9rem; }
-
-        @media (max-width: 991px){ .contact-hero{ min-height: 34vh; } }
-      `}</style>
     </>
   );
 }

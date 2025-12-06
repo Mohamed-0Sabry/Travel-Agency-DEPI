@@ -1,16 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import "@/styles/globals.css"
 
 const Layout = () => {
+  const location = useLocation();
+  const isAdminLocation = location.pathname.startsWith("/admin");
+
   return (
     <>
-      <Header />
+    {!isAdminLocation && <Header />}
       <main>
         <Outlet />
       </main>
-      <Footer />
+    {!isAdminLocation && <Footer />}
     </>
   );
 };

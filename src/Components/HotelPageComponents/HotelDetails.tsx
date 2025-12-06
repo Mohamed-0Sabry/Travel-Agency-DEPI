@@ -56,7 +56,7 @@ const HotelDetails: React.FC<HotelDetailsProps> = ({ hotelId, onBack }) => {
 
     const heroImg = (hotel.images && hotel.images[0]) || hotel.hotelLogo || "";
     const imageUrl = heroImg
-        ? `${axiosInstance.defaults.baseURL}/uploads/${heroImg.replace(/\\/g, "/")}`
+        ? `${axiosInstance.defaults.baseURL}/uploads/Hotel-1.jpg`
         : "/placeholder-hotel.jpg";
 
     const handleOpenBooking = (room: RoomType) => {

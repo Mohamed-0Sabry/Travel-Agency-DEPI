@@ -1,6 +1,6 @@
 const authService = require('../services/authService');
 
-// Register user
+// Register
 exports.register = async (req, res, next) => {
   try {
     const result = await authService.register(req.body);
@@ -13,7 +13,7 @@ exports.register = async (req, res, next) => {
   }
 };
 
-// Login user
+// Login
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -27,7 +27,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
-// Get current user
+// Get user
 exports.getMe = async (req, res, next) => {
   try {
     const user = await authService.getCurrentUser(req.user.id);
@@ -40,7 +40,7 @@ exports.getMe = async (req, res, next) => {
   }
 };
 
-// Update profile
+// Update prof
 exports.updateProfile = async (req, res, next) => {
   try {
     const user = await authService.updateProfile(req.user.id, req.body);

@@ -11,8 +11,7 @@ const bookingSchema = new mongoose.Schema({
     enum: ['flight', 'hotel'],
     required: true
   },
-  
-  // Flight booking details
+
   flight: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Flight'
@@ -40,8 +39,7 @@ const bookingSchema = new mongoose.Schema({
       default: 'Economy'
     }
   },
-  
-  // Hotel booking details
+
   hotel: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Hotel'
@@ -59,13 +57,12 @@ const bookingSchema = new mongoose.Schema({
     numberOfNights: Number,
     pricePerNight: Number
   },
-  
-  // Common booking fields
+
   bookingReference: {
     type: String,
     required: [true, 'Booking reference is required.'],
     unique: true,
-    default: function() {
+    default: function () {
       const prefix = this.bookingType === 'flight' ? 'FLT' : 'HTL';
       const random = Math.random().toString(36).substring(2, 8).toUpperCase();
       return `${prefix}${random}${Date.now().toString().slice(-4)}`;

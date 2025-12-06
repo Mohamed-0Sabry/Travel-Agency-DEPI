@@ -8,10 +8,11 @@ import AboutUsPage from "./pages/AboutUsPage";
 import Discover from "./pages/Discover";
 import TestComponentsPage from "./pages/TestComponentsPage";
 import ContactPage from "./pages/ContactPage";
-import Admin from "./pages/Admin";
+import Admin from "./pages/AdminDashboard";
 import "remixicon/fonts/remixicon.css";
 import CheckoutPage from "./pages/CheckoutPage";
 import Hotels from "./pages/HotelPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 export function ComingSoon({ title }: { title: string }) {
   return (
@@ -41,7 +42,8 @@ export default function App() {
         <Route path="Admin" element={<Admin />} />
         {/* <Route path="contact" element={<ComingSoon title="Contact" />} /> */}
         <Route path="contact" element={<ContactPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="checkout" element={<CheckoutPage />} />
+        <Route path="admin" element={<AdminDashboard />} />
         <Route path="testing" element={<TestComponentsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
