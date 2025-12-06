@@ -26,7 +26,6 @@ const HeroSection = () => {
               live and travel at your own pace.
             </p>
 
-            {/* Modern Search Card */}
           
           </div>
         </div>
@@ -44,49 +43,3 @@ export default HeroSection;
 
 
 
-  // <div className="search-card mx-auto">
-  //   <div className="row g-3 align-items-center">
-  //     <div className="col-lg">
-  //       <div className="search-input-wrapper">
-  //         {/* <i className="ri-map-pin-line search-icon"></i> */}
-  //         <input
-  //           type="text"
-  //           className="form-control search-input"
-  //           placeholder="From"
-  //         />
-  //       </div>
-  //     </div>
-  //     <div className="col-lg">
-  //       <div className="search-input-wrapper">
-  //         {/* <i className="ri-compass-discover-line search-icon"></i> */}
-  //         <input
-  //           type="text"
-  //           className="form-control search-input"
-  //           placeholder="To"
-  //         />
-  //       </div>
-  //     </div>
-  //     <div className="col-lg">
-  //       <div className="search-input-wrapper">
-  //         {/* <i className="ri-calendar-line search-icon"></i> */}
-  //         <input type="date" className="form-control search-input" />
-  //       </div>
-  //     </div>
-  //     <div className="col-lg">
-  //       <div className="search-input-wrapper">
-  //         {/* <i className="ri-user-line search-icon"></i> */}
-  //         <select className="form-select search-input">
-  //           <option>1 Traveler</option>
-  //           <option>2 Travelers</option>
-  //           <option>3+ Travelers</option>
-  //         </select>
-  //       </div>
-  //     </div>
-  //     <div className="col-lg-auto">
-  //       <button className="btn btn-primary btn-lg w-100">
-  //         <span>Search Trips</span>
-  //         <i className="ri-search-line ms-2"></i>
-  //       </button>
-  //     </div>
-  //   </div>
-  // </div>;
