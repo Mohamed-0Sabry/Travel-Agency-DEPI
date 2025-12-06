@@ -21,7 +21,7 @@ const Destination: React.FC = () => {
     useFlightStore.getState().fetchFlights();
   }, []);
 
-  // If a flight ID is in the URL, show its details automatically
+  
   useEffect(() => {
     if (id) {
       setSelectedFlightId(id);
@@ -42,11 +42,6 @@ const Destination: React.FC = () => {
   console.log(flights);
   return (
     <div className="container py-4">
-      <style>{`
-        .destination-img { height: 220px; object-fit: cover; }
-        .price-badge { backdrop-filter: blur(4px); }
-      `}</style>
-
       <div className="row justify-content-center">
         {flights.map((flight) => {
           //Backend\src\uploads
@@ -56,7 +51,7 @@ const Destination: React.FC = () => {
           return (
             <div key={flight._id} className="col-lg-3 col-md-8 col-12 mb-4">
               <Card
-                img={imageUrl} // Use URL instead of filesystem path
+                img={imageUrl} 
                 imgClass="card-img-top destination-img"
                 alt={`${flight.destination.city} image`}
                 cardClass="card shadow-sm overflow-hidden position-relative"

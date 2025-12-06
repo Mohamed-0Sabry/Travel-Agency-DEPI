@@ -52,7 +52,7 @@ const paymentMethodSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Ensure only one default payment method per user
+// one default payment method per user
 paymentMethodSchema.pre('save', async function() {
   if (this.isDefault) {
     await this.constructor.updateMany(

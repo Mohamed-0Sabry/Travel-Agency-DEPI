@@ -61,9 +61,6 @@ export const authAPI = {
   },
 };
 
-
-
-
 const flightAPI = {
   getAll: async (): Promise<Flight[]> => {
     const res = await axiosInstance.get("/flights");

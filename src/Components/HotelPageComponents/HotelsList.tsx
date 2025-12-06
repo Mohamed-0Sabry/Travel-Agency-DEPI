@@ -1,4 +1,3 @@
-// src/pages/HotelsList.tsx
 import React, { useEffect, useState } from "react";
 import Card from "@/Components/Card";
 import Loading from "@/Components/Loading";
@@ -32,11 +31,6 @@ const HotelsList: React.FC = () => {
 
   return (
     <div className="container py-4">
-      <style>{`
-        .destination-img { height: 220px; object-fit: cover; }
-        .price-badge { backdrop-filter: blur(4px); }
-      `}</style>
-
       <div className="row justify-content-center">
         {hotels.map((hotel) => {
           const imagePath = (hotel.images && hotel.images[0]) || hotel.hotelLogo || "";
@@ -44,7 +38,7 @@ const HotelsList: React.FC = () => {
             ? `${axiosInstance.defaults.baseURL}/uploads/${imagePath.replace(/\\/g, "/")}`
             : "/placeholder-hotel.jpg";
 
-          // For display price use cheapest room if available (fallback to hotel-level price if you have one)
+          
           const cheapestRoomPrice =
             hotel.roomTypes && hotel.roomTypes.length > 0
               ? Math.min(...hotel.roomTypes.map((r) => r.pricePerNight || Infinity))

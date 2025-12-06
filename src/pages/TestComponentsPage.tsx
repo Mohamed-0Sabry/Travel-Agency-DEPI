@@ -1,5 +1,3 @@
-// Demo Page Component
-
 import { useState } from 'react';
 import { Button } from '../Components/ui/Button';
 import { Text } from '@/Components/ui/Text';

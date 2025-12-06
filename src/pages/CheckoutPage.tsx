@@ -1,4 +1,3 @@
-// src/pages/CheckoutPage.tsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "@/store/useCartStore";
@@ -53,13 +52,11 @@ const CheckoutPage: React.FC = () => {
   const [showAddPayment, setShowAddPayment] = useState(false);
   const [processingPayment, setProcessingPayment] = useState(false);
 
-  // New Payment Method Form (expanded to match AddPaymentMethodData)
   const [newPaymentForm, setNewPaymentForm] = useState({
     cardNumber: "",
     cardholderName: "",
     expiryDate: "",
     cvv: "",
-    // billing address fields required by AddPaymentMethodData
     billingStreet: "",
     billingCity: "",
     billingCountry: "",
@@ -67,7 +64,6 @@ const CheckoutPage: React.FC = () => {
     isDefault: false,
   });
 
-  // Contact Information (kept locally; CheckoutCartData only requires paymentMethodId in types)
   const [contactInfo, setContactInfo] = useState({
     email: "",
     phone: "",
@@ -83,13 +79,11 @@ const CheckoutPage: React.FC = () => {
     return cart.items.reduce((total, item) => total + item.price, 0);
   };
 
-  const calculateTax = () => calculateTotal() * 0.1; // 10% tax
-  const calculateGrandTotal = () => calculateTotal() + calculateTax();
+  const calculateTax = () => calculateTotal() * 0.1; const calculateGrandTotal = () => calculateTotal() + calculateTax();
 
   const handleAddPaymentMethod = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (
       !newPaymentForm.cardNumber ||
       !newPaymentForm.cardholderName ||
@@ -152,21 +146,17 @@ const CheckoutPage: React.FC = () => {
     try {
       setProcessingPayment(true);
 
-      // 1) Process Payment (matches ProcessPaymentData)
       await processPayment({
         paymentMethodId: selectedPaymentMethod,
         amount: calculateGrandTotal(),
       });
 
-      // 2) Checkout cart (CheckoutCartData expects paymentMethodId in your types)
       await checkoutCart({
         paymentMethodId: selectedPaymentMethod,
       });
 
-      // 3) Clear cart after successful checkout
       await clearCart();
 
-      // 4) Navigate to success / dashboard
       alert("Booking successful! Redirecting to your dashboard...");
       navigate("/account");
     } catch (err) {
@@ -180,7 +170,6 @@ const CheckoutPage: React.FC = () => {
   const isLoading = cartLoading || paymentLoading || bookingLoading;
   const totalItems = cart?.items?.length || 0;
 
-  // Helpers to extract Flight/Hotel from CartItem
   const getFlightFromItem = (item: CartItem): Flight | null => {
     if (!item.flight) return null;
     return typeof item.flight === "string" ? null : item.flight;
@@ -285,9 +274,8 @@ const CheckoutPage: React.FC = () => {
                       {paymentMethods.map((method: PaymentMethod) => (
                         <div
                           key={method._id}
-                          className={`payment-method-item ${
-                            selectedPaymentMethod === method._id ? "selected" : ""
-                          }`}
+                          className={`payment-method-item ${selectedPaymentMethod === method._id ? "selected" : ""
+                            }`}
                           onClick={() => setSelectedPaymentMethod(method._id)}
                           role="button"
                           tabIndex={0}
@@ -341,7 +329,7 @@ const CheckoutPage: React.FC = () => {
                         <div className="col-md-6 mb-3">
                           <input
                             type="text"
-                            className="form-control"                            
+                            className="form-control"
                             value={newPaymentForm.cardNumber}
                             onChange={(e) =>
                               setNewPaymentForm({
@@ -507,27 +495,26 @@ const CheckoutPage: React.FC = () => {
                     item.itemType === "flight"
                       ? flight
                         ? flight.description ||
-                          `${flight.origin.city} → ${flight.destination.city}`
+                        `${flight.origin.city} → ${flight.destination.city}`
                         : "Flight Booking"
                       : hotel
-                      ? hotel.hotelName
-                      : "Hotel Booking";
+                        ? hotel.hotelName
+                        : "Hotel Booking";
 
                   const subtitle =
                     item.itemType === "flight" && flight
                       ? `${flight.origin.city} → ${flight.destination.city}`
                       : item.itemType === "hotel" && hotel
-                      ? `${hotel.location.city}, ${hotel.location.country}`
-                      : "";
+                        ? `${hotel.location.city}, ${hotel.location.country}`
+                        : "";
 
                   return (
                     <div key={item._id} className="summary-item d-flex justify-content-between align-items-center">
                       <div>
                         <div className="item-type">
                           <i
-                            className={`fa-solid ${
-                              item.itemType === "flight" ? "fa-plane" : "fa-hotel"
-                            } me-2`}
+                            className={`fa-solid ${item.itemType === "flight" ? "fa-plane" : "fa-hotel"
+                              } me-2`}
                           ></i>
                           <strong>{title}</strong>
                         </div>

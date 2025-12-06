@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "@/styles/account.css";
-import { useAuthStore } from "@/store/useAuthStore";
+// import { useAuthStore } from "@/store/useAuthStore";
 import ProfileHeader from "../Components/ProfileHeader";
 import AccountDetails from "../Components/AccountDetails";
 import HistoryTab from "../Components/HistoryTab";

@@ -113,7 +113,6 @@ class BookingService {
 
     const bookings = [];
 
-    // Process each cart item
     for (const item of cart.items) {
       try {
         if (item.itemType === 'flight') {
@@ -137,7 +136,6 @@ class BookingService {
         }
       } catch (error) {
         console.error(`Error booking item: ${error.message}`);
-        // Continue with other items
       }
     }
 
@@ -219,7 +217,6 @@ class BookingService {
       throw new Error('Cannot cancel completed booking');
     }
 
-    // Restore hotel room availability if hotel booking
     if (booking.bookingType === 'hotel' && booking.hotel) {
       await hotelService.updateRoomAvailability(
         booking.hotel,

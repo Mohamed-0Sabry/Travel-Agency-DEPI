@@ -16,7 +16,6 @@ const {
   toggleOffer
 } = require('../controllers/flightController');
 
-// Public routes
 router.get('/', getFlights);
 router.get('/search', searchFlights);
 router.get('/offers', getFlightsWithOffers);

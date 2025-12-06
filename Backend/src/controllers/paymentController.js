@@ -14,7 +14,7 @@ exports.getPaymentMethods = async (req, res, next) => {
   }
 };
 
-// Get single payment method
+// Get one payment method
 exports.getPaymentMethod = async (req, res, next) => {
   try {
     const paymentMethod = await paymentService.getPaymentMethodById(req.params.id, req.user.id);
