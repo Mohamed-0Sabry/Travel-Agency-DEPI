@@ -83,6 +83,10 @@ const Destination: React.FC = () => {
 
   return (
     <div className="container py-4">
+      <style>{`
+        .destination-img { height: 220px; object-fit: cover; }
+        .price-badge { backdrop-filter: blur(4px); }
+      `}</style>
       {/* Success Message */}
       {successMessage && (
         <div className="alert alert-success alert-dismissible fade show" role="alert">
