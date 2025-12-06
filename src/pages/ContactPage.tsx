@@ -3,6 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import heroImage from "@/assets/images/banner.png";
 import "@/styles/contactPage.css"
 
 interface Form {
@@ -60,6 +61,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="contact-hero d-flex align-items-center text-white">
+        <img src={heroImage} alt="Group of friends celebrating during a mountain hike" aria-hidden />
         <div className="hero-overlay" aria-hidden></div>
         <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
           <p className="eyebrow mb-2">Get in touch</p>

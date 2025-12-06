@@ -1,5 +1,5 @@
 import React from 'react';
-import StatCard from '@/Components/ui/Statcard';
+import StatCard from '@/Components/ui/StatCard';
 
 const OverviewTab = ({ user, stats, allBookings, setActiveTab }) => {
   return (
