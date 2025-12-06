@@ -5,7 +5,7 @@ const HotelRow = ({ hotel, onDelete }) => {
     <tr>
       <td>
         <img 
-          src={hotel.images?.[0] || 'https://via.placeholder.com/80x60'} 
+          src={'http://localhost:5000/api/uploads/Hotel-2.webp'} 
           alt={hotel.name}
           style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '0.5rem' }}
         />

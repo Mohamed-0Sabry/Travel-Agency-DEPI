@@ -32,6 +32,7 @@ const AdminDashboard = () => {
   const { flights, fetchFlights, deleteFlight } = useFlightStore();
   const { hotels, getHotels } = useHotelStore();
 
+
   useEffect(() => {
     if (user?.role === 'admin') {
       document.body.classList.add('admin-page');
