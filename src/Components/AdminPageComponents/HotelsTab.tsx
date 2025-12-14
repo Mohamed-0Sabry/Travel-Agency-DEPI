@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HotelRow from '../HotelRow';
+import AddHotelModal from './AddHotelModal';
 
-const HotelsTab = ({ hotels, handleDeleteHotel }) => {
+const HotelsTab = ({ hotels, handleDeleteHotel, onHotelAdded }) => {
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  const handleAddSuccess = async () => {
+    // Refresh hotels list after successful addition
+    if (onHotelAdded) {
+      await onHotelAdded();
+    }
+  };
+
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="fw-bold mb-0">Manage Hotels ({hotels.length})</h2>
         <button 
           className="btn btn-primary" 
-          onClick={() => alert('Add hotel form coming soon!')}
+          onClick={() => setShowAddModal(true)}
         >
           <i className="ri-add-line me-2"></i>Add New Hotel
         </button>
@@ -43,6 +53,12 @@ const HotelsTab = ({ hotels, handleDeleteHotel }) => {
           )}
         </div>
       </div>
+
+      <AddHotelModal
+        show={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onSuccess={handleAddSuccess}
+      />
     </>
   );
 };

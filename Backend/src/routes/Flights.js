@@ -1,6 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { protect, authorize } = require('../middleware/auth');
+const { protect, authorize } = require("../middleware/auth");
+const upload = require("./uploader");
 const {
   getFlights,
   getFlight,
@@ -13,22 +14,28 @@ const {
   updateFlight,
   deleteFlight,
   updateFlightRating,
-  toggleOffer
-} = require('../controllers/flightController');
+  toggleOffer,
+} = require("../controllers/flightController");
 
-router.get('/', getFlights);
-router.get('/search', searchFlights);
-router.get('/offers', getFlightsWithOffers);
-router.get('/popular', getPopularFlights);
-router.get('/by-destination', getFlightsByDestination);
-router.get('/by-origin', getFlightsByOrigin);
-router.get('/:id', getFlight);
+router.get("/", getFlights);
+router.get("/search", searchFlights);
+router.get("/offers", getFlightsWithOffers);
+router.get("/popular", getPopularFlights);
+router.get("/by-destination", getFlightsByDestination);
+router.get("/by-origin", getFlightsByOrigin);
+router.get("/:id", getFlight);
 
 // Admin routes
-router.post('/', protect, authorize('admin'), createFlight);
-router.put('/:id', protect, authorize('admin'), updateFlight);
-router.delete('/:id', protect, authorize('admin'), deleteFlight);
-router.put('/:id/rating', protect, authorize('admin'), updateFlightRating);
-router.put('/:id/offer', protect, authorize('admin'), toggleOffer);
+router.post(
+  "/",
+  protect,
+  authorize("admin"),
+  upload.single("image"),
+  createFlight
+);
+router.put("/:id", protect, authorize("admin"), updateFlight);
+router.delete("/:id", protect, authorize("admin"), deleteFlight);
+router.put("/:id/rating", protect, authorize("admin"), updateFlightRating);
+router.put("/:id/offer", protect, authorize("admin"), toggleOffer);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const hotelService = require('../services/hotelService');
+const hotelService = require("../services/hotelService");
 
 // Get all hotels
 exports.getHotels = async (req, res, next) => {
@@ -7,7 +7,7 @@ exports.getHotels = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: hotels.length,
-      data: hotels
+      data: hotels,
     });
   } catch (error) {
     next(error);
@@ -20,7 +20,7 @@ exports.getHotel = async (req, res, next) => {
     const hotel = await hotelService.getHotelById(req.params.id);
     res.status(200).json({
       success: true,
-      data: hotel
+      data: hotel,
     });
   } catch (error) {
     next(error);
@@ -34,7 +34,7 @@ exports.searchHotels = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: hotels.length,
-      data: hotels
+      data: hotels,
     });
   } catch (error) {
     next(error);
@@ -45,10 +45,14 @@ exports.searchHotels = async (req, res, next) => {
 exports.checkAvailability = async (req, res, next) => {
   try {
     const { hotelId, roomType, numberOfRooms } = req.query;
-    const availability = await hotelService.checkAvailability(hotelId, roomType, parseInt(numberOfRooms));
+    const availability = await hotelService.checkAvailability(
+      hotelId,
+      roomType,
+      parseInt(numberOfRooms)
+    );
     res.status(200).json({
       success: true,
-      data: availability
+      data: availability,
     });
   } catch (error) {
     next(error);
@@ -58,12 +62,15 @@ exports.checkAvailability = async (req, res, next) => {
 // Create hotel (Admin)
 exports.createHotel = async (req, res, next) => {
   try {
-    const hotel = await hotelService.createHotel(req.body);
+    console.log("Hotel req.body:", req.body);
+    console.log("Hotel req.files:", req.files);
+    const hotel = await hotelService.createHotel(req.body, req.files);
     res.status(201).json({
       success: true,
-      data: hotel
+      data: hotel,
     });
   } catch (error) {
+    console.error("Error creating hotel:", error);
     next(error);
   }
 };
@@ -74,7 +81,7 @@ exports.updateHotel = async (req, res, next) => {
     const hotel = await hotelService.updateHotel(req.params.id, req.body);
     res.status(200).json({
       success: true,
-      data: hotel
+      data: hotel,
     });
   } catch (error) {
     next(error);
@@ -87,7 +94,7 @@ exports.deleteHotel = async (req, res, next) => {
     const result = await hotelService.deleteHotel(req.params.id);
     res.status(200).json({
       success: true,
-      data: result
+      data: result,
     });
   } catch (error) {
     next(error);

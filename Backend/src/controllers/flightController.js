@@ -1,4 +1,4 @@
-const flightService = require('../services/flightService');
+const flightService = require("../services/flightService");
 
 // Get all flights
 exports.getFlights = async (req, res, next) => {
@@ -7,7 +7,7 @@ exports.getFlights = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -20,7 +20,7 @@ exports.getFlight = async (req, res, next) => {
     const flight = await flightService.getFlightById(req.params.id);
     res.status(200).json({
       success: true,
-      data: flight
+      data: flight,
     });
   } catch (error) {
     next(error);
@@ -34,7 +34,7 @@ exports.searchFlights = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -48,7 +48,7 @@ exports.getFlightsWithOffers = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -63,7 +63,7 @@ exports.getPopularFlights = async (req, res, next) => {
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -77,14 +77,14 @@ exports.getFlightsByDestination = async (req, res, next) => {
     if (!city) {
       return res.status(400).json({
         success: false,
-        message: 'City parameter is required'
+        message: "City parameter is required",
       });
     }
     const flights = await flightService.getFlightsByDestination(city, country);
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -98,14 +98,14 @@ exports.getFlightsByOrigin = async (req, res, next) => {
     if (!city) {
       return res.status(400).json({
         success: false,
-        message: 'City parameter is required'
+        message: "City parameter is required",
       });
     }
     const flights = await flightService.getFlightsByOrigin(city, country);
     res.status(200).json({
       success: true,
       count: flights.length,
-      data: flights
+      data: flights,
     });
   } catch (error) {
     next(error);
@@ -115,17 +115,19 @@ exports.getFlightsByOrigin = async (req, res, next) => {
 // Create flight (Admin)
 exports.createFlight = async (req, res, next) => {
   try {
-    const flight = await flightService.createFlight(req.body);
+    console.log("req.body:", req.body);
+    console.log("req.file:", req.file);
+    const flight = await flightService.createFlight(req.body, req.file);
     res.status(201).json({
       success: true,
-      data: flight
+      data: flight,
     });
   } catch (error) {
     if (error.errors) {
       return res.status(400).json({
         success: false,
-        message: 'Validation failed',
-        errors: error.errors
+        message: "Validation failed",
+        errors: error.errors,
       });
     }
     next(error);
@@ -138,14 +140,14 @@ exports.updateFlight = async (req, res, next) => {
     const flight = await flightService.updateFlight(req.params.id, req.body);
     res.status(200).json({
       success: true,
-      data: flight
+      data: flight,
     });
   } catch (error) {
     if (error.errors) {
       return res.status(400).json({
         success: false,
-        message: 'Validation failed',
-        errors: error.errors
+        message: "Validation failed",
+        errors: error.errors,
       });
     }
     next(error);
@@ -158,7 +160,7 @@ exports.deleteFlight = async (req, res, next) => {
     const result = await flightService.deleteFlight(req.params.id);
     res.status(200).json({
       success: true,
-      data: result
+      data: result,
     });
   } catch (error) {
     next(error);
@@ -172,13 +174,16 @@ exports.updateFlightRating = async (req, res, next) => {
     if (rating === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Rating is required'
+        message: "Rating is required",
       });
     }
-    const flight = await flightService.updateFlightRating(req.params.id, rating);
+    const flight = await flightService.updateFlightRating(
+      req.params.id,
+      rating
+    );
     res.status(200).json({
       success: true,
-      data: flight
+      data: flight,
     });
   } catch (error) {
     next(error);
@@ -191,7 +196,7 @@ exports.toggleOffer = async (req, res, next) => {
     const flight = await flightService.toggleOffer(req.params.id, req.body);
     res.status(200).json({
       success: true,
-      data: flight
+      data: flight,
     });
   } catch (error) {
     next(error);
