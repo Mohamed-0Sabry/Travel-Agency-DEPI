@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FlightRow from '../FlightRow';
+import AddFlightModal from './AddFlightModal';
 
-const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer }) => {
+const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer, onFlightAdded }) => {
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  const handleAddSuccess = async () => {
+    // Refresh flights list after successful addition
+    if (onFlightAdded) {
+      await onFlightAdded();
+    }
+  };
+
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="fw-bold mb-0">Manage Flights ({flights.length})</h2>
         <button 
           className="btn btn-primary" 
-          onClick={() => alert('Add flight form coming soon!')}
+          onClick={() => setShowAddModal(true)}
         >
           <i className="ri-add-line me-2"></i>Add New Flight
         </button>
@@ -46,6 +56,12 @@ const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer }) => {
           )}
         </div>
       </div>
+
+      <AddFlightModal
+        show={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onSuccess={handleAddSuccess}
+      />
     </>
   );
 };

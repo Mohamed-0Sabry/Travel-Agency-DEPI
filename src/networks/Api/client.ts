@@ -1,4 +1,4 @@
-import axiosInstance from '../axiosInstance';
+import axiosInstance from "../axiosInstance";
 import type {
   ApiResponse,
   AuthResponse,
@@ -26,37 +26,41 @@ import type {
   UpdatePaymentMethodData,
   ProcessPaymentData,
   PaymentResponse,
-} from '@/types/api.types';
+} from "@/types/api.types";
 
 // AUTH API
 export const authAPI = {
   // Register new user
   register: async (data: RegisterData): Promise<ApiResponse<AuthResponse>> => {
-    const response = await axiosInstance.post('/auth/register', data);
+    const response = await axiosInstance.post("/auth/register", data);
     return response.data;
   },
 
   // Login user
   login: async (data: LoginData): Promise<ApiResponse<AuthResponse>> => {
-    const response = await axiosInstance.post('/auth/login', data);
+    const response = await axiosInstance.post("/auth/login", data);
     return response.data;
   },
 
   // Get current user
   getCurrentUser: async (): Promise<ApiResponse<User>> => {
-    const response = await axiosInstance.get('/auth/me');
+    const response = await axiosInstance.get("/auth/me");
     return response.data;
   },
 
   // Update user profile
-  updateProfile: async (data: UpdateProfileData): Promise<ApiResponse<User>> => {
-    const response = await axiosInstance.put('/auth/update-profile', data);
+  updateProfile: async (
+    data: UpdateProfileData
+  ): Promise<ApiResponse<User>> => {
+    const response = await axiosInstance.put("/auth/update-profile", data);
     return response.data;
   },
 
   // Change password
-  changePassword: async (data: ChangePasswordData): Promise<ApiResponse<{ message: string }>> => {
-    const response = await axiosInstance.put('/auth/change-password', data);
+  changePassword: async (
+    data: ChangePasswordData
+  ): Promise<ApiResponse<{ message: string }>> => {
+    const response = await axiosInstance.put("/auth/change-password", data);
     return response.data;
   },
 };
@@ -97,8 +101,13 @@ const flightAPI = {
     return res.data.data ?? [];
   },
 
-  create: async (data: Partial<Flight>): Promise<Flight> => {
-    const res = await axiosInstance.post("/flights", data);
+  create: async (data: Partial<Flight> | FormData): Promise<Flight> => {
+    const res = await axiosInstance.post("/flights", data, {
+      headers:
+        data instanceof FormData
+          ? { "Content-Type": "multipart/form-data" }
+          : {},
+    });
     return res.data.data;
   },
 
@@ -116,17 +125,22 @@ const flightAPI = {
     return res.data.data;
   },
 
-  toggleOffer: async (id: string, payload?: { isActive?: boolean; newPrice?: number; oldPrice?: number }): Promise<Flight> => {
+  toggleOffer: async (
+    id: string,
+    payload?: { isActive?: boolean; newPrice?: number; oldPrice?: number }
+  ): Promise<Flight> => {
     const res = await axiosInstance.put(`/flights/${id}/offer`, payload);
     return res.data.data;
-  }
+  },
 };
 
 // HOTEL API
 export const hotelAPI = {
   // Get all hotels
-  getHotels: async (filters?: Record<string, string>): Promise<ApiResponse<Hotel[]>> => {
-    const response = await axiosInstance.get('/hotels', { params: filters });
+  getHotels: async (
+    filters?: Record<string, string>
+  ): Promise<ApiResponse<Hotel[]>> => {
+    const response = await axiosInstance.get("/hotels", { params: filters });
     return response.data;
   },
 
@@ -137,36 +151,56 @@ export const hotelAPI = {
   },
 
   // Search hotels
-  searchHotels: async (params: SearchHotelsParams): Promise<ApiResponse<Hotel[]>> => {
-    const response = await axiosInstance.get('/hotels/search', { params });
+  searchHotels: async (
+    params: SearchHotelsParams
+  ): Promise<ApiResponse<Hotel[]>> => {
+    const response = await axiosInstance.get("/hotels/search", { params });
     return response.data;
   },
 
   // Check hotel availability
-  checkAvailability: async (params: CheckHotelAvailabilityParams): Promise<ApiResponse<{
-    available: boolean;
-    availableRooms: number;
-    pricePerNight: number;
-    maxGuests: number;
-  }>> => {
-    const response = await axiosInstance.get('/hotels/check-availability', { params });
+  checkAvailability: async (
+    params: CheckHotelAvailabilityParams
+  ): Promise<
+    ApiResponse<{
+      available: boolean;
+      availableRooms: number;
+      pricePerNight: number;
+      maxGuests: number;
+    }>
+  > => {
+    const response = await axiosInstance.get("/hotels/check-availability", {
+      params,
+    });
     return response.data;
   },
 
   // Create hotel (Admin)
-  createHotel: async (data: CreateHotelData): Promise<ApiResponse<Hotel>> => {
-    const response = await axiosInstance.post('/hotels', data);
+  createHotel: async (
+    data: CreateHotelData | FormData
+  ): Promise<ApiResponse<Hotel>> => {
+    const response = await axiosInstance.post("/hotels", data, {
+      headers:
+        data instanceof FormData
+          ? { "Content-Type": "multipart/form-data" }
+          : {},
+    });
     return response.data;
   },
 
   // Update hotel (Admin)
-  updateHotel: async (id: string, data: Partial<CreateHotelData>): Promise<ApiResponse<Hotel>> => {
+  updateHotel: async (
+    id: string,
+    data: Partial<CreateHotelData>
+  ): Promise<ApiResponse<Hotel>> => {
     const response = await axiosInstance.put(`/hotels/${id}`, data);
     return response.data;
   },
 
   // Delete hotel (Admin)
-  deleteHotel: async (id: string): Promise<ApiResponse<{ message: string }>> => {
+  deleteHotel: async (
+    id: string
+  ): Promise<ApiResponse<{ message: string }>> => {
     const response = await axiosInstance.delete(`/hotels/${id}`);
     return response.data;
   },
@@ -176,24 +210,31 @@ export const hotelAPI = {
 export const cartAPI = {
   // Get user's cart
   getCart: async (): Promise<ApiResponse<Cart>> => {
-    const response = await axiosInstance.get('/cart');
+    const response = await axiosInstance.get("/cart");
     return response.data;
   },
 
   // Add flight to cart
-  addFlightToCart: async (data: AddFlightToCartData): Promise<ApiResponse<Cart>> => {
-    const response = await axiosInstance.post('/cart/flight', data);
+  addFlightToCart: async (
+    data: AddFlightToCartData
+  ): Promise<ApiResponse<Cart>> => {
+    const response = await axiosInstance.post("/cart/flight", data);
     return response.data;
   },
 
   // Add hotel to cart
-  addHotelToCart: async (data: AddHotelToCartData): Promise<ApiResponse<Cart>> => {
-    const response = await axiosInstance.post('/cart/hotel', data);
+  addHotelToCart: async (
+    data: AddHotelToCartData
+  ): Promise<ApiResponse<Cart>> => {
+    const response = await axiosInstance.post("/cart/hotel", data);
     return response.data;
   },
 
   // Update cart item
-  updateCartItem: async (itemId: string, data: UpdateCartItemData): Promise<ApiResponse<Cart>> => {
+  updateCartItem: async (
+    itemId: string,
+    data: UpdateCartItemData
+  ): Promise<ApiResponse<Cart>> => {
     const response = await axiosInstance.put(`/cart/item/${itemId}`, data);
     return response.data;
   },
@@ -206,7 +247,7 @@ export const cartAPI = {
 
   // Clear cart
   clearCart: async (): Promise<ApiResponse<Cart>> => {
-    const response = await axiosInstance.delete('/cart/clear');
+    const response = await axiosInstance.delete("/cart/clear");
     return response.data;
   },
 };
@@ -214,26 +255,36 @@ export const cartAPI = {
 // BOOKING API
 export const bookingAPI = {
   // Create flight booking
-  createFlightBooking: async (data: CreateFlightBookingData): Promise<ApiResponse<Booking>> => {
-    const response = await axiosInstance.post('/bookings/flight', data);
+  createFlightBooking: async (
+    data: CreateFlightBookingData
+  ): Promise<ApiResponse<Booking>> => {
+    const response = await axiosInstance.post("/bookings/flight", data);
     return response.data;
   },
 
   // Create hotel booking
-  createHotelBooking: async (data: CreateHotelBookingData): Promise<ApiResponse<Booking>> => {
-    const response = await axiosInstance.post('/bookings/hotel', data);
+  createHotelBooking: async (
+    data: CreateHotelBookingData
+  ): Promise<ApiResponse<Booking>> => {
+    const response = await axiosInstance.post("/bookings/hotel", data);
     return response.data;
   },
 
   // Checkout cart
-  checkoutCart: async (data: CheckoutCartData): Promise<ApiResponse<Booking[]>> => {
-    const response = await axiosInstance.post('/bookings/checkout', data);
+  checkoutCart: async (
+    data: CheckoutCartData
+  ): Promise<ApiResponse<Booking[]>> => {
+    const response = await axiosInstance.post("/bookings/checkout", data);
     return response.data;
   },
 
   // Get user's bookings
-  getMyBookings: async (filters?: Record<string, string>): Promise<ApiResponse<Booking[]>> => {
-    const response = await axiosInstance.get('/bookings/my-bookings', { params: filters });
+  getMyBookings: async (
+    filters?: Record<string, string>
+  ): Promise<ApiResponse<Booking[]>> => {
+    const response = await axiosInstance.get("/bookings/my-bookings", {
+      params: filters,
+    });
     return response.data;
   },
 
@@ -250,13 +301,18 @@ export const bookingAPI = {
   },
 
   // Get all bookings (Admin)
-  getAllBookings: async (filters?: Record<string, string>): Promise<ApiResponse<Booking[]>> => {
-    const response = await axiosInstance.get('/bookings', { params: filters });
+  getAllBookings: async (
+    filters?: Record<string, string>
+  ): Promise<ApiResponse<Booking[]>> => {
+    const response = await axiosInstance.get("/bookings", { params: filters });
     return response.data;
   },
 
   // Update booking status (Admin)
-  updateBookingStatus: async (id: string, data: UpdateBookingStatusData): Promise<ApiResponse<Booking>> => {
+  updateBookingStatus: async (
+    id: string,
+    data: UpdateBookingStatusData
+  ): Promise<ApiResponse<Booking>> => {
     const response = await axiosInstance.put(`/bookings/${id}/status`, data);
     return response.data;
   },
@@ -266,7 +322,7 @@ export const bookingAPI = {
 export const paymentAPI = {
   // Get payment methods
   getPaymentMethods: async (): Promise<ApiResponse<PaymentMethod[]>> => {
-    const response = await axiosInstance.get('/payments');
+    const response = await axiosInstance.get("/payments");
     return response.data;
   },
 
@@ -277,32 +333,43 @@ export const paymentAPI = {
   },
 
   // Add payment method
-  addPaymentMethod: async (data: AddPaymentMethodData): Promise<ApiResponse<PaymentMethod>> => {
-    const response = await axiosInstance.post('/payments', data);
+  addPaymentMethod: async (
+    data: AddPaymentMethodData
+  ): Promise<ApiResponse<PaymentMethod>> => {
+    const response = await axiosInstance.post("/payments", data);
     return response.data;
   },
 
   // Update payment method
-  updatePaymentMethod: async (id: string, data: UpdatePaymentMethodData): Promise<ApiResponse<PaymentMethod>> => {
+  updatePaymentMethod: async (
+    id: string,
+    data: UpdatePaymentMethodData
+  ): Promise<ApiResponse<PaymentMethod>> => {
     const response = await axiosInstance.put(`/payments/${id}`, data);
     return response.data;
   },
 
   // Set default payment method
-  setDefaultPaymentMethod: async (id: string): Promise<ApiResponse<PaymentMethod>> => {
+  setDefaultPaymentMethod: async (
+    id: string
+  ): Promise<ApiResponse<PaymentMethod>> => {
     const response = await axiosInstance.put(`/payments/${id}/set-default`);
     return response.data;
   },
 
   // Delete payment method
-  deletePaymentMethod: async (id: string): Promise<ApiResponse<{ message: string }>> => {
+  deletePaymentMethod: async (
+    id: string
+  ): Promise<ApiResponse<{ message: string }>> => {
     const response = await axiosInstance.delete(`/payments/${id}`);
     return response.data;
   },
 
   // Process payment (Demo)
-  processPayment: async (data: ProcessPaymentData): Promise<ApiResponse<PaymentResponse>> => {
-    const response = await axiosInstance.post('/payments/process', data);
+  processPayment: async (
+    data: ProcessPaymentData
+  ): Promise<ApiResponse<PaymentResponse>> => {
+    const response = await axiosInstance.post("/payments/process", data);
     return response.data;
   },
 };
