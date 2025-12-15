@@ -1,6 +1,7 @@
 import React from 'react';
 
-const FlightRow = ({ flight, onToggleOffer, onDelete }) => {
+
+const FlightRow = ({ flight, onToggleOffer, onDelete, onUpdate }) => {
   return (
     <tr>
       <td>
@@ -29,20 +30,30 @@ const FlightRow = ({ flight, onToggleOffer, onDelete }) => {
         )}
       </td>
       <td>
-        <div className="btn-group btn-group-sm">
+        <div className="d-flex gap-2">
           <button 
-            className="btn btn-warning btn-sm"
+            className="btn btn-sm btn-primary"
+            onClick={() => onUpdate(flight)}
+            title="Edit Flight"
+          >
+            <i className="ri-edit-line me-1"></i>
+            Edit
+          </button>
+          <button 
+            className="btn btn-sm btn-warning"
             onClick={() => onToggleOffer(flight._id, flight.offer)}
             title="Toggle Offer"
           >
-            <i className="ri-price-tag-3-line"></i>
+            <i className="ri-price-tag-3-line me-1"></i>
+            Offer
           </button>
           <button 
-            className="btn btn-danger btn-sm"
+            className="btn btn-sm btn-danger"
             onClick={() => onDelete(flight._id)}
-            title="Delete"
+            title="Delete Flight"
           >
-            <i className="ri-delete-bin-line"></i>
+            <i className="ri-delete-bin-line me-1"></i>
+            Delete
           </button>
         </div>
       </td>

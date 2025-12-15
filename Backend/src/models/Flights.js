@@ -45,26 +45,14 @@ const flightSchema = new mongoose.Schema({
     },
     newPrice: {
       type: Number,
-      min: [0, 'New price cannot be negative'],
-      validate: {
-        validator: function (value) {
-          return !this.offer.isActive || value < this.offer.oldPrice;
-        },
-        message: 'New price must be lower than old price when offer is active'
-      }
+      min: [0, 'New price cannot be negative']
     },
     badge: { 
       type: String, 
       default: 'Hot Offer' 
     },
     expiresAt: {
-      type: Date,
-      validate: {
-        validator: function (value) {
-          return !value || value > new Date();
-        },
-        message: 'Expiration date must be in the future'
-      }
+      type: Date
     }
   },
 

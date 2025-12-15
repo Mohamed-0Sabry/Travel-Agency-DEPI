@@ -1,14 +1,70 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import FlightRow from '../FlightRow';
 import AddFlightModal from './AddFlightModal';
+import UpdateFlightModal from './UpdateFlightModal';
+import apiClient from "@/networks/Api/client";
 
-const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer, onFlightAdded }) => {
+interface FlightsTabProps {
+  flights: any[];
+  handleDeleteFlight: (id: string) => void;
+  onFlightAdded: () => Promise<void>;
+}
+
+const FlightsTab: React.FC<FlightsTabProps> = ({ 
+  flights, 
+  handleDeleteFlight,
+  onFlightAdded 
+}) => {
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedFlight, setSelectedFlight] = useState<any>(null);
 
   const handleAddSuccess = async () => {
-    // Refresh flights list after successful addition
     if (onFlightAdded) {
       await onFlightAdded();
+    }
+  };
+
+  const handleUpdateSuccess = async () => {
+    if (onFlightAdded) {
+      await onFlightAdded();
+    }
+  };
+
+  const handleUpdateClick = (flight: any) => {
+    setSelectedFlight(flight);
+    setShowUpdateModal(true);
+  };
+
+  const handleCloseUpdateModal = () => {
+    setShowUpdateModal(false);
+    setSelectedFlight(null);
+  };
+
+  const handleToggleOffer = async (flightId: string, currentOffer: any) => {
+    try {
+      const newStatus = !currentOffer?.isActive;
+      
+      const payload: any = {
+        isActive: newStatus
+      };
+      
+      if (newStatus && currentOffer) {
+        if (currentOffer.oldPrice) payload.oldPrice = currentOffer.oldPrice;
+        if (currentOffer.newPrice) payload.newPrice = currentOffer.newPrice;
+        if (currentOffer.badge) payload.badge = currentOffer.badge;
+      }
+      
+      await apiClient.flights.toggleOffer(flightId, payload);
+      
+      await onFlightAdded();
+      
+      const message = newStatus ? "Offer activated successfully!" : "Offer deactivated successfully!";
+      alert(message);
+    } catch (error: any) {
+      console.error("Error toggling offer:", error);
+      alert(error.response?.data?.message || "Failed to toggle offer");
     }
   };
 
@@ -34,7 +90,7 @@ const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer, onFlightAd
                 <th>Destination</th>
                 <th>Price</th>
                 <th>Offer Status</th>
-                <th>Actions</th>
+                <th style={{ width: '280px' }}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -44,6 +100,7 @@ const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer, onFlightAd
                   flight={flight}
                   onToggleOffer={handleToggleOffer}
                   onDelete={handleDeleteFlight}
+                  onUpdate={handleUpdateClick}
                 />
               ))}
             </tbody>
@@ -62,6 +119,15 @@ const FlightsTab = ({ flights, handleDeleteFlight, handleToggleOffer, onFlightAd
         onClose={() => setShowAddModal(false)}
         onSuccess={handleAddSuccess}
       />
+
+      {selectedFlight && (
+        <UpdateFlightModal
+          show={showUpdateModal}
+          onClose={handleCloseUpdateModal}
+          onSuccess={handleUpdateSuccess}
+          flight={selectedFlight}
+        />
+      )}
     </>
   );
 };

@@ -111,7 +111,7 @@ const flightAPI = {
     return res.data.data;
   },
 
-  update: async (id: string, data: Partial<Flight>): Promise<Flight> => {
+  update: async (id: string, data: Partial<Flight> | FormData): Promise<Flight> => {
     const res = await axiosInstance.put(`/flights/${id}`, data);
     return res.data.data;
   },

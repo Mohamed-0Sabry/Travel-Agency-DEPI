@@ -137,6 +137,11 @@ exports.createFlight = async (req, res, next) => {
 // Update flight (Admin)
 exports.updateFlight = async (req, res, next) => {
   try {
+
+    if (req.body.offer && typeof req.body.offer === 'string') {
+      req.body.offer = JSON.parse(req.body.offer);
+    }
+    
     const flight = await flightService.updateFlight(req.params.id, req.body);
     res.status(200).json({
       success: true,

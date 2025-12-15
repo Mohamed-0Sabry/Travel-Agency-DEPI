@@ -263,24 +263,53 @@ class FlightService {
       throw new Error("Flight not found");
     }
 
-    if (offerData.isActive) {
-      // Activating offer - validate prices
-      if (!offerData.oldPrice || !offerData.newPrice) {
-        throw new Error(
-          "Old price and new price are required for active offers"
-        );
-      }
-      if (offerData.newPrice >= offerData.oldPrice) {
-        throw new Error("New price must be lower than old price");
-      }
+      // DEBUG: Log what we have
+  console.log('=== TOGGLE OFFER DEBUG ===');
+  console.log('Current flight.offer:', JSON.stringify(flight.offer, null, 2));
+  console.log('Received offerData:', JSON.stringify(offerData, null, 2));
+  console.log('========================');
+
+
+    if (!flight.offer) {
+      flight.offer = {};
     }
 
-    flight.offer = {
-      ...flight.offer,
-      ...offerData,
-    };
+    if (offerData.isActive) {
+      console.log(flight);
+      const existingOldPrice = flight.offer.oldPrice;
+      const existingNewPrice = flight.offer.newPrice;
+      console.log('existingOldPrice:', existingOldPrice);
+      console.log('existingNewPrice:', existingNewPrice);
+      const oldPrice = offerData.oldPrice || existingOldPrice;
+      const newPrice = offerData.newPrice || existingNewPrice;
+
+      if (!oldPrice || !newPrice) {
+        throw new Error(
+          "Please set offer prices in the Update Flight form before activating"
+        );
+      }
+
+      if (newPrice >= oldPrice) {
+        throw new Error("New price must be lower than old price");
+      }
+
+      flight.offer.isActive = true;
+      flight.offer.oldPrice = oldPrice;
+      flight.offer.newPrice = newPrice;
+      flight.offer.badge = offerData.badge || flight.offer.badge || 'Hot Offer';
+      if (offerData.expiresAt) {
+        flight.offer.expiresAt = offerData.expiresAt;
+      }
+    } else {
+      flight.offer.isActive = false;
+    }
+
+    console.log('Before save - flight.offer:', JSON.stringify(flight.offer, null, 2));
 
     await flight.save();
+
+    console.log('After save - flight.offer:', JSON.stringify(flight.offer, null, 2));
+
     return flight;
   }
 }

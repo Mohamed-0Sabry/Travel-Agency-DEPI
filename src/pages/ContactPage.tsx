@@ -40,15 +40,10 @@ export default function ContactPage() {
       setErrors(e);
       return;
     }
-
     setLoading(true);
     setStatus(null);
-
-    // Simulated request - replace with real API endpoint
     try {
       await new Promise((res) => setTimeout(res, 900));
-      // if you want to send to real endpoint:
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(form), headers: {'Content-Type':'application/json'} })
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch (err) {
