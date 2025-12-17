@@ -1,15 +1,44 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import HotelRow from '../HotelRow';
 import AddHotelModal from './AddHotelModal';
+import UpdateHotelModal from './UpdateHotelModal';
 
-const HotelsTab = ({ hotels, handleDeleteHotel, onHotelAdded }) => {
+interface HotelsTabProps {
+  hotels: any[];
+  handleDeleteHotel: (id: string) => void;
+  onHotelAdded: () => Promise<void>;
+}
+
+const HotelsTab: React.FC<HotelsTabProps> = ({ 
+  hotels, 
+  handleDeleteHotel, 
+  onHotelAdded 
+}) => {
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedHotel, setSelectedHotel] = useState<any>(null);
 
   const handleAddSuccess = async () => {
-    // Refresh hotels list after successful addition
     if (onHotelAdded) {
       await onHotelAdded();
     }
+  };
+
+  const handleUpdateSuccess = async () => {
+    if (onHotelAdded) {
+      await onHotelAdded();
+    }
+  };
+
+  const handleUpdateClick = (hotel: any) => {
+    setSelectedHotel(hotel);
+    setShowUpdateModal(true);
+  };
+
+  const handleCloseUpdateModal = () => {
+    setShowUpdateModal(false);
+    setSelectedHotel(null);
   };
 
   return (
@@ -32,7 +61,7 @@ const HotelsTab = ({ hotels, handleDeleteHotel, onHotelAdded }) => {
                 <th>Image</th>
                 <th>Name & Location</th>
                 <th>Rating</th>
-                <th>Actions</th>
+                <th style={{ width: '220px' }}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +70,7 @@ const HotelsTab = ({ hotels, handleDeleteHotel, onHotelAdded }) => {
                   key={hotel._id} 
                   hotel={hotel}
                   onDelete={handleDeleteHotel}
+                  onUpdate={handleUpdateClick}
                 />
               ))}
             </tbody>
@@ -59,6 +89,15 @@ const HotelsTab = ({ hotels, handleDeleteHotel, onHotelAdded }) => {
         onClose={() => setShowAddModal(false)}
         onSuccess={handleAddSuccess}
       />
+
+      {selectedHotel && (
+        <UpdateHotelModal
+          show={showUpdateModal}
+          onClose={handleCloseUpdateModal}
+          onSuccess={handleUpdateSuccess}
+          hotel={selectedHotel}
+        />
+      )}
     </>
   );
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 
-const HotelRow = ({ hotel, onDelete }) => {
+
+const HotelRow = ({ hotel, onDelete, onUpdate }) => {
   return (
     <tr>
       <td>
         <img 
-          src={'http://localhost:5000/api/uploads/Hotel-2.webp'} 
-          alt={hotel.name}
+          src={hotel.hotelLogo ? `http://localhost:5000/api/uploads/${hotel.hotelLogo}` : 'https://via.placeholder.com/80x60'} 
+          alt={hotel.hotelName}
           style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '0.5rem' }}
         />
       </td>
@@ -19,24 +20,29 @@ const HotelRow = ({ hotel, onDelete }) => {
       </td>
       <td>
         <div className="d-flex align-items-center">
-          {[...Array(5)].map((_, i) => (
-            <i 
-              key={i} 
-              className={`ri-star-${i < (hotel.rating || 0) ? 'fill' : 'line'}`} 
-              style={{ color: '#fbbf24', fontSize: '0.875rem' }}
-            ></i>
-          ))}
-          <span className="ms-1 small text-muted">({hotel.rating || 0})</span>
+          <i className="ri-star-fill text-warning me-1"></i>
+          <span>{hotel.rating?.toFixed(1) || '0.0'}</span>
         </div>
       </td>
       <td>
-        <button 
-          className="btn btn-danger btn-sm"
-          onClick={() => onDelete(hotel._id)}
-          title="Delete"
-        >
-          <i className="ri-delete-bin-line"></i>
-        </button>
+        <div className="d-flex gap-2">
+          <button 
+            className="btn btn-sm btn-primary"
+            onClick={() => onUpdate(hotel)}
+            title="Edit Hotel"
+          >
+            <i className="ri-edit-line me-1"></i>
+            Edit
+          </button>
+          <button 
+            className="btn btn-sm btn-danger"
+            onClick={() => onDelete(hotel._id)}
+            title="Delete Hotel"
+          >
+            <i className="ri-delete-bin-line me-1"></i>
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   );

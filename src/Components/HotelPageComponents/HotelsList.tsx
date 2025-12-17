@@ -4,7 +4,6 @@ import Loading from "@/Components/Loading";
 import RatingStars from "@/Features/RatingStars";
 import type { Hotel } from "@/types/api.types";
 import { useHotelStore } from "@/store/useHotelStore";
-import axiosInstance from "@/networks/axiosInstance";
 import HotelDetails from "./HotelDetails";
 
 const HotelsList: React.FC = () => {
@@ -33,10 +32,7 @@ const HotelsList: React.FC = () => {
     <div className="container py-4">
       <div className="row justify-content-center">
         {hotels.map((hotel) => {
-          const imagePath = (hotel.images && hotel.images[0]) || hotel.hotelLogo || "";
-          const imageUrl = imagePath
-            ? `${axiosInstance.defaults.baseURL}/uploads/Hotel-2.webp`
-            : "/placeholder-hotel.jpg";
+          const imageUrl = hotel.hotelLogo ? `http://localhost:5000/api/uploads/${hotel.hotelLogo}` : 'https://via.placeholder.com/80x60';
 
           
           const cheapestRoomPrice =

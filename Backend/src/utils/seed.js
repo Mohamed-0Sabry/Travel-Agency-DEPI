@@ -170,62 +170,62 @@ const seedDatabase = async () => {
     await connectDB();
 
     // Clear existing data
-    await User.deleteMany({});
+    // await User.deleteMany({});
     await Hotel.deleteMany({});
-    await Booking.deleteMany({});
-    await Cart.deleteMany({});
-    await PaymentMethod.deleteMany({});
+    // await Booking.deleteMany({});
+    // await Cart.deleteMany({});
+    // await PaymentMethod.deleteMany({});
 
     console.log('Cleared existing data');
 
     // Create users
-    const admin = await User.create({
-      name: "Admin User",
-      email: "admin@travel.com",
-      password: "admin123",
-      role: "admin",
-      phoneNumber: "+1234567890",
-      address: "123 Admin Street, Admin City"
-    });
+    // const admin = await User.create({
+    //   name: "Admin User",
+    //   email: "admin@travel.com",
+    //   password: "admin123",
+    //   role: "admin",
+    //   phoneNumber: "+1234567890",
+    //   address: "123 Admin Street, Admin City"
+    // });
 
-    const user = await User.create({
-      name: "Ann Pine",
-      email: "ann.pine@gmail.com",
-      password: "user123",
-      role: "user",
-      phoneNumber: "+233 034 3456 578",
-      address: "PR 12 East Legon, Accra, Ghana",
-      dateOfBirth: new Date("1996-02-24"),
-      avatarUrl: "https://via.placeholder.com/150?text=Avatar",
-      hasPhoneVerified: true
-    });
-    console.log('Created users');
+    // const user = await User.create({
+    //   name: "Ann Pine",
+    //   email: "ann.pine@gmail.com",
+    //   password: "user123",
+    //   role: "user",
+    //   phoneNumber: "+233 034 3456 578",
+    //   address: "PR 12 East Legon, Accra, Ghana",
+    //   dateOfBirth: new Date("1996-02-24"),
+    //   avatarUrl: "https://via.placeholder.com/150?text=Avatar",
+    //   hasPhoneVerified: true
+    // });
+    // console.log('Created users');
 
     // Insert generated hotels and store them
-    const hotelsData = generateHotels(25);
+    const hotelsData = generateHotels(10);
     const createdHotels = await Hotel.insertMany(hotelsData);
     console.log(`Inserted ${createdHotels.length} hotels`);
 
-    // Create payment methods for the user
-    const paymentMethods = await createPaymentMethods(user._id);
-    console.log(`Created ${paymentMethods.length} payment methods for Ann Pine`);
+    // // Create payment methods for the user
+    // const paymentMethods = await createPaymentMethods(user._id);
+    // console.log(`Created ${paymentMethods.length} payment methods for Ann Pine`);
 
-    // Create a cart for the user
-    await createCart(user._id, createdHotels);
-    console.log('Created a cart for Ann Pine');
+    // // Create a cart for the user
+    // await createCart(user._id, createdHotels);
+    // console.log('Created a cart for Ann Pine');
 
-    // Create bookings for the user
-    const bookings = await createBookings(user._id, createdHotels, paymentMethods);
-    console.log(`Created ${bookings.length} bookings for Ann Pine`);
+    // // Create bookings for the user
+    // const bookings = await createBookings(user._id, createdHotels, paymentMethods);
+    // console.log(`Created ${bookings.length} bookings for Ann Pine`);
 
 
     console.log('\n=== Database seeded successfully! ===\n');
-    console.log('Admin credentials:');
-    console.log('Email: admin@travel.com');
-    console.log('Password: admin123\n');
-    console.log('User credentials:');
-    console.log('Email: ann.pine@gmail.com');
-    console.log('Password: user123\n');
+    // console.log('Admin credentials:');
+    // console.log('Email: admin@travel.com');
+    // console.log('Password: admin123\n');
+    // console.log('User credentials:');
+    // console.log('Email: ann.pine@gmail.com');
+    // console.log('Password: user123\n');
 
     process.exit(0);
   } catch (error) {

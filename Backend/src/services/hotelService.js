@@ -113,16 +113,34 @@ class HotelService {
   }
 
   // Update hotel (Admin)
+  // Update hotel (Admin)
   async updateHotel(id, updateData) {
-    const hotel = await Hotel.findByIdAndUpdate(id, updateData, {
-      new: true,
-      runValidators: true,
-    });
+    console.log('Service: Updating hotel with ID:', id);
+    console.log('Service: Update data received:', JSON.stringify(updateData, null, 2));
 
-    if (!hotel) {
+    // Find the hotel first to verify it exists
+    const existingHotel = await Hotel.findById(id);
+    if (!existingHotel) {
       throw new Error("Hotel not found");
     }
 
+    console.log('Service: Existing hotel found:', existingHotel.hotelName);
+
+    // Perform the update
+    const hotel = await Hotel.findByIdAndUpdate(
+      id,
+      updateData,
+      {
+        new: true,           // Return the updated document
+        runValidators: true, // Run schema validators
+      }
+    );
+
+    if (!hotel) {
+      throw new Error("Hotel not found after update");
+    }
+
+    console.log('Service: Hotel updated successfully');
     return hotel;
   }
 

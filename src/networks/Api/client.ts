@@ -191,9 +191,14 @@ export const hotelAPI = {
   // Update hotel (Admin)
   updateHotel: async (
     id: string,
-    data: Partial<CreateHotelData>
+    data: Partial<CreateHotelData> | FormData
   ): Promise<ApiResponse<Hotel>> => {
-    const response = await axiosInstance.put(`/hotels/${id}`, data);
+    const response = await axiosInstance.put(`/hotels/${id}`, data, {
+      headers:
+        data instanceof FormData
+          ? { "Content-Type": "multipart/form-data" }
+          : {},
+    });
     return response.data;
   },
 

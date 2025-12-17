@@ -28,7 +28,18 @@ router.post(
   ]),
   createHotel
 );
-router.put("/:id", protect, authorize("admin"), updateHotel);
+
+router.put(
+  "/:id", 
+  protect, 
+  authorize("admin"), 
+  upload.fields([
+    { name: "hotelLogo", maxCount: 1 },
+    { name: "images", maxCount: 5 },
+  ]),
+  updateHotel
+);
+
 router.delete("/:id", protect, authorize("admin"), deleteHotel);
 
 module.exports = router;
